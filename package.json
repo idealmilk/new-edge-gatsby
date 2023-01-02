@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@contentful/rich-text-types": "^16.0.2",
+    "@gatsbyjs/reach-router": "^2.0.0",
     "framer-motion": "^8.0.2",
     "gatsby": "^5.3.3",
     "gatsby-plugin-image": "^3.3.2",
@@ -19,6 +20,7 @@
     "helmet": "^6.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.7.1",
     "react-responsive-masonry": "^2.1.7",
     "styled-components": "^5.3.6"

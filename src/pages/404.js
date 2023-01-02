@@ -1,15 +1,22 @@
-import * as React from "react"
+import React from 'react';
+import { Link } from 'gatsby';
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import MainLayout from 'layouts/MainLayout';
+import { SEO } from 'components';
+import { InnerWrap } from 'components/common/Containers/styled';
 
-const NotFoundPage = () => (
-  <Layout>
-    <h1>404: Not Found</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
-)
+const FourOhFourPage = () => {
+  return (
+    <MainLayout cta={true}>
+      <SEO title='Page not Found' />
+      <InnerWrap>
+        <p>
+          Your page could not be found. Click <Link to='/'>here</Link> to return
+          to the homepage.
+        </p>
+      </InnerWrap>
+    </MainLayout>
+  );
+};
 
-export const Head = () => <Seo title="404: Not Found" />
-
-export default NotFoundPage
+export default FourOhFourPage;
