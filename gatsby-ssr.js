@@ -1,12 +1,16 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/reference/config-files/gatsby-ssr/
- */
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
 
-/**
- * @type {import('gatsby').GatsbySSR['onRenderBody']}
- */
-exports.onRenderBody = ({ setHtmlAttributes }) => {
-  setHtmlAttributes({ lang: `en` })
-}
+import Theme from 'styles/theme';
+import GlobalStyles from 'styles/global';
+
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={Theme}>{element}</ThemeProvider>
+);
+
+export const wrapPageElement = ({ element }) => (
+  <>
+    <GlobalStyles />
+    {element}
+  </>
+);
