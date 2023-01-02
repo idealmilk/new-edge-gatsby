@@ -1,41 +1,40 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-bottom: 12rem;
-  padding: 4rem 0;
-
-  h2 {
-    text-align: center;
-    color: white;
-    margin-bottom: 4rem;
-  }
-  .slick-dots,
-  .slick-active {
-    button {
-      &::before {
-        color: white !important;
-      }
-    }
-  }
-  .slick-prev,
-  .slick-next {
-    &::before {
-      font-size: 3rem;
-    }
-  }
-  .slick-prev {
-    transform: translate(18rem, -5rem);
-    z-index: 100;
-  }
-  .slick-next {
-    transform: translate(-18rem, -5rem);
+  .slide {
+    transform: scale(0.96);
+    transition: transform 300ms;
+    opacity: 0.5;
   }
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    .slick-prev,
-    .slick-next {
-      display: none !important;
-    }
+  .activeSlide {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+
+  .arrow {
+    background-color: #fff;
+    position: absolute;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .arrow svg {
+    transition: color 300ms;
+  }
+
+  .arrow svg:hover {
+    color: #68edff;
+  }
+
+  .next {
+    right: 0%;
+    top: 50%;
+  }
+
+  .prev {
+    left: 0%;
+    top: 50%;
   }
 `;
 

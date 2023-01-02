@@ -1,30 +1,64 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-  display: inline-block;
+  position: relative;
+  margin: 1em;
+  padding: 1em 2em;
   box-sizing: border-box;
-  z-index: 100;
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: ${(props) => (props.hollow ? 'black' : '#ffffff')};
-  letter-spacing: 1px;
-  background: ${(props) =>
-    props.hollow ? 'transparent' : props.theme.colors.orange};
-  border-radius: 28px;
-  padding: 14px 28px;
-  line-height: 1.25;
-  letter-spacing: 1px;
-  border: ${(props) =>
-    props.hollow ? `2px solid ${props.theme.colors.orange}` : 'none'};
-  text-decoration: none;
-  text-align: center;
+  background: none;
+  border: 0;
+  box-shadow: inset 0 0 0 2px #f45e61;
+  font-size: inherit;
+  font-weight: 700;
+  vertical-align: middle;
+  width: 6em;
+  height: 6em;
+  padding: 0;
+  border-radius: 100%;
+  box-shadow: none;
+  color: black;
   cursor: pointer;
-  transition: opacity 0.5s ease-out;
-  a {
-    color: ${(props) => (props.hollow ? 'black' : 'white')};
-    font-size: 1.5rem;
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    box-sizing: inherit;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
   }
+
+  &:before {
+    border: 2px solid transparent;
+  }
+
+  &:after {
+    border: 0 solid transparent;
+  }
+
   &:hover {
-    opacity: 0.9;
+    color: black;
+
+    &:before {
+      border-top-color: black;
+      border-right-color: black;
+      border-bottom-color: black;
+      transition: border-top-color 0.15s linear,
+        border-right-color 0.15s linear 0.1s,
+        border-bottom-color 0.15s linear 0.2s;
+      transform: rotate(405deg);
+    }
+
+    &:after {
+      border-top: 2px solid black;
+      border-left-width: 2px;
+      border-right-width: 2px;
+      transform: rotate(270deg);
+      transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
+      transform: rotate(315deg);
+    }
   }
 `;

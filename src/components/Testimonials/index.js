@@ -1,30 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Slider from 'react-slick';
+import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import { Container, InnerWrap, TextWrap } from './styled';
 import TestimonialCard from './Card';
 
 const Testimonials = ({ edges }) => {
+  const NextArrow = ({ onClick }) => {
+    return (
+      <div className='arrow next' onClick={onClick}>
+        <FaArrowDown />
+      </div>
+    );
+  };
+
+  const PrevArrow = ({ onClick }) => {
+    return (
+      <div className='arrow prev' onClick={onClick}>
+        <FaArrowUp />
+      </div>
+    );
+  };
+
+  const [imageIndex, setImageIndex] = useState(0);
+
   const settings = {
-    dots: true,
+    centerMode: true,
     infinite: true,
-    autoplaySpeed: 2000,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 3,
+    lazyLoad: true,
+    speed: 300,
+    slidesToShow: 3,
+    centerMode: true,
+    vertical: true,
+    verticalSwiping: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    beforeChange: (current, next) => setImageIndex(next),
   };
 
   return (
     <Container>
-      {Object.values(edges).map((edge, index) => {
-        return (
-          <TestimonialCard
-            text={edge.node.testimonialText}
-            name={edge.node.testimonialStaffName}
-            role={edge.node.testimonialStaffRole}
-            client={edge.node.clientName}
-          />
-        );
-      })}
+      <Slider {...settings}>
+        {Object.values(edges).map((edge, index) => {
+          return (
+            <div
+              className={index === imageIndex ? 'slide activeSlide' : 'slide'}
+            >
+              <TestimonialCard
+                text={edge.node.testimonialText}
+                name={edge.node.testimonialStaffName}
+                role={edge.node.testimonialStaffRole}
+                client={edge.node.clientName}
+              />
+            </div>
+          );
+        })}
+      </Slider>
     </Container>
   );
 };
