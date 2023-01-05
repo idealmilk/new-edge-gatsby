@@ -55,10 +55,10 @@ export default function Scene({ setBg }) {
   const [{ wobble, coat, color, ambient, env }] = useSpring(
     {
       wobble: down ? 1.2 : hovered ? 1.05 : 1,
-      coat: mode && !hovered ? 0.04 : 1,
+      coat: mode && !hovered ? 0.32 : 1,
       ambient: mode && !hovered ? 1.5 : 0.5,
       env: mode && !hovered ? 0.4 : 1,
-      color: hovered ? '#E8B059' : mode ? '#202020' : 'white',
+      color: hovered ? '#9868FB' : mode ? 'aqua' : '#FF4DA3',
       config: (n) =>
         n === 'wobble' && hovered && { mass: 2, tension: 1000, friction: 10 },
     },
@@ -88,8 +88,8 @@ export default function Scene({ setBg }) {
             // Toggle mode between dark and bright
             setMode(!mode);
             setBg({
-              background: !mode ? '#202020' : '#f0f0f0',
-              fill: !mode ? '#f0f0f0' : '#202020',
+              background: !mode ? '#FF4DA3' : '#9FDAEA',
+              fill: !mode ? '#9FDAEA' : '#FF4DA3',
             });
           }}
         >

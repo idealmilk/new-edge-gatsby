@@ -14,18 +14,17 @@ const GlobalStyles = styled.createGlobalStyle`
     src: url(${RadioGrotesk}) format('woff');
   }
 
-  /* *,
+  *,
   html,
   body {
     margin: 0;
-    background-color: #fff;
     font-family: 'Radio Grotesk', sans-serif;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
     box-sizing: border-box;
-  } */
+  }
 
   html,
   body,
@@ -158,6 +157,10 @@ const GlobalStyles = styled.createGlobalStyle`
   svg {
     width: 100%;
     height: 100%;
+  }
+
+  tspan {
+    font-size: 4rem;
   }
 
   .drop-shadow {
