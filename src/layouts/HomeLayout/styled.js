@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: block;
   width: 100%;
   min-height: 100%;
-  background-color: black;
+  background-color: aqua;
 `;
 
 export const Content = styled.div`

@@ -14,7 +14,7 @@ const GlobalStyles = styled.createGlobalStyle`
     src: url(${RadioGrotesk}) format('woff');
   }
 
-  *,
+  /* *,
   html,
   body {
     margin: 0;
@@ -25,6 +25,21 @@ const GlobalStyles = styled.createGlobalStyle`
     font-weight: 400;
     line-height: 1.5;
     box-sizing: border-box;
+  } */
+
+  html,
+  body,
+  #root,
+  main {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgZmlsbD0iI0U4QjA1OSIvPjwvc3ZnPg=='),
+      auto;
   }
 
   *,
@@ -120,6 +135,29 @@ const GlobalStyles = styled.createGlobalStyle`
 
   img {
     max-width: 100%;
+  }
+
+  main {
+    background: #f0f0f0;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .canvas {
+    order: 2;
+    flex: 1;
+    height: 100vh !important;
+  }
+
+  .overlay {
+    position: relative;
+    order: 1;
+    flex: 1;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
   }
 
   .drop-shadow {

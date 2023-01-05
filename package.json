@@ -7,6 +7,9 @@
   "dependencies": {
     "@contentful/rich-text-types": "^16.0.2",
     "@gatsbyjs/reach-router": "^2.0.0",
+    "@react-spring/core": "^9.6.1",
+    "@react-spring/three": "^9.6.1",
+    "@react-spring/web": "^9.6.1",
     "@react-three/drei": "^9.49.0",
     "@react-three/fiber": "^8.9.2",
     "framer-motion": "^8.0.2",
