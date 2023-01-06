@@ -9,7 +9,7 @@ export const Container = styled.div`
 `;
 
 export const HeroOverlay = styled.div`
-  position: absolute;
+  position: fixed;
   top: 48vh;
   left: 0;
   right: 0;
