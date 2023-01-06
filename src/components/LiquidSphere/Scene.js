@@ -93,7 +93,7 @@ export default function Scene({ setBg }) {
             });
           }}
         >
-          <sphereBufferGeometry args={[1, 64, 64]} />
+          <sphereBufferGeometry args={[1.9, 64, 64]} />
           <AnimatedMaterial
             color={color}
             envMapIntensity={env}

@@ -138,8 +138,8 @@ const GlobalStyles = styled.createGlobalStyle`
 
   main {
     background: #f0f0f0;
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
   }
 
   .canvas {

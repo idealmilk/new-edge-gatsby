@@ -8,6 +8,26 @@ export const Container = styled.div`
   background-color: aqua;
 `;
 
+export const HeroOverlay = styled.div`
+  position: absolute;
+  top: 48vh;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80rem;
+  text-align: center;
+  z-index: 1;
+  h2 {
+    pointer-events: none;
+    span {
+      color: white;
+      font-size: 5rem;
+      font-family: 'Grafier';
+    }
+  }
+`;
+
 export const Content = styled.div`
   position: relative;
   background-color: white;

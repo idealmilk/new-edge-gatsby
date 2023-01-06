@@ -2,11 +2,17 @@ import React from 'react';
 
 import { Footer, Header, Hero, MobileNav } from 'components';
 
-import { Container, Content } from './styled';
+import { Container, HeroOverlay, Content } from './styled';
 
 const HomeLayout = ({ children }) => {
   return (
     <Container>
+      <HeroOverlay>
+        <h2>
+          From idea to <span>identity</span>, we let the brand do the talking.
+          Maybe you should too
+        </h2>
+      </HeroOverlay>
       <Hero />
 
       <Header />
