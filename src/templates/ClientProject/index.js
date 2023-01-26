@@ -3,9 +3,16 @@ import { graphql } from 'gatsby';
 
 import MainLayout from 'layouts/MainLayout';
 import { RichText, SEO, TestimonialCard } from 'components';
+import { InnerWrap } from 'components/common/Containers/styled';
+import { checkFormat } from 'utils/checkFormat';
 
-import { FullWidthImageWrap, DescriptionWrap, DescriptionItem } from './styled';
-import { InnerWrap } from '../../components/common/Containers/styled';
+import {
+  FullWidthImageWrap,
+  DescriptionWrap,
+  DescriptionItem,
+  LandscapeWrap,
+  SquareWrap,
+} from './styled';
 
 const ClientProjectTemplate = ({ data }) => {
   const {
@@ -15,7 +22,10 @@ const ClientProjectTemplate = ({ data }) => {
     clientDescription,
     clientBrief,
     ourWork,
-    fullWidthImage,
+    brandCopy,
+    landscapeCarouselImages,
+    landscapeImages,
+    squareImages,
     testimonialText,
     testimonialStaffName,
     testimonialStaffRole,
@@ -51,13 +61,99 @@ const ClientProjectTemplate = ({ data }) => {
             <RichText {...ourWork} />
           </DescriptionItem>
         </DescriptionWrap>
-      </InnerWrap>
 
-      <FullWidthImageWrap>
-        <img src={fullWidthImage.file.url} alt={clientName} />
-      </FullWidthImageWrap>
+        <LandscapeWrap>
+          {checkFormat(landscapeImages[0].file.url) && (
+            <img src={landscapeImages[0].file.url} alt='' />
+          )}
+          {!checkFormat(landscapeImages[0].file.url) && (
+            <video controls>
+              <source src={landscapeImages[0].file.url} type='video/mp4' />
+            </video>
+          )}
+        </LandscapeWrap>
 
-      <InnerWrap>
+        <SquareWrap>
+          {checkFormat(squareImages[0].file.url) && (
+            <img src={squareImages[0].file.url} alt='' />
+          )}
+          {!checkFormat(squareImages[0].file.url) && (
+            <video controls>
+              <source src={squareImages[0].file.url} type='video/mp4' />
+            </video>
+          )}
+
+          {checkFormat(squareImages[1].file.url) && (
+            <img src={squareImages[1].file.url} alt='' />
+          )}
+          {!checkFormat(squareImages[1].file.url) && (
+            <video controls>
+              <source src={squareImages[1].file.url} type='video/mp4' />
+            </video>
+          )}
+        </SquareWrap>
+
+        <SquareWrap>
+          <div className='brand'>
+            <h4>What we got up to...</h4>
+            <RichText {...brandCopy} />
+          </div>
+
+          {checkFormat(squareImages[2].file.url) && (
+            <img src={squareImages[2].file.url} alt='' />
+          )}
+          {!checkFormat(squareImages[2].file.url) && (
+            <video controls>
+              <source src={squareImages[2].file.url} type='video/mp4' />
+            </video>
+          )}
+        </SquareWrap>
+
+        <LandscapeWrap>
+          {checkFormat(landscapeCarouselImages[0].file.url) && (
+            <img src={landscapeCarouselImages[0].file.url} alt='' />
+          )}
+          {!checkFormat(landscapeCarouselImages[0].file.url) && (
+            <video controls>
+              <source
+                src={landscapeCarouselImages[0].file.url}
+                type='video/mp4'
+              />
+            </video>
+          )}
+        </LandscapeWrap>
+
+        <SquareWrap>
+          {checkFormat(squareImages[3].file.url) && (
+            <img src={squareImages[3].file.url} alt='' />
+          )}
+          {!checkFormat(squareImages[3].file.url) && (
+            <video controls>
+              <source src={squareImages[3].file.url} type='video/mp4' />
+            </video>
+          )}
+
+          {checkFormat(squareImages[4].file.url) && (
+            <img src={squareImages[4].file.url} alt='' />
+          )}
+          {!checkFormat(squareImages[4].file.url) && (
+            <video controls>
+              <source src={squareImages[4].file.url} type='video/mp4' />
+            </video>
+          )}
+        </SquareWrap>
+
+        <LandscapeWrap>
+          {checkFormat(landscapeImages[1].file.url) && (
+            <img src={landscapeImages[1].file.url} alt='' />
+          )}
+          {!checkFormat(landscapeImages[1].file.url) && (
+            <video controls>
+              <source src={landscapeImages[1].file.url} type='video/mp4' />
+            </video>
+          )}
+        </LandscapeWrap>
+
         <TestimonialCard
           text={testimonialText}
           name={testimonialStaffName}
@@ -70,7 +166,7 @@ const ClientProjectTemplate = ({ data }) => {
 };
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     contentfulClientProject(slug: { eq: $slug }) {
       clientName
       headerImage {
@@ -87,7 +183,23 @@ export const query = graphql`
       ourWork {
         raw
       }
-      fullWidthImage {
+      brandCopy {
+        raw
+      }
+      landscapeCarouselImages {
+        description
+        file {
+          url
+        }
+      }
+      landscapeImages {
+        description
+        file {
+          url
+        }
+      }
+      squareImages {
+        description
         file {
           url
         }

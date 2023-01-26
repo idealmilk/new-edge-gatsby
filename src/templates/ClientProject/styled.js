@@ -31,3 +31,34 @@ export const DescriptionItem = styled.ul`
     margin: 0 0 5rem;
   }
 `;
+
+export const LandscapeWrap = styled.ul`
+  width: 100%;
+  img {
+    width: 100%;
+  }
+`;
+
+export const SquareWrap = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 4rem 0;
+  img,
+  video {
+    width: 48%;
+  }
+
+  .brand {
+    width: 40%;
+    margin: auto 0;
+    h4 {
+      font-size: 2.4rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+    p {
+      font-size: 1.6rem;
+    }
+  }
+`;
