@@ -36,11 +36,6 @@ const GlobalStyles = styled.createGlobalStyle`
     padding: 0;
   }
 
-  body {
-    cursor: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIxMCIgZmlsbD0iI0U4QjA1OSIvPjwvc3ZnPg=='),
-      auto;
-  }
-
   *,
   *:before,
   *:after {
@@ -332,6 +327,35 @@ const GlobalStyles = styled.createGlobalStyle`
     a {
       color: black !important;
     }
+  }
+
+  .landscape-carousel-next,
+  .landscape-carousel-prev {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid black;
+    min-width: 6rem;
+    max-width: 6rem;
+    min-height: 6rem;
+    max-height: 6rem;
+    padding: 1rem;
+    top: 50%;
+    z-index: 1;
+    opacity: 0.4;
+    transition: opacity 0.4s ease-in;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  .landscape-carousel-next {
+    right: 3rem;
+  }
+
+  .landscape-carousel-prev {
+    left: 3rem;
   }
 
   .shadow-container {

@@ -1,5 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import Slider from 'react-slick';
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 import MainLayout from 'layouts/MainLayout';
 import { RichText, SEO, TestimonialCard } from 'components';
@@ -30,6 +34,32 @@ const ClientProjectTemplate = ({ data }) => {
     testimonialStaffName,
     testimonialStaffRole,
   } = data.contentfulClientProject;
+
+  const NextArrow = ({ onClick }) => {
+    return (
+      <div className='landscape-carousel-next' onClick={onClick}>
+        <FaArrowRight />
+      </div>
+    );
+  };
+
+  const PrevArrow = ({ onClick }) => {
+    return (
+      <div className='landscape-carousel-prev' onClick={onClick}>
+        <FaArrowLeft />
+      </div>
+    );
+  };
+
+  const settings = {
+    centerMode: true,
+    infinite: true,
+    lazyLoad: true,
+    speed: 300,
+    slidesToShow: 1,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+  };
 
   return (
     <MainLayout>
@@ -67,7 +97,7 @@ const ClientProjectTemplate = ({ data }) => {
             <img src={landscapeImages[0].file.url} alt='' />
           )}
           {!checkFormat(landscapeImages[0].file.url) && (
-            <video controls>
+            <video controls loop autoplay muted>
               <source src={landscapeImages[0].file.url} type='video/mp4' />
             </video>
           )}
@@ -78,7 +108,7 @@ const ClientProjectTemplate = ({ data }) => {
             <img src={squareImages[0].file.url} alt='' />
           )}
           {!checkFormat(squareImages[0].file.url) && (
-            <video controls>
+            <video controls loop autoplay muted>
               <source src={squareImages[0].file.url} type='video/mp4' />
             </video>
           )}
@@ -109,19 +139,22 @@ const ClientProjectTemplate = ({ data }) => {
           )}
         </SquareWrap>
 
-        <LandscapeWrap>
-          {checkFormat(landscapeCarouselImages[0].file.url) && (
-            <img src={landscapeCarouselImages[0].file.url} alt='' />
-          )}
-          {!checkFormat(landscapeCarouselImages[0].file.url) && (
-            <video controls>
-              <source
-                src={landscapeCarouselImages[0].file.url}
-                type='video/mp4'
-              />
-            </video>
-          )}
-        </LandscapeWrap>
+        <Slider {...settings}>
+          {landscapeCarouselImages.map((edge, index) => {
+            return (
+              <LandscapeWrap>
+                {checkFormat(edge.file.url) && (
+                  <img src={edge.file.url} alt='' />
+                )}
+                {!checkFormat(edge.file.url) && (
+                  <video controls>
+                    <source src={edge.file.url} type='video/mp4' />
+                  </video>
+                )}
+              </LandscapeWrap>
+            );
+          })}
+        </Slider>
 
         <SquareWrap>
           {checkFormat(squareImages[3].file.url) && (

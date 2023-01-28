@@ -34,7 +34,8 @@ export const DescriptionItem = styled.ul`
 
 export const LandscapeWrap = styled.ul`
   width: 100%;
-  img {
+  img,
+  video {
     width: 100%;
   }
 `;
