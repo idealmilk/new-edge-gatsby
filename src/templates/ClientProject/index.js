@@ -182,7 +182,7 @@ const ClientProjectTemplate = ({ data }) => {
           )}
         </SquareWrap>
 
-        <SquareWrap>
+        {/* <SquareWrap>
           {checkFormat(sortedSquareImages[4].file.url) && (
             <img src={sortedSquareImages[4].file.url} alt='' />
           )}
@@ -200,7 +200,7 @@ const ClientProjectTemplate = ({ data }) => {
               <source src={sortedSquareImages[5].file.url} type='video/mp4' />
             </video>
           )}
-        </SquareWrap>
+        </SquareWrap> */}
 
         <LandscapeWrap>
           {checkFormat(sortedLandscapeImages[1].file.url) && (

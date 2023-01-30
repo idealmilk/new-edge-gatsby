@@ -7,6 +7,15 @@ export const InnerWrap = styled.div`
   margin: auto;
 `;
 
+export const InnerFlexWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  max-width: 1300px;
+  width: 90%;
+  margin: auto;
+`;
+
 export const TightInnerWrap = styled(InnerWrap)`
   max-width: 1100px;
 `;

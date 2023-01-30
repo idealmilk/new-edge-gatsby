@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   position: fixed;
+
   top: 0;
   background-color: transparent;
   z-index: 500;
@@ -16,17 +17,14 @@ export const Container = styled.header`
       font-family: 'Grafik';
     }
   }
+
   @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
     display: none;
   }
 `;
 
-export const NavList = styled.div`
+export const NavList = styled.nav`
   display: flex;
-  justify-content: space-between;
-  max-width: 1300px;
-  width: 90%;
-  margin: 0 auto;
   padding: 30px 0;
   li {
     display: inline-block;
@@ -47,7 +45,7 @@ export const NavList = styled.div`
     .submenu {
       overflow: hidden;
       position: absolute;
-      left: 0;
+      right: 0;
       width: 32rem;
       height: 0;
       line-height: 40px;
@@ -76,31 +74,19 @@ export const NavList = styled.div`
       position: relative;
     }
   }
+  img {
+    width: 2rem;
+  }
 `;
 
-export const NavItem = styled.div`
+export const LogoWrap = styled.div`
   display: flex;
-  justify-content: center;
-  padding: 0 20px;
-  align-items: center;
-  cursor: pointer;
-  font-size: 1.6rem;
-  svg {
-    font-size: 1.1rem;
-    background: transparent;
-    margin-left: 6px;
-  }
-  &:first-of-type {
-    padding-left: 0;
-  }
-  &:last-of-type {
-    padding-right: 0;
-  }
-  a {
-    font-size: 1.6rem;
-    display: block;
-    &:hover {
-      color: ${(props) => props.theme.colors.orange} !important;
-    }
+  width: 100%;
+  height: 100%;
+  img {
+    display: flex;
+    margin: auto 0;
+    width: 14rem;
+    transform: translateY(-0.6rem);
   }
 `;
