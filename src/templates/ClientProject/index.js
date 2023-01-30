@@ -35,6 +35,18 @@ const ClientProjectTemplate = ({ data }) => {
     testimonialStaffRole,
   } = data.contentfulClientProject;
 
+  const sortedImages = (imageArray) => {
+    const sortedArray = imageArray.sort(
+      (a, b) => Number(a.description) - Number(b.description)
+    );
+
+    return sortedArray;
+  };
+
+  const sortedSquareImages = sortedImages(squareImages);
+  const sortedLandscapeImages = sortedImages(landscapeImages);
+  const sortedLandscapeCarouselImages = sortedImages(landscapeCarouselImages);
+
   const NextArrow = ({ onClick }) => {
     return (
       <div className='landscape-carousel-next' onClick={onClick}>
@@ -93,32 +105,35 @@ const ClientProjectTemplate = ({ data }) => {
         </DescriptionWrap>
 
         <LandscapeWrap>
-          {checkFormat(landscapeImages[0].file.url) && (
-            <img src={landscapeImages[0].file.url} alt='' />
+          {checkFormat(sortedLandscapeImages[0].file.url) && (
+            <img src={sortedLandscapeImages[0].file.url} alt='' />
           )}
-          {!checkFormat(landscapeImages[0].file.url) && (
+          {!checkFormat(sortedLandscapeImages[0].file.url) && (
             <video controls loop autoplay muted>
-              <source src={landscapeImages[0].file.url} type='video/mp4' />
+              <source
+                src={sortedLandscapeImages[0].file.url}
+                type='video/mp4'
+              />
             </video>
           )}
         </LandscapeWrap>
 
         <SquareWrap>
-          {checkFormat(squareImages[0].file.url) && (
-            <img src={squareImages[0].file.url} alt='' />
+          {checkFormat(sortedSquareImages[0].file.url) && (
+            <img src={sortedSquareImages[0].file.url} alt='' />
           )}
-          {!checkFormat(squareImages[0].file.url) && (
+          {!checkFormat(sortedSquareImages[0].file.url) && (
             <video controls loop autoplay muted>
-              <source src={squareImages[0].file.url} type='video/mp4' />
+              <source src={sortedSquareImages[0].file.url} type='video/mp4' />
             </video>
           )}
 
-          {checkFormat(squareImages[1].file.url) && (
-            <img src={squareImages[1].file.url} alt='' />
+          {checkFormat(sortedSquareImages[1].file.url) && (
+            <img src={sortedSquareImages[1].file.url} alt='' />
           )}
-          {!checkFormat(squareImages[1].file.url) && (
+          {!checkFormat(sortedSquareImages[1].file.url) && (
             <video controls>
-              <source src={squareImages[1].file.url} type='video/mp4' />
+              <source src={sortedSquareImages[1].file.url} type='video/mp4' />
             </video>
           )}
         </SquareWrap>
@@ -129,18 +144,18 @@ const ClientProjectTemplate = ({ data }) => {
             <RichText {...brandCopy} />
           </div>
 
-          {checkFormat(squareImages[2].file.url) && (
-            <img src={squareImages[2].file.url} alt='' />
+          {checkFormat(sortedSquareImages[2].file.url) && (
+            <img src={sortedSquareImages[2].file.url} alt='' />
           )}
-          {!checkFormat(squareImages[2].file.url) && (
+          {!checkFormat(sortedSquareImages[2].file.url) && (
             <video controls>
-              <source src={squareImages[2].file.url} type='video/mp4' />
+              <source src={sortedSquareImages[2].file.url} type='video/mp4' />
             </video>
           )}
         </SquareWrap>
 
         <Slider {...settings}>
-          {landscapeCarouselImages.map((edge, index) => {
+          {sortedLandscapeCarouselImages.map((edge, index) => {
             return (
               <LandscapeWrap>
                 {checkFormat(edge.file.url) && (
@@ -157,32 +172,46 @@ const ClientProjectTemplate = ({ data }) => {
         </Slider>
 
         <SquareWrap>
-          {checkFormat(squareImages[3].file.url) && (
-            <img src={squareImages[3].file.url} alt='' />
+          {checkFormat(sortedSquareImages[3].file.url) && (
+            <img src={sortedSquareImages[3].file.url} alt='' />
           )}
-          {!checkFormat(squareImages[3].file.url) && (
+          {!checkFormat(sortedSquareImages[3].file.url) && (
             <video controls>
-              <source src={squareImages[3].file.url} type='video/mp4' />
+              <source src={sortedSquareImages[3].file.url} type='video/mp4' />
+            </video>
+          )}
+        </SquareWrap>
+
+        <SquareWrap>
+          {checkFormat(sortedSquareImages[4].file.url) && (
+            <img src={sortedSquareImages[4].file.url} alt='' />
+          )}
+          {!checkFormat(sortedSquareImages[4].file.url) && (
+            <video controls>
+              <source src={sortedSquareImages[4].file.url} type='video/mp4' />
             </video>
           )}
 
-          {checkFormat(squareImages[4].file.url) && (
-            <img src={squareImages[4].file.url} alt='' />
+          {checkFormat(sortedSquareImages[5].file.url) && (
+            <img src={sortedSquareImages[5].file.url} alt='' />
           )}
-          {!checkFormat(squareImages[4].file.url) && (
+          {!checkFormat(sortedSquareImages[5].file.url) && (
             <video controls>
-              <source src={squareImages[4].file.url} type='video/mp4' />
+              <source src={sortedSquareImages[5].file.url} type='video/mp4' />
             </video>
           )}
         </SquareWrap>
 
         <LandscapeWrap>
-          {checkFormat(landscapeImages[1].file.url) && (
-            <img src={landscapeImages[1].file.url} alt='' />
+          {checkFormat(sortedLandscapeImages[1].file.url) && (
+            <img src={sortedLandscapeImages[1].file.url} alt='' />
           )}
-          {!checkFormat(landscapeImages[1].file.url) && (
+          {!checkFormat(sortedLandscapeImages[1].file.url) && (
             <video controls>
-              <source src={landscapeImages[1].file.url} type='video/mp4' />
+              <source
+                src={sortedLandscapeImages[1].file.url}
+                type='video/mp4'
+              />
             </video>
           )}
         </LandscapeWrap>
