@@ -47,6 +47,8 @@ const ClientProjectTemplate = ({ data }) => {
   const sortedLandscapeImages = sortedImages(landscapeImages);
   const sortedLandscapeCarouselImages = sortedImages(landscapeCarouselImages);
 
+  console.log(sortedSquareImages);
+
   const NextArrow = ({ onClick }) => {
     return (
       <div className='landscape-carousel-next' onClick={onClick}>
@@ -180,9 +182,7 @@ const ClientProjectTemplate = ({ data }) => {
               <source src={sortedSquareImages[3].file.url} type='video/mp4' />
             </video>
           )}
-        </SquareWrap>
 
-        {/* <SquareWrap>
           {checkFormat(sortedSquareImages[4].file.url) && (
             <img src={sortedSquareImages[4].file.url} alt='' />
           )}
@@ -191,7 +191,9 @@ const ClientProjectTemplate = ({ data }) => {
               <source src={sortedSquareImages[4].file.url} type='video/mp4' />
             </video>
           )}
+        </SquareWrap>
 
+        <SquareWrap>
           {checkFormat(sortedSquareImages[5].file.url) && (
             <img src={sortedSquareImages[5].file.url} alt='' />
           )}
@@ -200,7 +202,27 @@ const ClientProjectTemplate = ({ data }) => {
               <source src={sortedSquareImages[5].file.url} type='video/mp4' />
             </video>
           )}
-        </SquareWrap> */}
+        </SquareWrap>
+
+        <SquareWrap>
+          {checkFormat(sortedSquareImages[6].file.url) && (
+            <img src={sortedSquareImages[6].file.url} alt='' />
+          )}
+          {!checkFormat(sortedSquareImages[6].file.url) && (
+            <video controls>
+              <source src={sortedSquareImages[6].file.url} type='video/mp4' />
+            </video>
+          )}
+
+          {checkFormat(sortedSquareImages[7].file.url) && (
+            <img src={sortedSquareImages[7].file.url} alt='' />
+          )}
+          {!checkFormat(sortedSquareImages[7].file.url) && (
+            <video controls>
+              <source src={sortedSquareImages[7].file.url} type='video/mp4' />
+            </video>
+          )}
+        </SquareWrap>
 
         <LandscapeWrap>
           {checkFormat(sortedLandscapeImages[1].file.url) && (
