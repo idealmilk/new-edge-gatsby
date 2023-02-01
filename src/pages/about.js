@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import MainLayout from 'layouts/MainLayout';
-import { RichText, SEO, Services, StaffMembers } from 'components';
+import { PageHeader, RichText, SEO, Services, StaffMembers } from 'components';
 import { InnerWrap, HeaderWrap } from 'components/common/Containers/styled';
 
 const AboutPage = ({ data }) => {
@@ -19,7 +19,7 @@ const AboutPage = ({ data }) => {
     <MainLayout cta={true}>
       <SEO title='About' />
       <InnerWrap>
-        <h2 style={{ marginTop: '80rem;' }}>About</h2>
+        <PageHeader title='About' />
 
         <RichText {...body} />
 

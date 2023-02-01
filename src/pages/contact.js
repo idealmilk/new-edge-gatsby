@@ -9,6 +9,7 @@ const ContactPage = () => {
   return (
     <MainLayout>
       <SEO title='Contact' />
+      <PageHeader title='Contact Us' />
 
       <BodyWrap>
         <h2 style={{ textAlign: 'center', margin: '-4rem 0 4rem' }}>
