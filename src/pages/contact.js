@@ -12,9 +12,6 @@ const ContactPage = () => {
       <PageHeader title='Contact Us' />
 
       <BodyWrap>
-        <h2 style={{ textAlign: 'center', margin: '-4rem 0 4rem' }}>
-          Reach out to the team
-        </h2>
         <ContactForm contactType='Contact Page' />
       </BodyWrap>
     </MainLayout>

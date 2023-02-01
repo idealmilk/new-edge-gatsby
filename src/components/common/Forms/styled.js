@@ -10,14 +10,14 @@ export const FormWrap = styled.div`
 `;
 
 export const InputWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     display: block !important;
   }
 `;
 
-export const InputRow = styled.div`
-  display: flex;
-  justify-content: space-between;
+export const InputColumn = styled.div`
   width: 100%;
   @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
     display: block;
@@ -32,15 +32,14 @@ export const FormResponse = styled.div`
 `;
 
 export const InputContainer = styled.div`
-  width: ${(props) => (props.isColumn ? 'calc(50% - 14px)' : '100%')};
-  margin-bottom: ${(props) => (props.isEmail ? '0' : '28px')};
+  margin: 0 1.4rem 1.4rem 0;
   input {
     width: 100%;
     padding: 14px;
     border: none;
     font-size: 1.6rem;
     border-radius: 4rem;
-    background: ${(props) => (props.color === 'blue' ? '#eef3f6' : 'white')};
+    border: 1px solid black;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
     width: 100%;
@@ -48,16 +47,16 @@ export const InputContainer = styled.div`
 `;
 
 export const TextAreaContainer = styled.div`
-  width: ${(props) => (props.isColumn ? 'calc(50% - 14px)' : '100%')};
   margin-bottom: 28px;
+  height: 258px;
   textarea {
     width: 100%;
-    height: 200px;
+    height: 100%;
     padding: 14px;
     border: none;
     font-size: 1.6rem;
-    border-radius: 6px;
-    background: ${(props) => (props.color === 'blue' ? '#eef3f6' : 'white')};
+    border-radius: 2rem;
+    border: 1px solid black;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
     width: 100%;

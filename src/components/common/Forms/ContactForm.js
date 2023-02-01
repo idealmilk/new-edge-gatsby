@@ -8,9 +8,10 @@ import {
   Container,
   FormWrap,
   InputWrap,
-  InputRow,
+  InputColumn,
   FormResponse,
 } from './styled';
+import FormTextArea from './FormTextArea';
 
 const ContactForm = ({ givenEmail, contactType, clickOrigin }) => {
   const form = useRef();
@@ -18,6 +19,7 @@ const ContactForm = ({ givenEmail, contactType, clickOrigin }) => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [number, setNumber] = useState('');
+  const [message, setMessage] = useState('');
   const [responseMessage, setResponseMessage] = useState('');
 
   if (givenEmail) {
@@ -55,7 +57,7 @@ const ContactForm = ({ givenEmail, contactType, clickOrigin }) => {
     <Container ref={form} onSubmit={sendEmail}>
       <FormWrap>
         <InputWrap>
-          <InputRow>
+          <InputColumn>
             <FormInput
               type='text'
               name='first_name'
@@ -63,7 +65,6 @@ const ContactForm = ({ givenEmail, contactType, clickOrigin }) => {
               value={firstName}
               placeholder='First name'
               isColumn={true}
-              color='blue'
               handleChange={(e) => setFirstName(e.target.value)}
             />
 
@@ -74,11 +75,9 @@ const ContactForm = ({ givenEmail, contactType, clickOrigin }) => {
               value={lastName}
               placeholder='Last name'
               isColumn={true}
-              color='blue'
               handleChange={(e) => setLastName(e.target.value)}
             />
-          </InputRow>
-          <InputRow>
+
             <FormInput
               type='email'
               required
@@ -86,7 +85,6 @@ const ContactForm = ({ givenEmail, contactType, clickOrigin }) => {
               value={email}
               placeholder='Email address'
               isColumn={true}
-              color='blue'
               handleChange={(e) => setEmail(e.target.value)}
             />
 
@@ -98,10 +96,21 @@ const ContactForm = ({ givenEmail, contactType, clickOrigin }) => {
               placeholder='Phone number'
               style={{ marginBottom: '20px' }}
               isColumn={true}
-              color='blue'
               handleChange={(e) => setNumber(e.target.value)}
             />
-          </InputRow>
+          </InputColumn>
+          <InputColumn>
+            <FormTextArea
+              type='text'
+              name='message'
+              required
+              value={message}
+              placeholder='Enter your message'
+              style={{ marginBottom: '20px' }}
+              isColumn={true}
+              handleChange={(e) => setMessage(e.target.value)}
+            />
+          </InputColumn>
         </InputWrap>
 
         <input type='hidden' name='contact_type' defaultValue={contactType} />
