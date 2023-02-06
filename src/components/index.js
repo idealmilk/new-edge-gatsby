@@ -10,4 +10,4 @@ export { default as Services } from './Services';
 export { default as StaffMembers } from './StaffMembers';
 export { default as Testimonials } from './Testimonials';
 export { default as TestimonialCard } from './Testimonials/Card';
-export { default as Works } from './Works';
+export { default as Work } from './Work';

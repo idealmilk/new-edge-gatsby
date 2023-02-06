@@ -18,20 +18,20 @@ const Header = () => {
         </Link>
         <NavList>
           <li>
-            <Link href='/works'>Works</Link>
+            <Link href='/work'>Work</Link>
 
             <ul class='submenu'>
               {allContentfulClientProject.edges.map((edge, index) => {
                 return (
                   <li>
-                    <Link to={`/works/${edge.node.slug}`}>
+                    <Link to={`/work/${edge.node.slug}`}>
                       {edge.node.clientName}
                     </Link>
                   </li>
                 );
               })}
               <li>
-                <Link to='/works'>View it all...</Link>
+                <Link to='/work'>View it all...</Link>
               </li>
             </ul>
           </li>

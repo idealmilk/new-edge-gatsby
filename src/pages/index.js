@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql } from 'gatsby';
 
 import HomeLayout from 'layouts/HomeLayout';
-import { SEO, Testimonials, Works } from 'components';
+import { SEO, Testimonials, Work } from 'components';
 import { Button } from '../components/common/Buttons';
 import { InnerWrap } from '../components/common/Containers/styled';
 
@@ -15,9 +15,9 @@ const HomePage = ({ data }) => {
 
       {/* Hero component is found in the HomeLayout component */}
       <InnerWrap>
-        <Works {...allContentfulClientProject} />
+        <Work {...allContentfulClientProject} />
 
-        <Link to='/works' style={{ margin: '0 auto' }}>
+        <Link to='/work' style={{ margin: '0 auto' }}>
           <Button>View all...</Button>
         </Link>
 

@@ -4,7 +4,7 @@ import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
 import { BlogWrap, BlogCard, ImgWrap } from './styled';
 
-const Works = ({ edges }) => {
+const Work = ({ edges }) => {
   return (
     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2 }}>
       <Masonry>
@@ -12,7 +12,7 @@ const Works = ({ edges }) => {
           return (
             <BlogCard {...edge} key={pos}>
               <ImgWrap>
-                <Link to={`/works/${edge.node.slug}`}>
+                <Link to={`/work/${edge.node.slug}`}>
                   <img
                     src={edge.node.thumbnail.file.url}
                     alt={edge.node.clientName}
@@ -28,4 +28,4 @@ const Works = ({ edges }) => {
   );
 };
 
-export default Works;
+export default Work;
