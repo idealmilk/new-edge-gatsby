@@ -1,4 +1,5 @@
 import React from 'react';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
@@ -15,17 +16,12 @@ const RichText = (body) => {
         </div>
       ),
       [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
-      [BLOCKS.EMBEDDED_ASSET]: (node) => (
-        <div>
-          <img
-            src={`https:${node.data.target.fields.file['en-US'].url}`}
-            alt=''
-          />
-          {node.data.target.fields.description && (
-            <p>{node.data.target.fields.description['en-US']}</p>
-          )}
-        </div>
-      ),
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const { gatsbyImageData, description } = node.data.target;
+        return (
+          <GatsbyImage image={getImage(gatsbyImageData)} alt={description} />
+        );
+      },
       [INLINES.HYPERLINK]: (node) => {
         if (node.data.uri.indexOf('youtube.com/embed') !== -1) {
           return (
@@ -44,16 +40,12 @@ const RichText = (body) => {
             <a
               href={node.data.uri}
               target={`${
-                node.data.uri.startsWith(
-                  'https://xenodochial-dubinsky-db8110.netlify.app'
-                )
+                node.data.uri.startsWith('https://www.newedgestud.io/')
                   ? '_self'
                   : '_blank'
               }`}
               rel={`${
-                node.data.uri.startsWith(
-                  'https://xenodochial-dubinsky-db8110.netlify.app'
-                )
+                node.data.uri.startsWith('https://www.newedgestud.io/')
                   ? ''
                   : 'noopener noreferrer'
               }`}
@@ -64,8 +56,11 @@ const RichText = (body) => {
         }
       },
     },
-    renderText: (text) =>
-      text.split('\n').flatMap((text, i) => [i > 0 && <br />, text]),
+    renderText: (text) => {
+      return text.split('\n').reduce((children, textSegment, index) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, []);
+    },
   };
 
   return <div>{renderRichText(body, options)}</div>;
