@@ -4,7 +4,7 @@ export const ServicesWrap = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin: 4rem 0;
+  margin: 4rem 0 10rem;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
   }

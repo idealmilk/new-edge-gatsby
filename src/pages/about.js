@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, RichText, SEO, Services, StaffMembers } from 'components';
-import { InnerWrap, HeaderWrap } from 'components/common/Containers/styled';
+import { InnerWrap, FeatureWrap } from 'components/common/Containers/styled';
 
 const AboutPage = ({ data }) => {
   const {
@@ -21,19 +21,28 @@ const AboutPage = ({ data }) => {
       <InnerWrap>
         <PageHeader title='About' />
 
-        <RichText {...body} />
+        <FeatureWrap>
+          <div className='text'>
+            <RichText {...body} className='text' />
+          </div>
+          {/* <div className='img'></div> */}
+        </FeatureWrap>
 
-        <HeaderWrap>
-          <h2>{teamSectionTitle}</h2>
-        </HeaderWrap>
+        <h2>{teamSectionTitle}</h2>
+
         <StaffMembers {...allContentfulStaffMember} />
-        <p style={{ margin: '0 auto', width: '50%', textAlign: 'center' }}>
+        <p
+          style={{
+            margin: '8rem auto 10rem',
+            width: '50%',
+            textAlign: 'center',
+          }}
+        >
           {teamSectionText}
         </p>
 
-        <HeaderWrap>
-          <h2>{serviceSectionTitle}</h2>
-        </HeaderWrap>
+        <h2>{serviceSectionTitle}</h2>
+
         <Services {...allContentfulService} />
       </InnerWrap>
     </MainLayout>

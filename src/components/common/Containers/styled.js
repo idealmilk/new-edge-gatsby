@@ -30,22 +30,36 @@ export const TextWrap = styled.div`
   }
 `;
 
-export const QuoteWrap = styled.div`
-  width: 100%;
-  margin: 6rem 0;
-  padding: 3rem 0;
-  background-color: ${(props) =>
-    props.color === 'sand'
-      ? props.theme.colors.sand
-      : props.theme.colors.green};
-  p {
-    width: 84rem;
-    max-width: 90%;
+export const FeatureWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12rem;
+  h3 {
+    margin-bottom: 4rem;
+    line-height: 1.4;
+  }
+  .text {
+    width: 60%;
     margin: 0 auto;
     text-align: center;
-    font-family: 'Gotham Bold';
-    font-size: 3rem;
-    font-style: italic;
+  }
+  .img {
+    width: 35%;
+
+    object-fit: cover;
+    background: pink;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    display: block;
+    img {
+      width: 100%;
+      margin: 4rem 0 0;
+
+      object-fit: cover;
+    }
+    div {
+      width: 100%;
+    }
   }
 `;
 
@@ -92,10 +106,5 @@ export const BodyWrap = styled.div`
     .cover-image {
       margin: -14rem auto 8rem;
     }
-  }
-`;
-
-export const HeaderWrap = styled(InnerWrap)`
-  h2 {
   }
 `;
