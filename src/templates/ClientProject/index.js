@@ -21,6 +21,7 @@ import {
 const ClientProjectTemplate = ({ data }) => {
   const {
     clientName,
+    category,
     metaDescription,
     headerImage,
     clientDescription,
@@ -36,6 +37,10 @@ const ClientProjectTemplate = ({ data }) => {
   } = data.contentfulClientProject;
 
   const sortedImages = (imageArray) => {
+    if (imageArray === null) {
+      return null;
+    }
+
     const sortedArray = imageArray.sort(
       (a, b) => Number(a.description) - Number(b.description)
     );
@@ -106,39 +111,43 @@ const ClientProjectTemplate = ({ data }) => {
           </DescriptionItem>
         </DescriptionWrap>
 
-        <LandscapeWrap>
-          {checkFormat(sortedLandscapeImages[0].file.url) && (
-            <img src={sortedLandscapeImages[0].file.url} alt='' />
-          )}
-          {!checkFormat(sortedLandscapeImages[0].file.url) && (
-            <video controls loop autoplay muted>
-              <source
-                src={sortedLandscapeImages[0].file.url}
-                type='video/mp4'
-              />
-            </video>
-          )}
-        </LandscapeWrap>
+        {category.includes('Identity') && (
+          <LandscapeWrap>
+            {checkFormat(sortedLandscapeImages[0].file.url) && (
+              <img src={sortedLandscapeImages[0].file.url} alt='' />
+            )}
+            {!checkFormat(sortedLandscapeImages[0].file.url) && (
+              <video controls loop autoplay muted>
+                <source
+                  src={sortedLandscapeImages[0].file.url}
+                  type='video/mp4'
+                />
+              </video>
+            )}
+          </LandscapeWrap>
+        )}
 
-        <SquareWrap>
-          {checkFormat(sortedSquareImages[0].file.url) && (
-            <img src={sortedSquareImages[0].file.url} alt='' />
-          )}
-          {!checkFormat(sortedSquareImages[0].file.url) && (
-            <video controls loop autoplay muted>
-              <source src={sortedSquareImages[0].file.url} type='video/mp4' />
-            </video>
-          )}
+        {category.includes('Identity') && (
+          <SquareWrap>
+            {checkFormat(sortedSquareImages[0].file.url) && (
+              <img src={sortedSquareImages[0].file.url} alt='' />
+            )}
+            {!checkFormat(sortedSquareImages[0].file.url) && (
+              <video controls loop autoplay muted>
+                <source src={sortedSquareImages[0].file.url} type='video/mp4' />
+              </video>
+            )}
 
-          {checkFormat(sortedSquareImages[1].file.url) && (
-            <img src={sortedSquareImages[1].file.url} alt='' />
-          )}
-          {!checkFormat(sortedSquareImages[1].file.url) && (
-            <video controls>
-              <source src={sortedSquareImages[1].file.url} type='video/mp4' />
-            </video>
-          )}
-        </SquareWrap>
+            {checkFormat(sortedSquareImages[1].file.url) && (
+              <img src={sortedSquareImages[1].file.url} alt='' />
+            )}
+            {!checkFormat(sortedSquareImages[1].file.url) && (
+              <video controls>
+                <source src={sortedSquareImages[1].file.url} type='video/mp4' />
+              </video>
+            )}
+          </SquareWrap>
+        )}
 
         <SquareWrap>
           <div className='brand'>
@@ -146,92 +155,168 @@ const ClientProjectTemplate = ({ data }) => {
             <RichText {...brandCopy} />
           </div>
 
-          {checkFormat(sortedSquareImages[2].file.url) && (
-            <img src={sortedSquareImages[2].file.url} alt='' />
+          {checkFormat(
+            sortedSquareImages[category.includes('Development') ? 0 : 2].file
+              .url
+          ) && (
+            <img
+              src={
+                sortedSquareImages[category.includes('Development') ? 0 : 2]
+                  .file.url
+              }
+              alt=''
+            />
           )}
-          {!checkFormat(sortedSquareImages[2].file.url) && (
-            <video controls>
-              <source src={sortedSquareImages[2].file.url} type='video/mp4' />
-            </video>
-          )}
-        </SquareWrap>
-
-        <Slider {...settings}>
-          {sortedLandscapeCarouselImages.map((edge, index) => {
-            return (
-              <LandscapeWrap>
-                {checkFormat(edge.file.url) && (
-                  <img src={edge.file.url} alt='' />
-                )}
-                {!checkFormat(edge.file.url) && (
-                  <video controls>
-                    <source src={edge.file.url} type='video/mp4' />
-                  </video>
-                )}
-              </LandscapeWrap>
-            );
-          })}
-        </Slider>
-
-        <SquareWrap>
-          {checkFormat(sortedSquareImages[3].file.url) && (
-            <img src={sortedSquareImages[3].file.url} alt='' />
-          )}
-          {!checkFormat(sortedSquareImages[3].file.url) && (
-            <video controls>
-              <source src={sortedSquareImages[3].file.url} type='video/mp4' />
-            </video>
-          )}
-
-          {checkFormat(sortedSquareImages[4].file.url) && (
-            <img src={sortedSquareImages[4].file.url} alt='' />
-          )}
-          {!checkFormat(sortedSquareImages[4].file.url) && (
-            <video controls>
-              <source src={sortedSquareImages[4].file.url} type='video/mp4' />
-            </video>
-          )}
-        </SquareWrap>
-
-        <SquareWrap>
-          {checkFormat(sortedSquareImages[5].file.url) && (
-            <img src={sortedSquareImages[5].file.url} alt='' />
-          )}
-          {!checkFormat(sortedSquareImages[5].file.url) && (
-            <video controls>
-              <source src={sortedSquareImages[5].file.url} type='video/mp4' />
-            </video>
-          )}
-        </SquareWrap>
-
-        <SquareWrap>
-          {checkFormat(sortedSquareImages[6].file.url) && (
-            <img src={sortedSquareImages[6].file.url} alt='' />
-          )}
-          {!checkFormat(sortedSquareImages[6].file.url) && (
-            <video controls>
-              <source src={sortedSquareImages[6].file.url} type='video/mp4' />
-            </video>
-          )}
-
-          {checkFormat(sortedSquareImages[7].file.url) && (
-            <img src={sortedSquareImages[7].file.url} alt='' />
-          )}
-          {!checkFormat(sortedSquareImages[7].file.url) && (
-            <video controls>
-              <source src={sortedSquareImages[7].file.url} type='video/mp4' />
-            </video>
-          )}
-        </SquareWrap>
-
-        <LandscapeWrap>
-          {checkFormat(sortedLandscapeImages[1].file.url) && (
-            <img src={sortedLandscapeImages[1].file.url} alt='' />
-          )}
-          {!checkFormat(sortedLandscapeImages[1].file.url) && (
+          {!checkFormat(
+            sortedSquareImages[category.includes('Development') ? 0 : 2].file
+              .url
+          ) && (
             <video controls>
               <source
-                src={sortedLandscapeImages[1].file.url}
+                src={
+                  sortedSquareImages[category.includes('Development') ? 0 : 2]
+                    .file.url
+                }
+                type='video/mp4'
+              />
+            </video>
+          )}
+        </SquareWrap>
+
+        {category.includes('Identity') && (
+          <Slider {...settings}>
+            {sortedLandscapeCarouselImages.map((edge, index) => {
+              return (
+                <LandscapeWrap>
+                  {checkFormat(edge.file.url) && (
+                    <img src={edge.file.url} alt='' />
+                  )}
+                  {!checkFormat(edge.file.url) && (
+                    <video controls>
+                      <source src={edge.file.url} type='video/mp4' />
+                    </video>
+                  )}
+                </LandscapeWrap>
+              );
+            })}
+          </Slider>
+        )}
+
+        <SquareWrap>
+          {checkFormat(
+            sortedSquareImages[category.includes('Development') ? 1 : 3].file
+              .url
+          ) && (
+            <img
+              src={
+                sortedSquareImages[category.includes('Development') ? 1 : 3]
+                  .file.url
+              }
+              alt=''
+            />
+          )}
+          {!checkFormat(
+            sortedSquareImages[category.includes('Development') ? 1 : 3].file
+              .url
+          ) && (
+            <video controls>
+              <source
+                src={
+                  sortedSquareImages[category.includes('Development') ? 1 : 3]
+                    .file.url
+                }
+                type='video/mp4'
+              />
+            </video>
+          )}
+
+          {checkFormat(
+            sortedSquareImages[category.includes('Development') ? 2 : 4].file
+              .url
+          ) && (
+            <img
+              src={
+                sortedSquareImages[category.includes('Development') ? 2 : 4]
+                  .file.url
+              }
+              alt=''
+            />
+          )}
+          {!checkFormat(
+            sortedSquareImages[category.includes('Development') ? 2 : 4].file
+              .url
+          ) && (
+            <video controls>
+              <source
+                src={
+                  sortedSquareImages[category.includes('Development') ? 2 : 4]
+                    .file.url
+                }
+                type='video/mp4'
+              />
+            </video>
+          )}
+        </SquareWrap>
+
+        {category.includes('Identity') && (
+          <SquareWrap>
+            {checkFormat(sortedSquareImages[5].file.url) && (
+              <img src={sortedSquareImages[5].file.url} alt='' />
+            )}
+            {!checkFormat(sortedSquareImages[5].file.url) && (
+              <video controls>
+                <source src={sortedSquareImages[5].file.url} type='video/mp4' />
+              </video>
+            )}
+          </SquareWrap>
+        )}
+
+        {category.includes('Identity') && (
+          <SquareWrap>
+            {checkFormat(sortedSquareImages[6].file.url) && (
+              <img src={sortedSquareImages[6].file.url} alt='' />
+            )}
+            {!checkFormat(sortedSquareImages[6].file.url) && (
+              <video controls>
+                <source src={sortedSquareImages[6].file.url} type='video/mp4' />
+              </video>
+            )}
+
+            {checkFormat(sortedSquareImages[7].file.url) && (
+              <img src={sortedSquareImages[7].file.url} alt='' />
+            )}
+            {!checkFormat(sortedSquareImages[7].file.url) && (
+              <video controls>
+                <source src={sortedSquareImages[7].file.url} type='video/mp4' />
+              </video>
+            )}
+          </SquareWrap>
+        )}
+
+        <LandscapeWrap>
+          {checkFormat(
+            sortedLandscapeImages[category.includes('Development') ? 0 : 1].file
+              .url
+          ) && (
+            <img
+              src={
+                sortedLandscapeImages[category.includes('Development') ? 0 : 1]
+                  .file.url
+              }
+              alt=''
+            />
+          )}
+          {!checkFormat(
+            sortedLandscapeImages[category.includes('Development') ? 0 : 1].file
+              .url
+          ) && (
+            <video controls>
+              <source
+                src={
+                  sortedLandscapeImages[
+                    category.includes('Development') ? 0 : 1
+                  ].file.url
+                }
                 type='video/mp4'
               />
             </video>
@@ -258,6 +343,7 @@ export const query = graphql`
           url
         }
       }
+      category
       clientDescription {
         raw
       }

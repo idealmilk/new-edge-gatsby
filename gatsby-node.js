@@ -12,29 +12,12 @@ module.exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allContentfulClientProjectShort {
-        edges {
-          node {
-            slug
-          }
-        }
-      }
     }
   `);
 
   res.data.allContentfulClientProject.edges.forEach((edge) => {
     createPage({
       component: path.resolve('./src/templates/ClientProject/index.js'),
-      path: `/works/${edge.node.slug}`,
-      context: {
-        slug: edge.node.slug,
-      },
-    });
-  });
-
-  res.data.allContentfulClientProjectShort.edges.forEach((edge) => {
-    createPage({
-      component: path.resolve('./src/templates/ClientProjectShort/index.js'),
       path: `/works/${edge.node.slug}`,
       context: {
         slug: edge.node.slug,
