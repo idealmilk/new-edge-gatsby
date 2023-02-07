@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 
-import { BlogWrap, BlogCard, ImgWrap } from './styled';
+import { BlogCard, ImgWrap } from './styled';
 
 const Work = ({ edges }) => {
   return (
     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2 }}>
-      <Masonry>
+      <Masonry
+        style={{ width: 'calc(100% + 8rem)', margin: '0px -8rem 8rem -4rem' }}
+      >
         {edges.map((edge, pos) => {
           return (
             <BlogCard {...edge} key={pos}>

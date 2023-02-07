@@ -6,14 +6,33 @@ import { PageHeader, SEO, Work } from 'components';
 import { InnerWrap } from 'components/common/Containers/styled';
 
 const WorkPage = ({ data }) => {
-  const { allContentfulClientProject } = data;
+  const { identity, development } = data;
 
   return (
     <MainLayout>
       <SEO title='Work' />
       <InnerWrap>
         <PageHeader title='Work' />
-        <Work {...allContentfulClientProject} />
+        <h3
+          style={{
+            marginBottom: '4rem',
+            paddingBottom: '1rem',
+            borderBottom: '1px solid black',
+          }}
+        >
+          Brand Identiy
+        </h3>
+        <Work {...identity} />
+        <h3
+          style={{
+            marginBottom: '4rem',
+            paddingBottom: '1rem',
+            borderBottom: '1px solid black',
+          }}
+        >
+          Brand Development
+        </h3>
+        <Work {...development} />
       </InnerWrap>
     </MainLayout>
   );
@@ -21,7 +40,25 @@ const WorkPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulClientProject {
+    identity: allContentfulClientProject(
+      filter: { category: { in: "Identity" } }
+    ) {
+      edges {
+        node {
+          clientName
+          category
+          slug
+          thumbnail {
+            file {
+              url
+            }
+          }
+        }
+      }
+    }
+    development: allContentfulClientProject(
+      filter: { category: { in: "Development" } }
+    ) {
       edges {
         node {
           clientName

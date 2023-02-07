@@ -1,14 +1,5 @@
 import styled from 'styled-components';
 
-export const BlogWrap = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 11rem -1.5rem 4rem;
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    margin: -1rem 0;
-  }
-`;
-
 export const BlogCard = styled.div`
   position: relative;
   margin: 0 4rem 6.4rem;
