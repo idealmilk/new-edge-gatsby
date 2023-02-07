@@ -12,6 +12,11 @@ const ContactPage = () => {
       <PageHeader title='Contact Us' />
 
       <BodyWrap>
+        <h3
+          style={{ width: '60%', margin: '0 auto 4rem', textAlign: 'center' }}
+        >
+          Something witty here about emails!
+        </h3>
         <ContactForm contactType='Contact Page' />
       </BodyWrap>
     </MainLayout>

@@ -33,7 +33,7 @@ const AboutPage = ({ data }) => {
         <StaffMembers {...allContentfulStaffMember} />
         <p
           style={{
-            margin: '8rem auto 10rem',
+            margin: '8rem auto 16rem',
             width: '50%',
             textAlign: 'center',
           }}

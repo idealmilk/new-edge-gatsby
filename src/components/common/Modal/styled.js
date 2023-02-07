@@ -109,7 +109,7 @@ export const InnerWrap = styled.div`
     letter-spacing: 0;
     line-height: 1.5;
     text-transform: uppercase;
-    font-weight: 700;
+
     margin: 0 auto 25px;
     span {
       color: #ff722e;
