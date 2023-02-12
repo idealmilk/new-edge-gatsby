@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'gatsby';
+import Ticker from 'react-ticker';
+import PageVisibility from 'react-page-visibility';
 
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, SEO, Work } from 'components';
@@ -8,30 +10,36 @@ import { InnerWrap } from 'components/common/Containers/styled';
 const WorkPage = ({ data }) => {
   const { identity, development } = data;
 
+  const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const handleVisibilityChange = (isVisible) => {
+    setPageIsVisible(isVisible);
+  };
+
   return (
     <MainLayout>
       <SEO title='Work' />
+      <PageHeader title='Work' />
+      <PageVisibility onChange={handleVisibilityChange}>
+        {pageIsVisible && (
+          <Ticker speed={5}>
+            {() => <h3 style={{ marginRight: '6rem' }}>Brand Identity</h3>}
+          </Ticker>
+        )}
+      </PageVisibility>
+
       <InnerWrap>
-        <PageHeader title='Work' />
-        <h3
-          style={{
-            marginBottom: '4rem',
-            paddingBottom: '1rem',
-            borderBottom: '1px solid black',
-          }}
-        >
-          Brand Identiy
-        </h3>
         <Work {...identity} />
-        <h3
-          style={{
-            marginBottom: '4rem',
-            paddingBottom: '1rem',
-            borderBottom: '1px solid black',
-          }}
-        >
-          Brand Development
-        </h3>
+      </InnerWrap>
+
+      <PageVisibility onChange={handleVisibilityChange}>
+        {pageIsVisible && (
+          <Ticker speed={5}>
+            {() => <h3 style={{ marginRight: '6rem' }}>Brand Development</h3>}
+          </Ticker>
+        )}
+      </PageVisibility>
+      <InnerWrap>
         <Work {...development} />
       </InnerWrap>
     </MainLayout>
@@ -46,6 +54,7 @@ export const query = graphql`
       edges {
         node {
           clientName
+          metaDescription
           category
           slug
           thumbnail {
@@ -62,6 +71,7 @@ export const query = graphql`
       edges {
         node {
           clientName
+          metaDescription
           category
           slug
           thumbnail {

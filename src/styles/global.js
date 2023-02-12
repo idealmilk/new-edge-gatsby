@@ -381,6 +381,16 @@ const GlobalStyles = styled.createGlobalStyle`
   .enzuzo-notification-desc {
     font-size: 1.6rem;
   }
+
+  .ticker {
+    margin-bottom: 4rem;
+    vertical-align: middle;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    h3 {
+      padding: 2rem;
+    }
+  }
 `;
 
 export default GlobalStyles;

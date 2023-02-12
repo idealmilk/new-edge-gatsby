@@ -108,3 +108,9 @@ export const BodyWrap = styled.div`
     }
   }
 `;
+
+export const CenterWrap = styled.div`
+  width: 100%;
+  margin: -10rem 0 8rem;
+  text-align: center;
+`;

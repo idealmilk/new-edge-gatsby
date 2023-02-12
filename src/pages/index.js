@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby';
 import HomeLayout from 'layouts/HomeLayout';
 import { SEO, Testimonials, Work } from 'components';
 import { Button } from '../components/common/Buttons';
-import { InnerWrap } from '../components/common/Containers/styled';
+import { InnerWrap, CenterWrap } from '../components/common/Containers/styled';
 
 const HomePage = ({ data }) => {
   const { allContentfulClientProject } = data;
@@ -17,9 +17,11 @@ const HomePage = ({ data }) => {
       <InnerWrap>
         <Work {...allContentfulClientProject} />
 
-        <Link to='/work' style={{ margin: '0 auto' }}>
-          <Button>View all...</Button>
-        </Link>
+        <CenterWrap>
+          <Link to='/work' style={{ margin: '0 auto' }}>
+            <Button>View all...</Button>
+          </Link>
+        </CenterWrap>
 
         <Testimonials {...allContentfulClientProject} />
       </InnerWrap>
@@ -29,7 +31,7 @@ const HomePage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulClientProject {
+    allContentfulClientProject(limit: 6) {
       edges {
         node {
           clientName

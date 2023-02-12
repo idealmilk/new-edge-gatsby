@@ -2,22 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   position: fixed;
-
   top: 0;
   background-color: transparent;
   z-index: 500;
   width: 100%;
   border: 0px solid transparent;
-
-  transition: 0.3s ease-in, border 0.3s ease-in;
-  a {
-    transition: color 0.3s ease-in, border 0.3s ease-in;
-    font-size: 2.2rem;
-    &:hover {
-      font-family: 'Grafik';
-    }
-  }
-
+  transition: transform 0.3s ease-out;
   @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
     display: none;
   }
@@ -28,8 +18,16 @@ export const NavList = styled.nav`
   padding: 30px 0;
   li {
     display: inline-block;
-    margin-right: 15px;
+    width: 10rem;
     transition: all 0.3s ease-in-out;
+    a {
+      transition: border-color 0.1s;
+      font-size: 2.2rem;
+      &:hover {
+        font-family: 'Grafik';
+        transform: scale(1.07);
+      }
+    }
     &:hover {
       .submenu {
         height: 22rem;
@@ -45,6 +43,7 @@ export const NavList = styled.nav`
     .submenu {
       overflow: hidden;
       position: absolute;
+      text-align: right;
       right: 0;
       width: 32rem;
       height: 0;
@@ -52,13 +51,23 @@ export const NavList = styled.nav`
       box-sizing: border-box;
       transition: height 0.3s ease-in-out;
       transition-delay: 0.1s;
+      li {
+        width: auto;
+        margin-left: 1rem;
+      }
       a {
         color: black;
         margin-top: 0.6rem;
         font-size: 2.2rem;
+        background: white;
         border: 1px solid black;
         border-radius: 3rem;
         padding: 1rem 2.2rem;
+        &:hover {
+        font-family: 'Grafik';
+        transform: none;
+      }
+    }
         &:hover {
           color: black;
           font-family: 'Grafik';
