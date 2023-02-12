@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, graphql } from 'gatsby';
+import Ticker from 'react-ticker';
+import PageVisibility from 'react-page-visibility';
 
 import HomeLayout from 'layouts/HomeLayout';
 import { SEO, Testimonials, Work } from 'components';
@@ -9,9 +11,25 @@ import { InnerWrap, CenterWrap } from '../components/common/Containers/styled';
 const HomePage = ({ data }) => {
   const { allContentfulClientProject } = data;
 
+  const { identity, development } = data;
+
+  const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const handleVisibilityChange = (isVisible) => {
+    setPageIsVisible(isVisible);
+  };
+
   return (
     <HomeLayout>
       <SEO />
+
+      <PageVisibility onChange={handleVisibilityChange}>
+        {pageIsVisible && (
+          <Ticker speed={5}>
+            {() => <h3 style={{ marginRight: '6rem' }}>Our latest work</h3>}
+          </Ticker>
+        )}
+      </PageVisibility>
 
       {/* Hero component is found in the HomeLayout component */}
       <InnerWrap>
