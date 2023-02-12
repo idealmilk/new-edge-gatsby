@@ -1,6 +1,8 @@
-import React from 'react';
-import { graphql } from 'gatsby';
+import React, { useState } from 'react';
+import Ticker from 'react-ticker';
+import PageVisibility from 'react-page-visibility';
 import Slider from 'react-slick';
+import { graphql } from 'gatsby';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -35,6 +37,12 @@ const ClientProjectTemplate = ({ data }) => {
     testimonialStaffName,
     testimonialStaffRole,
   } = data.contentfulClientProject;
+
+  const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const handleVisibilityChange = (isVisible) => {
+    setPageIsVisible(isVisible);
+  };
 
   const sortedImages = (imageArray) => {
     if (imageArray === null) {
@@ -92,6 +100,14 @@ const ClientProjectTemplate = ({ data }) => {
       <FullWidthImageWrap>
         <img src={headerImage.file.url} alt={clientName} />
       </FullWidthImageWrap>
+
+      <PageVisibility onChange={handleVisibilityChange}>
+        {pageIsVisible && (
+          <Ticker speed={5}>
+            {() => <h3 style={{ marginRight: '6rem' }}>{clientName}</h3>}
+          </Ticker>
+        )}
+      </PageVisibility>
 
       <InnerWrap>
         <DescriptionWrap>

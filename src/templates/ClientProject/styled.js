@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FullWidthImageWrap = styled.div`
-  margin-top: 9rem;
+  margin: 9rem 0 3rem;
   width: 100%;
   img {
     width: 100%;
