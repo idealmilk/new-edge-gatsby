@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { useLocation } from '@gatsbyjs/reach-router';
 
-import CollapsibleListItem from './CollapsibleListItem';
 import { NavMenuContainer, NavList, NavLink } from './styled';
 
 const variants = {
