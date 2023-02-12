@@ -38,3 +38,13 @@ export const Content = styled.div`
     transform: none;
   }
 `;
+
+export const GradientBackground = styled.div`
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    180deg,
+    rgb(39, 219, 255) 0%,
+    rgb(232, 83, 255) 100%
+  );
+`;

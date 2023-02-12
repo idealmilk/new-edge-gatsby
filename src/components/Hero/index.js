@@ -2,12 +2,28 @@ import React from 'react';
 
 import { LiquidSphere } from 'components';
 
-import { Container, InnerWrapStyled, ContentWrap } from './styled';
+import {
+  Container,
+  InnerWrapStyled,
+  ContentWrap,
+  GradientBackground,
+} from './styled';
+
+const isSafari =
+  /constructor/i.test(window.HTMLElement) ||
+  (function (p) {
+    return p.toString() === '[object SafariRemoteNotification]';
+  })(
+    !window['safari'] ||
+      (typeof safari !== 'undefined' && safari.pushNotification)
+  );
 
 const Hero = () => {
   return (
     <Container>
-      <LiquidSphere />
+      {!isSafari && <LiquidSphere />}
+
+      {isSafari && <GradientBackground />}
       <InnerWrapStyled>
         <ContentWrap>
           <h1>Edge</h1>

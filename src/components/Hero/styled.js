@@ -48,3 +48,9 @@ export const FormWrap = styled.div`
     margin: 0 auto;
   }
 `;
+
+export const GradientBackground = styled.div`
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(180deg, #9fdaea 0%, #ff9bd3 100%);
+`;
