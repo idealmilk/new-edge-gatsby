@@ -44,6 +44,7 @@ export const NavList = styled.nav`
       overflow: hidden;
       position: absolute;
       text-align: right;
+      margin-top: 2rem;
       right: 0;
       width: 32rem;
       height: 0;
