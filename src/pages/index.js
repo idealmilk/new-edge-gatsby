@@ -11,8 +11,6 @@ import { InnerWrap, CenterWrap } from '../components/common/Containers/styled';
 const HomePage = ({ data }) => {
   const { allContentfulClientProject } = data;
 
-  const { identity, development } = data;
-
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
   const handleVisibilityChange = (isVisible) => {

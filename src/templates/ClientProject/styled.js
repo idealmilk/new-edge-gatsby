@@ -3,8 +3,32 @@ import styled from 'styled-components';
 export const FullWidthImageWrap = styled.div`
   margin: 9rem 0 3rem;
   width: 100%;
+  height: 50rem;
+  overflow: none;
+  text-align: center;
+  background: ${(props) =>
+    props.gradientLeft
+      ? `linear-gradient(90deg, ${props.gradientLeft} 0%, ${props.gradientRight} 100%)`
+      : 'black'};
+
   img {
-    width: 100%;
+    object-fit: cover;
+    height: 50rem;
+    width: 1600px;
+    margin: 0 auto;
+    mask-image: linear-gradient(
+      transparent,
+      black 20%,
+      black 80%,
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent 100%
+    );
   }
 `;
 

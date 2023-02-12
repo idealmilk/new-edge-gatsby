@@ -36,7 +36,11 @@ const ClientProjectTemplate = ({ data }) => {
     testimonialText,
     testimonialStaffName,
     testimonialStaffRole,
+    gradientLeft,
+    gradientRight,
   } = data.contentfulClientProject;
+
+  console.log(gradientLeft);
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -97,7 +101,10 @@ const ClientProjectTemplate = ({ data }) => {
         article={true}
       />
 
-      <FullWidthImageWrap>
+      <FullWidthImageWrap
+        gradientLeft={gradientLeft}
+        gradientRight={gradientRight}
+      >
         <img src={headerImage.file.url} alt={clientName} />
       </FullWidthImageWrap>
 
@@ -393,6 +400,8 @@ export const query = graphql`
       testimonialText
       testimonialStaffName
       testimonialStaffRole
+      gradientLeft
+      gradientRight
     }
   }
 `;
