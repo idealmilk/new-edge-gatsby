@@ -14,20 +14,27 @@ const Hero = () => {
     <GradientBackground />
   );
 
-  const isSafari =
-    /constructor/i.test(window.HTMLElement) ||
-    (function (p) {
-      return p.toString() === '[object SafariRemoteNotification]';
-    })(
-      !window['safari'] ||
-        (typeof safari !== 'undefined' && safari.pushNotification)
-    );
+  const userAgent =
+    typeof window !== 'undefined' ? window.navigator.userAgent : '';
+
+  let browser = '';
+  if (userAgent.indexOf('Chrome') !== -1) {
+    browser = 'Chrome';
+  } else if (userAgent.indexOf('Firefox') !== -1) {
+    browser = 'Firefox';
+  } else if (userAgent.indexOf('Safari') !== -1) {
+    browser = 'Safari';
+  } else if (userAgent.indexOf('Edge') !== -1) {
+    browser = 'Edge';
+  } else if (userAgent.indexOf('Trident') !== -1) {
+    browser = 'Internet Explorer';
+  }
 
   useEffect(() => {
-    if (!isSafari) {
+    if (browser !== 'Safari') {
       setRenderedBackground(<LiquidSphere />);
     }
-  }, [isSafari]);
+  }, [browser]);
 
   return (
     <Container>
