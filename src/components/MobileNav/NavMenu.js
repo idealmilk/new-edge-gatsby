@@ -16,21 +16,6 @@ const variants = {
   },
 };
 
-const servicesMenu = [
-  {
-    title: 'Financial planning',
-    slug: '/services/financial-planning',
-  },
-  {
-    title: 'Retirement planning',
-    slug: '/services/retirement-planning',
-  },
-  {
-    title: 'Mentoring & coaching',
-    slug: '/services/mentoring-and-coaching',
-  },
-];
-
 export function NavMenu({ isOpen }) {
   const location = useLocation();
 
@@ -52,10 +37,37 @@ export function NavMenu({ isOpen }) {
           }}
         >
           <Link
+            to='/work'
+            style={{
+              color:
+                location.pathname === '/work'
+                  ? 'rgba(246, 95, 48, 1)'
+                  : 'black',
+            }}
+          >
+            Work
+          </Link>
+        </NavLink>
+
+        <NavLink
+          initial={false}
+          animate={isOpen ? 'show' : 'hide'}
+          variants={{
+            show: {
+              ...variants.show,
+              transition: { delay: 0.5, duration: 0.2 },
+            },
+            hide: {
+              ...variants.hide,
+              transition: { delay: 0.15, duration: 0.05 },
+            },
+          }}
+        >
+          <Link
             to='/about'
             style={{
               color:
-                location.pathname === '/about-us'
+                location.pathname === '/about'
                   ? 'rgba(246, 95, 48, 1)'
                   : 'black',
             }}
@@ -78,60 +90,16 @@ export function NavMenu({ isOpen }) {
             },
           }}
         >
-          <CollapsibleListItem parent='Services' children={servicesMenu} />
-        </NavLink>
-
-        <NavLink
-          initial={false}
-          animate={isOpen ? 'show' : 'hide'}
-          variants={{
-            show: {
-              ...variants.show,
-              transition: { delay: 0.5, duration: 0.2 },
-            },
-            hide: {
-              ...variants.hide,
-              transition: { delay: 0.15, duration: 0.05 },
-            },
-          }}
-        >
           <Link
-            to='/pricing'
+            to='/contact'
             style={{
               color:
-                location.pathname === '/pricing'
+                location.pathname === '/contact'
                   ? 'rgba(246, 95, 48, 1)'
                   : 'black',
             }}
           >
-            Pricing
-          </Link>
-        </NavLink>
-
-        <NavLink
-          initial={false}
-          animate={isOpen ? 'show' : 'hide'}
-          variants={{
-            show: {
-              ...variants.show,
-              transition: { delay: 0.5, duration: 0.2 },
-            },
-            hide: {
-              ...variants.hide,
-              transition: { delay: 0.15, duration: 0.05 },
-            },
-          }}
-        >
-          <Link
-            to='/blog'
-            style={{
-              color:
-                location.pathname === '/blog'
-                  ? 'rgba(246, 95, 48, 1)'
-                  : 'black',
-            }}
-          >
-            Blog
+            Contact
           </Link>
         </NavLink>
       </NavList>
