@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'gatsby';
+import Ticker from 'react-ticker';
+import PageVisibility from 'react-page-visibility';
 
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, RichText, SEO, Services, StaffMembers } from 'components';
@@ -15,6 +17,12 @@ const AboutPage = ({ data }) => {
   const { body, teamSectionTitle, teamSectionText, serviceSectionTitle } =
     contentfulAboutPage;
 
+  const [pageIsVisible, setPageIsVisible] = useState(true);
+
+  const handleVisibilityChange = (isVisible) => {
+    setPageIsVisible(isVisible);
+  };
+
   return (
     <MainLayout cta={true}>
       <SEO title='About' />
@@ -27,9 +35,17 @@ const AboutPage = ({ data }) => {
           </div>
           {/* <div className='img'></div> */}
         </FeatureWrap>
+      </InnerWrap>
 
-        <h2>{teamSectionTitle}</h2>
+      <PageVisibility onChange={handleVisibilityChange}>
+        {pageIsVisible && (
+          <Ticker speed={5}>
+            {() => <h3 style={{ marginRight: '6rem' }}>{teamSectionTitle}</h3>}
+          </Ticker>
+        )}
+      </PageVisibility>
 
+      <InnerWrap>
         <StaffMembers {...allContentfulStaffMember} />
         <p
           style={{
@@ -40,9 +56,19 @@ const AboutPage = ({ data }) => {
         >
           {teamSectionText}
         </p>
+      </InnerWrap>
 
-        <h2>{serviceSectionTitle}</h2>
+      <PageVisibility onChange={handleVisibilityChange}>
+        {pageIsVisible && (
+          <Ticker speed={5}>
+            {() => (
+              <h3 style={{ marginRight: '6rem' }}>{serviceSectionTitle}</h3>
+            )}
+          </Ticker>
+        )}
+      </PageVisibility>
 
+      <InnerWrap>
         <Services {...allContentfulService} />
       </InnerWrap>
     </MainLayout>
