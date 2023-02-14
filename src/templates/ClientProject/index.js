@@ -348,12 +348,14 @@ const ClientProjectTemplate = ({ data }) => {
           )}
         </LandscapeWrap>
 
-        <TestimonialCard
-          text={testimonialText}
-          name={testimonialStaffName}
-          role={testimonialStaffRole}
-          client={clientName}
-        />
+        {testimonialText && (
+          <TestimonialCard
+            text={testimonialText}
+            name={testimonialStaffName}
+            role={testimonialStaffRole}
+            client={clientName}
+          />
+        )}
       </InnerWrap>
     </MainLayout>
   );
