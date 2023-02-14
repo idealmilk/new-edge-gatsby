@@ -354,6 +354,7 @@ const ClientProjectTemplate = ({ data }) => {
             name={testimonialStaffName}
             role={testimonialStaffRole}
             client={clientName}
+            solo={true}
           />
         )}
       </InnerWrap>

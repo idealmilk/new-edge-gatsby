@@ -9,7 +9,7 @@ import { Button } from '../components/common/Buttons';
 import { InnerWrap, CenterWrap } from '../components/common/Containers/styled';
 
 const HomePage = ({ data }) => {
-  const { allContentfulClientProject } = data;
+  const { projects, testimonials } = data;
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -31,7 +31,7 @@ const HomePage = ({ data }) => {
 
       {/* Hero component is found in the HomeLayout component */}
       <InnerWrap>
-        <Work {...allContentfulClientProject} />
+        <Work {...projects} />
 
         <CenterWrap>
           <Link to='/work' style={{ margin: '0 auto' }}>
@@ -39,7 +39,7 @@ const HomePage = ({ data }) => {
           </Link>
         </CenterWrap>
 
-        <Testimonials {...allContentfulClientProject} />
+        <Testimonials {...testimonials} />
       </InnerWrap>
     </HomeLayout>
   );
@@ -47,7 +47,7 @@ const HomePage = ({ data }) => {
 
 export const query = graphql`
   query {
-    allContentfulClientProject(limit: 6) {
+    projects: allContentfulClientProject(limit: 6) {
       edges {
         node {
           clientName
@@ -58,6 +58,15 @@ export const query = graphql`
               url
             }
           }
+        }
+      }
+    }
+    testimonials: allContentfulClientProject(
+      filter: { testimonialText: { ne: null } }
+    ) {
+      edges {
+        node {
+          clientName
           testimonialText
           testimonialStaffName
           testimonialStaffRole

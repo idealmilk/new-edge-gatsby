@@ -1,42 +1,25 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import { Container, InnerWrap, TextWrap } from './styled';
+import { Container } from './styled';
 import TestimonialCard from './Card';
 
 const Testimonials = ({ edges }) => {
-  const NextArrow = ({ onClick }) => {
-    return (
-      <div className='arrow next' onClick={onClick}>
-        <FaArrowDown />
-      </div>
-    );
-  };
-
-  const PrevArrow = ({ onClick }) => {
-    return (
-      <div className='arrow prev' onClick={onClick}>
-        <FaArrowUp />
-      </div>
-    );
-  };
-
   const [imageIndex, setImageIndex] = useState(0);
 
   const settings = {
-    centerMode: true,
+    autoplay: true,
+    autoplaySpeed: 6000,
+    speed: 1000,
     infinite: true,
-    lazyLoad: true,
-    speed: 300,
+    lazyLoad: false,
     slidesToShow: 3,
     centerMode: true,
     vertical: true,
     verticalSwiping: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    pauseOnHover: false,
     beforeChange: (current, next) => setImageIndex(next),
   };
 
