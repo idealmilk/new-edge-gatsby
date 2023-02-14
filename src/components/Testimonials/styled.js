@@ -4,7 +4,6 @@ export const Container = styled.div`
   height: 44rem !important;
   width: 70%;
   margin: 0 auto;
-  transform: translateY(-8rem);
   overflow: hidden;
   mask-image: linear-gradient(
     to bottom,

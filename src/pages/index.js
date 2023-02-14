@@ -38,7 +38,19 @@ const HomePage = ({ data }) => {
             <Button>View all...</Button>
           </Link>
         </CenterWrap>
+      </InnerWrap>
 
+      <PageVisibility onChange={handleVisibilityChange}>
+        {pageIsVisible && (
+          <Ticker speed={5}>
+            {() => (
+              <h3 style={{ marginRight: '6rem' }}>What our clients say</h3>
+            )}
+          </Ticker>
+        )}
+      </PageVisibility>
+
+      <InnerWrap>
         <Testimonials {...testimonials} />
       </InnerWrap>
     </HomeLayout>
