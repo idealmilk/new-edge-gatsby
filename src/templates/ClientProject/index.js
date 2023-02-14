@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
+import CircleType from 'circletype';
 import { graphql } from 'gatsby';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
@@ -38,7 +39,20 @@ const ClientProjectTemplate = ({ data }) => {
     gradientRight,
   } = data.contentfulClientProject;
 
-  console.log(gradientLeft);
+  const circleInstance = useRef();
+
+  useEffect(() => {
+    new CircleType(circleInstance.current).radius(40);
+
+    circleInstance.current.classList.add('circle-wrap');
+
+    circleInstance.current.children[0].classList.add('circle');
+
+    window.addEventListener('scroll', function () {
+      circleInstance.current.children[0].style.transform =
+        'translate(-50%, -50%) rotate(' + window.scrollY * 0.15 + 'deg) ';
+    });
+  }, []);
 
   const sortedImages = (imageArray) => {
     if (imageArray === null) {
@@ -275,6 +289,7 @@ const ClientProjectTemplate = ({ data }) => {
                 <source src={sortedSquareImages[5].file.url} type='video/mp4' />
               </video>
             )}
+            <div ref={circleInstance}>NewEdge Studio - NewEdge Studio -</div>
           </SquareWrap>
         )}
 

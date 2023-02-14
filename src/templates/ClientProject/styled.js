@@ -74,6 +74,23 @@ export const SquareWrap = styled.ul`
     width: 48%;
   }
 
+  .circle-wrap {
+    position: relative;
+    width: 48%;
+  }
+
+  .circle {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    height: 26em !important;
+    width: 26em !important;
+  }
+
+  span {
+    font-size: 2rem;
+  }
+
   .brand {
     width: 40%;
     margin: auto 0;

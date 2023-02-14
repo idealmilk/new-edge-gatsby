@@ -13,6 +13,7 @@
     "@react-spring/web": "^9.6.1",
     "@react-three/drei": "^9.49.0",
     "@react-three/fiber": "^8.9.2",
+    "circletype": "^2.3.0",
     "eslint": "^8.34.0",
     "framer-motion": "^8.0.2",
     "gatsby": "^5.3.3",
