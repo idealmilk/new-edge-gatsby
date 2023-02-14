@@ -15,9 +15,6 @@ export const Member = styled.div`
   p {
     font-size: 2.6rem;
   }
-  &:hover {
-    transform: scale(1.08);
-  }
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     &:hover {
       transform: none;

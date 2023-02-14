@@ -2,16 +2,27 @@ import styled from 'styled-components';
 
 export const ServicesWrap = styled.div`
   display: flex;
-  width: 100%;
+  width: 70%;
   justify-content: space-between;
-  margin: 4rem 0 10rem;
+  margin: 8rem auto 10rem;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
   }
 `;
 
 export const Service = styled.div`
-  width: 28%;
+  width: 30%;
+  border: 1px solid black;
+  border-radius: 1rem;
+`;
+
+export const ServiceInner = styled.div`
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 2rem;
+  height: 100%;
+  background: white;
+  transform: translate(1rem, 1rem);
   p {
     font-size: 2.6rem;
   }
@@ -19,9 +30,9 @@ export const Service = styled.div`
     margin-top: 1.4rem;
     list-style-type: disc;
     list-style-position: inside;
-  }
-  &:hover {
-    transform: scale(1.08);
+    li {
+      line-height: 2;
+    }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     &:hover {
