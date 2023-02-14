@@ -20,14 +20,14 @@ export const ImgWrap = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
-  img {
+  .gatsby-image-wrapper {
     height: 100%;
     width: 100%;
     object-fit: cover;
     transition: transform 0.4s ease-in-out;
   }
   &:hover {
-    img {
+    .gatsby-image-wrapper {
       transform: scale(1.1);
     }
   }

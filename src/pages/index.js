@@ -66,9 +66,11 @@ export const query = graphql`
           metaDescription
           slug
           thumbnail {
-            file {
-              url
-            }
+            gatsbyImageData(
+              width: 600
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }
