@@ -47,11 +47,12 @@ const Footer = () => {
             <PagesWrap>
               <PageList>
                 <PageItem style={{ marginBottom: '2rem' }}>Site Map</PageItem>
-                <PageItem>
-                  <Link to='/home'>Home</Link>
-                </PageItem>
+
                 <PageItem>
                   <Link to='/work'>Work</Link>
+                </PageItem>
+                <PageItem>
+                  <Link to='/about'>About</Link>
                 </PageItem>
                 <PageItem>
                   <Link to='/contact'>Contact</Link>
