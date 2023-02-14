@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Ticker from 'react-ticker';
-import PageVisibility from 'react-page-visibility';
 import Slider from 'react-slick';
 import { graphql } from 'gatsby';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
@@ -41,12 +39,6 @@ const ClientProjectTemplate = ({ data }) => {
   } = data.contentfulClientProject;
 
   console.log(gradientLeft);
-
-  const [pageIsVisible, setPageIsVisible] = useState(true);
-
-  const handleVisibilityChange = (isVisible) => {
-    setPageIsVisible(isVisible);
-  };
 
   const sortedImages = (imageArray) => {
     if (imageArray === null) {
@@ -107,14 +99,6 @@ const ClientProjectTemplate = ({ data }) => {
       >
         <img src={headerImage.file.url} alt={clientName} />
       </FullWidthImageWrap>
-
-      <PageVisibility onChange={handleVisibilityChange}>
-        {pageIsVisible && (
-          <Ticker speed={5}>
-            {() => <h3 style={{ marginRight: '6rem' }}>{clientName}</h3>}
-          </Ticker>
-        )}
-      </PageVisibility>
 
       <InnerWrap>
         <DescriptionWrap>
