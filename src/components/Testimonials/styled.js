@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 44rem !important;
-  width: 70%;
+  height: 52rem !important;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   mask-image: linear-gradient(
     to bottom,
-    transparent 12%,
-    black 18%,
+    transparent 22%,
+    black 27%,
     black 80%,
     transparent 90%
   );
   -webkit-mask-image: linear-gradient(
     to bottom,
-    transparent 12%,
-    black 18%,
+    transparent 15%,
+    black 20%,
     black 80%,
     transparent 90%
   );
