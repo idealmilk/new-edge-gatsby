@@ -30,6 +30,13 @@ export const FullWidthImageWrap = styled.div`
       transparent 100%
     );
   }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    height: 30rem;
+    margin: 7rem 0 0;
+    img {
+      height: 30rem;
+    }
+  }
 `;
 
 export const DescriptionWrap = styled.ul`
@@ -51,8 +58,16 @@ export const DescriptionItem = styled.ul`
     font-size: 1.6rem;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    flex-basis: 100%;
-    margin: 0 0 5rem;
+    h4 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.3rem;
+    }
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    flex-basis: 90%;
+    margin: 0 4rem 4rem;
   }
 `;
 
@@ -65,6 +80,17 @@ export const LandscapeWrap = styled.ul`
 `;
 
 export const SquareWrap = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 4rem 0;
+  img,
+  video {
+    width: 48%;
+  }
+`;
+
+export const SquareTextWrap = styled.ul`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -101,6 +127,41 @@ export const SquareWrap = styled.ul`
     }
     p {
       font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    .brand {
+      h4 {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: block;
+    width: 100%;
+    .brand {
+      width: 100%;
+    }
+    .circle-wrap {
+      transform: translate(19rem, -9rem);
+      .circle {
+        position: absolute !important;
+        top: 50%;
+        left: 50%;
+        height: 13em !important;
+        width: 13em !important;
+        span {
+          font-size: 1rem;
+        }
+      }
+    }
+    img {
+      margin: 0 auto;
     }
   }
 `;

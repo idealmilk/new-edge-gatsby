@@ -17,6 +17,7 @@ import {
   DescriptionItem,
   LandscapeWrap,
   SquareWrap,
+  SquareTextWrap,
 } from './styled';
 
 const ClientProjectTemplate = ({ data }) => {
@@ -172,9 +173,9 @@ const ClientProjectTemplate = ({ data }) => {
           </SquareWrap>
         )}
 
-        <SquareWrap>
+        <SquareTextWrap>
           <div className='brand'>
-            <h4>What we got up to...</h4>
+            <h4>The brand</h4>
             <RichText {...brandCopy} />
           </div>
 
@@ -204,7 +205,7 @@ const ClientProjectTemplate = ({ data }) => {
               />
             </video>
           )}
-        </SquareWrap>
+        </SquareTextWrap>
 
         {category.includes('Identity') && (
           <Slider {...settings}>
@@ -282,7 +283,7 @@ const ClientProjectTemplate = ({ data }) => {
         </SquareWrap>
 
         {category.includes('Identity') && (
-          <SquareWrap>
+          <SquareTextWrap>
             {checkFormat(sortedSquareImages[5].file.url) && (
               <img src={sortedSquareImages[5].file.url} alt='' />
             )}
@@ -292,7 +293,7 @@ const ClientProjectTemplate = ({ data }) => {
               </video>
             )}
             <div ref={circleInstance}>NewEdge Studio - NewEdge Studio -</div>
-          </SquareWrap>
+          </SquareTextWrap>
         )}
 
         {category.includes('Identity') && (
