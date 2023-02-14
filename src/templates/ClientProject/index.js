@@ -42,16 +42,18 @@ const ClientProjectTemplate = ({ data }) => {
   const circleInstance = useRef();
 
   useEffect(() => {
-    new CircleType(circleInstance.current).radius(40);
+    if (category.includes('Identity')) {
+      new CircleType(circleInstance.current).radius(40);
 
-    circleInstance.current.classList.add('circle-wrap');
+      circleInstance.current.classList.add('circle-wrap');
 
-    circleInstance.current.children[0].classList.add('circle');
+      circleInstance.current.children[0].classList.add('circle');
 
-    window.addEventListener('scroll', function () {
-      circleInstance.current.children[0].style.transform =
-        'translate(-50%, -50%) rotate(' + window.scrollY * 0.15 + 'deg) ';
-    });
+      window.addEventListener('scroll', function () {
+        circleInstance.current.children[0].style.transform =
+          'translate(-50%, -50%) rotate(' + window.scrollY * 0.15 + 'deg) ';
+      });
+    }
   }, []);
 
   const sortedImages = (imageArray) => {
