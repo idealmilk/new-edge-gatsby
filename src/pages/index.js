@@ -59,7 +59,10 @@ const HomePage = ({ data }) => {
 
 export const query = graphql`
   query {
-    projects: allContentfulClientProject(limit: 6) {
+    projects: allContentfulClientProject(
+      sort: { completionDate: DESC }
+      limit: 6
+    ) {
       edges {
         node {
           clientName

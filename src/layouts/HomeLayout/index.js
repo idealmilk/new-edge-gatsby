@@ -10,7 +10,7 @@ const HomeLayout = ({ children }) => {
       <HeroOverlay>
         <h2>
           From idea to <span>identity</span>, we let the brand do the talking.
-          Maybe you should too
+          Maybe you should too.
         </h2>
       </HeroOverlay>
       <Hero />

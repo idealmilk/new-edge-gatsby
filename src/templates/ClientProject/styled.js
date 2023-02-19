@@ -39,13 +39,13 @@ export const FullWidthImageWrap = styled.div`
   }
 `;
 
-export const DescriptionWrap = styled.ul`
+export const DescriptionWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: 8rem -4rem 4rem;
 `;
 
-export const DescriptionItem = styled.ul`
+export const DescriptionItem = styled.div`
   position: relative;
   flex-basis: calc(33% - 8rem);
   margin: 0 4rem 6.4rem;
@@ -71,7 +71,7 @@ export const DescriptionItem = styled.ul`
   }
 `;
 
-export const LandscapeWrap = styled.ul`
+export const LandscapeWrap = styled.div`
   width: 100%;
   img,
   video {
@@ -79,7 +79,7 @@ export const LandscapeWrap = styled.ul`
   }
 `;
 
-export const SquareWrap = styled.ul`
+export const SquareWrap = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -90,7 +90,7 @@ export const SquareWrap = styled.ul`
   }
 `;
 
-export const SquareTextWrap = styled.ul`
+export const SquareTextWrap = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;

@@ -49,7 +49,7 @@ const Header = () => {
 
 const query = graphql`
   query {
-    allContentfulClientProject(limit: 4) {
+    allContentfulClientProject(sort: { completionDate: DESC }, limit: 4) {
       edges {
         node {
           clientName

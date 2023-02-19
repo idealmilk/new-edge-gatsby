@@ -49,6 +49,7 @@ const WorkPage = ({ data }) => {
 export const query = graphql`
   query {
     identity: allContentfulClientProject(
+      sort: { completionDate: DESC }
       filter: { category: { in: "Identity" } }
     ) {
       edges {
@@ -68,6 +69,7 @@ export const query = graphql`
       }
     }
     development: allContentfulClientProject(
+      sort: { completionDate: DESC }
       filter: { category: { in: "Development" } }
     ) {
       edges {

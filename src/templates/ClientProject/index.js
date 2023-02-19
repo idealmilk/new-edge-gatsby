@@ -38,6 +38,7 @@ const ClientProjectTemplate = ({ data }) => {
     testimonialStaffRole,
     gradientLeft,
     gradientRight,
+    interrogative,
   } = data.contentfulClientProject;
 
   const circleInstance = useRef();
@@ -120,7 +121,9 @@ const ClientProjectTemplate = ({ data }) => {
       <InnerWrap>
         <DescriptionWrap>
           <DescriptionItem>
-            <h4>What is {clientName}</h4>
+            <h4>
+              {interrogative ? interrogative : 'What is'} {clientName}
+            </h4>
             <RichText {...clientDescription} />
           </DescriptionItem>
 
@@ -175,7 +178,7 @@ const ClientProjectTemplate = ({ data }) => {
 
         <SquareTextWrap>
           <div className='brand'>
-            <h4>The brand</h4>
+            <h4>The Brand</h4>
             <RichText {...brandCopy} />
           </div>
 
@@ -407,6 +410,7 @@ export const query = graphql`
       testimonialStaffRole
       gradientLeft
       gradientRight
+      interrogative
     }
   }
 `;
