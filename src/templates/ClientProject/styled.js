@@ -100,23 +100,6 @@ export const SquareTextWrap = styled.div`
     width: 48%;
   }
 
-  .circle-wrap {
-    position: relative;
-    width: 48%;
-  }
-
-  .circle {
-    position: absolute !important;
-    top: 50%;
-    left: 50%;
-    height: 26em !important;
-    width: 26em !important;
-  }
-
-  span {
-    font-size: 2rem;
-  }
-
   .brand {
     width: 40%;
     margin: auto 0;
@@ -132,6 +115,7 @@ export const SquareTextWrap = styled.div`
 
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     .brand {
+      width: 100%;
       h4 {
         font-size: 2rem;
       }
@@ -142,26 +126,53 @@ export const SquareTextWrap = styled.div`
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    display: block;
     width: 100%;
     .brand {
       width: 100%;
     }
-    .circle-wrap {
-      transform: translate(19rem, -9rem);
-      .circle {
-        position: absolute !important;
-        top: 50%;
-        left: 50%;
-        height: 13em !important;
-        width: 13em !important;
-        span {
-          font-size: 1rem;
-        }
-      }
-    }
     img {
       margin: 0 auto;
+    }
+  }
+`;
+
+export const SpinnerWrap = styled.div`
+  position: relative;
+  width: 48%;
+  height: auto;
+  img,
+  .circle-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .circle {
+    height: 28.4em !important;
+    width: 28.4em !important;
+  }
+
+  img {
+    width: 16rem;
+  }
+
+  span {
+    font-size: 1.6rem;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    img {
+      width: 10rem;
+    }
+    .circle-wrap {
+      /* transform: translate(19rem, -9rem); */
+      .circle {
+        height: 14.6em !important;
+        width: 14.6em !important;
+        span {
+          font-size: 0.8rem;
+        }
+      }
     }
   }
 `;

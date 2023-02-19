@@ -25,8 +25,8 @@ export const NavList = styled.nav`
       transition: border-color 0.1s;
       font-size: 2.2rem;
       &:hover {
-        font-family: 'Grafik';
-        transform: scale(1.07);
+        font-family: 'Grafier';
+        /* transform: scale(1.07); */
       }
     }
     &:hover {
@@ -72,7 +72,7 @@ export const NavList = styled.nav`
     }
         &:hover {
           color: black;
-          font-family: 'Grafik';
+          font-family: 'Grafier';
         }
       }
     }

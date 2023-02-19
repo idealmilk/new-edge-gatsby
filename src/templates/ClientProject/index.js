@@ -7,6 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 import MainLayout from 'layouts/MainLayout';
+import { Logo } from 'assets/Logos';
 import { RichText, SEO, TestimonialCard } from 'components';
 import { InnerWrap } from 'components/common/Containers/styled';
 import { checkFormat } from 'utils/checkFormat';
@@ -18,6 +19,7 @@ import {
   LandscapeWrap,
   SquareWrap,
   SquareTextWrap,
+  SpinnerWrap,
 } from './styled';
 
 const ClientProjectTemplate = ({ data }) => {
@@ -53,7 +55,7 @@ const ClientProjectTemplate = ({ data }) => {
 
       window.addEventListener('scroll', function () {
         circleInstance.current.children[0].style.transform =
-          'translate(-50%, -50%) rotate(' + window.scrollY * 0.15 + 'deg) ';
+          'rotate(' + window.scrollY * 0.15 + 'deg)';
       });
     }
   }, []);
@@ -293,7 +295,10 @@ const ClientProjectTemplate = ({ data }) => {
                 <source src={sortedSquareImages[5].file.url} type='video/mp4' />
               </video>
             )}
-            <div ref={circleInstance}>NewEdge Studio - NewEdge Studio -</div>
+            <SpinnerWrap>
+              <div ref={circleInstance}>NewEdge Studio - NewEdge Studio -</div>
+              <img src={Logo} alt='' />
+            </SpinnerWrap>
           </SquareTextWrap>
         )}
 
