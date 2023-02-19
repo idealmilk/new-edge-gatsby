@@ -85,7 +85,7 @@ export const query = graphql`
       teamSectionText
       serviceSectionTitle
     }
-    allContentfulStaffMember {
+    allContentfulStaffMember(sort: { name: DESC }) {
       edges {
         node {
           name
