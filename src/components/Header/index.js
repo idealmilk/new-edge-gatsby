@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 
 import { InnerFlexWrap } from 'components/common/Containers/styled';
@@ -6,10 +6,27 @@ import { Logo } from 'assets/Logos';
 
 import { Container, NavList, LogoWrap } from './styled';
 
-const Header = () => {
+const Header = ({ isClientProject }) => {
   const { allContentfulClientProject } = useStaticQuery(query);
+  const [navBar, setNavBar] = useState(false);
+
+  const changeNavBar = () => {
+    if (isClientProject) {
+      setNavBar(true);
+    } else if (!isClientProject && window.scrollY >= 800) {
+      setNavBar(true);
+    } else {
+      setNavBar(false);
+    }
+  };
+
+  useEffect(() => {
+    changeNavBar();
+    window.addEventListener('scroll', changeNavBar);
+  });
+
   return (
-    <Container>
+    <Container className={navBar && 'active'}>
       <InnerFlexWrap>
         <Link to='/'>
           <LogoWrap>
@@ -20,10 +37,10 @@ const Header = () => {
           <li>
             <Link href='/work'>Work</Link>
 
-            <ul class='submenu'>
+            <ul className='submenu'>
               {allContentfulClientProject.edges.map((edge, index) => {
                 return (
-                  <li>
+                  <li key={index}>
                     <Link to={`/work/${edge.node.slug}`}>
                       {edge.node.clientName}
                     </Link>

@@ -4,11 +4,11 @@ import { Header, MobileNav, Footer } from 'components';
 
 import { Container, Content, ChildrenWrap } from './styled';
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, isClientProject }) => {
   return (
     <Container>
       <Content>
-        <Header />
+        <Header isClientProject={isClientProject} />
         <MobileNav />
         <ChildrenWrap>{children}</ChildrenWrap>
         <Footer />

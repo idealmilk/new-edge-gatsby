@@ -26,9 +26,6 @@ const ContactForm = ({ givenEmail, contactType, clickOrigin }) => {
     setEmail(givenEmail);
   }
 
-  console.log(contactType);
-  console.log(clickOrigin);
-
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -40,12 +37,10 @@ const ContactForm = ({ givenEmail, contactType, clickOrigin }) => {
       )
       .then(
         (result) => {
-          console.log(result.text);
           setResponseMessage('Your interest has been successfully registered');
           e.target.reset();
         },
         (error) => {
-          console.log(error.text);
           setResponseMessage(
             'We could not complete your request, please try again later'
           );

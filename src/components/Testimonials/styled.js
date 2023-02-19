@@ -66,7 +66,7 @@ export const CardInner = styled.div`
   min-height: ${(props) => (props.solo ? 'auto' : '20rem !important')};
   max-height: ${(props) => (props.solo ? 'auto' : '20rem !important')};
   background: white;
-  transform: ${(props) => (props.solo ? 'translate(1rem, 1rem' : 'none')};
+  transform: ${(props) => (props.solo ? 'translate(1rem, 1rem)' : 'none')};
 `;
 
 export const Staff = styled.div`

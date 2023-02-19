@@ -74,8 +74,6 @@ const ClientProjectTemplate = ({ data }) => {
   const sortedLandscapeImages = sortedImages(landscapeImages);
   const sortedLandscapeCarouselImages = sortedImages(landscapeCarouselImages);
 
-  console.log(sortedSquareImages);
-
   const NextArrow = ({ onClick }) => {
     return (
       <div className='landscape-carousel-next' onClick={onClick}>
@@ -103,7 +101,7 @@ const ClientProjectTemplate = ({ data }) => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout isClientProject={true}>
       <SEO
         title={clientName}
         desc={metaDescription}
@@ -214,7 +212,7 @@ const ClientProjectTemplate = ({ data }) => {
           <Slider {...settings}>
             {sortedLandscapeCarouselImages.map((edge, index) => {
               return (
-                <LandscapeWrap>
+                <LandscapeWrap key={index}>
                   {checkFormat(edge.file.url) && (
                     <img src={edge.file.url} alt='' />
                   )}

@@ -8,7 +8,6 @@ const Services = ({ edges }) => {
       {Object.values(edges)
         .reverse()
         .map((service, index) => {
-          console.log(service.node.features);
           return (
             <Service>
               <ServiceInner key={index}>

@@ -15,7 +15,7 @@ const HomeLayout = ({ children }) => {
       </HeroOverlay>
       <Hero />
 
-      <Header />
+      <Header isClientProject={false} />
 
       <Content>
         {children} <Footer />

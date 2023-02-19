@@ -11,11 +11,11 @@ const Work = ({ edges }) => {
       <Masonry
         style={{ width: 'calc(100% + 8rem)', margin: '0px -8rem 8rem -4rem' }}
       >
-        {edges.map((edge, pos) => {
+        {edges.map((edge, index) => {
           const image = getImage(edge.node.thumbnail);
 
           return (
-            <BlogCard {...edge} key={pos}>
+            <BlogCard {...edge} key={index}>
               <ImgWrap>
                 <Link to={`/work/${edge.node.slug}`}>
                   <GatsbyImage image={image} alt={edge.node.clientName} />

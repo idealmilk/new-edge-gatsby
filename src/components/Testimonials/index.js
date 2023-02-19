@@ -29,6 +29,7 @@ const Testimonials = ({ edges }) => {
         {Object.values(edges).map((edge, index) => {
           return (
             <div
+              key={index}
               className={index === imageIndex ? 'slide activeSlide' : 'slide'}
             >
               <TestimonialCard

@@ -24,7 +24,7 @@ const Footer = () => {
     <Container>
       <InnerWrap>
         <p style={{ marginBottom: '4rem', fontSize: '2rem' }}>
-          We’re building things in Brixton. Come and say hello, the coffees on
+          We’re building things in Brixton. Come and say hello, the coffee's on
           us.
         </p>
       </InnerWrap>
