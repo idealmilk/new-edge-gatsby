@@ -158,19 +158,19 @@ export const SpinnerWrap = styled.div`
   }
 
   span {
-    font-size: 1.6rem;
+    font-size: 2.6rem;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     img {
-      width: 10rem;
+      width: 8rem;
     }
     .circle-wrap {
       /* transform: translate(19rem, -9rem); */
       .circle {
-        height: 14.6em !important;
-        width: 14.6em !important;
+        height: 12.6em !important;
+        width: 12.6em !important;
         span {
-          font-size: 0.8rem;
+          font-size: 1.1rem;
         }
       }
     }

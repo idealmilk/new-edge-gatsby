@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import MainLayout from 'layouts/MainLayout';
 import { Logo } from 'assets/Logos';
 import { RichText, SEO, TestimonialCard } from 'components';
+import { CTA } from 'components/common/Buttons';
 import { InnerWrap } from 'components/common/Containers/styled';
 import { checkFormat } from 'utils/checkFormat';
 
@@ -363,6 +364,8 @@ const ClientProjectTemplate = ({ data }) => {
             solo={true}
           />
         )}
+
+        <CTA />
       </InnerWrap>
     </MainLayout>
   );
