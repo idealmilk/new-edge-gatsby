@@ -66,7 +66,7 @@ export const NavList = styled.nav`
         border-radius: 3rem;
         padding: 1rem 2.2rem;
         &:hover {
-        font-family: 'Grafik';
+        font-family: 'Grafier';
         transform: none;
       }
     }
