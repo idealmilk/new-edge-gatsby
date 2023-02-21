@@ -149,29 +149,29 @@ export const SpinnerWrap = styled.div`
   }
 
   .circle {
-    height: 28.4em !important;
-    width: 28.4em !important;
+    height: 30rem !important;
+    width: 30rem !important;
+    span {
+      font-size: 2.6rem;
+      transform-origin: center 6em 0px !important;
+    }
   }
 
   img {
     width: 16rem;
   }
 
-  span {
-    font-size: 2.6rem;
-  }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     img {
       width: 8rem;
     }
-    .circle-wrap {
-      /* transform: translate(19rem, -9rem); */
-      .circle {
-        height: 12.6em !important;
-        width: 12.6em !important;
-        span {
-          font-size: 1.1rem;
-        }
+
+    .circle {
+      height: 12.6rem !important;
+      width: 12.6rem !important;
+      span {
+        font-size: 1.1rem;
+        transform-origin: center 6em 0px !important;
       }
     }
   }
