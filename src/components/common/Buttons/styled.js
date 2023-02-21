@@ -10,13 +10,15 @@ export const Container = styled.button`
   box-shadow: inset 0 0 0 2px #f45e61;
   font-size: inherit;
   vertical-align: middle;
-  width: 6em;
-  height: 6em;
+  width: 8em;
+  height: 8em;
   padding: 0;
   border-radius: 100%;
   box-shadow: none;
   color: black;
   cursor: pointer;
+
+  border: 1px solid #f0f0f0;
 
   &:before,
   &:after {
@@ -31,7 +33,7 @@ export const Container = styled.button`
   }
 
   &:before {
-    border: 2px solid transparent;
+    border: 1px solid transparent;
   }
 
   &:after {
@@ -52,9 +54,9 @@ export const Container = styled.button`
     }
 
     &:after {
-      border-top: 2px solid black;
-      border-left-width: 2px;
-      border-right-width: 2px;
+      border-top: 1px solid black;
+      border-left-width: 1px;
+      border-right-width: 1px;
       transform: rotate(270deg);
       transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
       transform: rotate(315deg);

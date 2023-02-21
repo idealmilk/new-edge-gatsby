@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import CircleType from 'circletype';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import MainLayout from 'layouts/MainLayout';
 import { Logo } from 'assets/Logos';
 import { RichText, SEO, TestimonialCard } from 'components';
-import { CTA } from 'components/common/Buttons';
+import { Button } from 'components/common/Buttons';
 import { InnerWrap } from 'components/common/Containers/styled';
 import { checkFormat } from 'utils/checkFormat';
 
@@ -365,7 +365,13 @@ const ClientProjectTemplate = ({ data }) => {
           />
         )}
 
-        <CTA />
+        <div
+          style={{ width: '100%', textAlign: 'center', margin: '8rem 0 0 0' }}
+        >
+          <Link to='/contact'>
+            <Button>Come get us</Button>
+          </Link>
+        </div>
       </InnerWrap>
     </MainLayout>
   );
