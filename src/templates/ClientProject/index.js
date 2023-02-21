@@ -94,7 +94,6 @@ const ClientProjectTemplate = ({ data }) => {
   };
 
   const settings = {
-    centerMode: true,
     infinite: true,
     lazyLoad: true,
     speed: 300,
