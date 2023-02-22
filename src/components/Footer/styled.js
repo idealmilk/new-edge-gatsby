@@ -7,6 +7,15 @@ export const Container = styled.footer`
   padding-top: 6rem;
 `;
 
+export const Tag = styled.div`
+  margin-bottom: 4rem;
+  font-size: 2rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    margin-bottom: 2rem;
+    font-size: 1.6rem;
+  }
+`;
+
 export const InfoWrap = styled.div`
   width: 45%;
   margin-bottom: 6rem;
@@ -14,9 +23,7 @@ export const InfoWrap = styled.div`
     font-size: 1.6rem;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    text-align: center;
-    width: 70%;
-    margin: 0 auto 4rem;
+    margin-bottom: 4rem;
   }
 `;
 
@@ -26,7 +33,8 @@ export const Content = styled.div`
   justify-content: space-between;
   padding-top: 4rem;
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    display: block;
+    padding-top: 2rem;
+    flex-direction: column;
   }
 `;
 
@@ -41,15 +49,8 @@ export const Pages = styled.div`
 
 export const PagesWrap = styled.div`
   display: flex;
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
     justify-content: space-between;
-    margin-bottom: 60px;
-  }
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    justify-content: revert;
-    flex-wrap: wrap;
-    width: 80%;
-    margin: 0 auto 60px;
   }
 `;
 
@@ -62,7 +63,12 @@ export const PageList = styled.ul`
     margin-right: 0;
     margin-bottom: 30px;
     width: 50%;
-    text-align: center;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    width: 100%;
   }
 `;
 

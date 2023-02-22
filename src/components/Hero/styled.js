@@ -42,13 +42,6 @@ export const ContentWrap = styled.div`
   }
 `;
 
-export const FormWrap = styled.div`
-  width: 75%;
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    margin: 0 auto;
-  }
-`;
-
 export const GradientBackground = styled.div`
   height: 100vh;
   width: 100vw;

@@ -7,12 +7,20 @@ export const BlogCard = styled.div`
     font-size: 1.6rem;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    flex-basis: calc(50% - 3rem);
-    margin: 0 1.5rem 5rem;
+    margin: 0 2rem 6.4rem;
+    p {
+      font-size: 1.6rem;
+    }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    flex-basis: 100%;
-    margin: 0 0 5rem;
+    margin: 0;
+    height: 30rem;
+    &:last-of-type {
+      margin-bottom: 5rem;
+    }
+    p {
+      display: none;
+    }
   }
 `;
 
@@ -31,4 +39,15 @@ export const ImgWrap = styled.div`
       transform: scale(1.1);
     }
   }
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    &:hover {
+      .gatsby-image-wrapper {
+        transform: none;
+      }
+    }
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  
+    height: 30rem;
+   
 `;

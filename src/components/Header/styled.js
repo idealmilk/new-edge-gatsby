@@ -9,7 +9,7 @@ export const Container = styled.header`
   height: 9rem;
   border-bottom: 0px solid transparent;
   transition: background-color 0.3s ease-out, border-bottom 0.2s ease-out;
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: none;
   }
 `;

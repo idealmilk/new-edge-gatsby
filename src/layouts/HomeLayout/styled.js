@@ -16,6 +16,7 @@ export const HeroOverlay = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 80rem;
+  max-width: 90%;
   text-align: center;
   z-index: 1;
   h2 {
@@ -26,6 +27,16 @@ export const HeroOverlay = styled.div`
       font-family: 'Grafier';
     }
   }
+  @media (max-width: 950px) {
+    h2 span {
+      font-size: 3rem;
+    }
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    h2 {
+      line-height: 1.6;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -34,8 +45,8 @@ export const Content = styled.div`
   z-index: 3;
   transform: translateY(100vh);
   padding-top: 10rem;
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    transform: none;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding-top: 0;
   }
 `;
 

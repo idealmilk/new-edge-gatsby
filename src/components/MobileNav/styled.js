@@ -2,19 +2,18 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const NavbarContainer = styled.div`
+  display: none;
   width: 100%;
   height: 70px;
-  display: none;
   position: fixed;
   top: 0;
   flex-direction: row-reverse;
   align-items: center;
   padding: 0 1.5em;
   z-index: 1000;
-  display: none;
   background-color: white;
   border-bottom: 1px #eeeeee solid;
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
   }
 `;

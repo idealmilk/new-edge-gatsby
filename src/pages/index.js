@@ -6,7 +6,11 @@ import PageVisibility from 'react-page-visibility';
 import HomeLayout from 'layouts/HomeLayout';
 import { SEO, Testimonials, Work } from 'components';
 import { Button } from '../components/common/Buttons';
-import { InnerWrap, CenterWrap } from '../components/common/Containers/styled';
+import {
+  InnerWrap,
+  InnerWrapWork,
+  CenterWrap,
+} from '../components/common/Containers/styled';
 
 const HomePage = ({ data }) => {
   const { projects, testimonials } = data;
@@ -23,14 +27,16 @@ const HomePage = ({ data }) => {
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
-          <Ticker speed={5}>
-            {() => <h3 style={{ marginRight: '6rem' }}>Our latest work</h3>}
-          </Ticker>
+          <div className='work-ticker'>
+            <Ticker speed={5}>
+              {() => <h3 style={{ marginRight: '6rem' }}>Our latest work</h3>}
+            </Ticker>
+          </div>
         )}
       </PageVisibility>
 
       {/* Hero component is found in the HomeLayout component */}
-      <InnerWrap>
+      <InnerWrapWork>
         <Work {...projects} />
 
         <CenterWrap>
@@ -38,7 +44,7 @@ const HomePage = ({ data }) => {
             <Button>View all...</Button>
           </Link>
         </CenterWrap>
-      </InnerWrap>
+      </InnerWrapWork>
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (

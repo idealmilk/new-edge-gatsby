@@ -17,7 +17,6 @@ export const Container = styled.button`
   box-shadow: none;
   color: black;
   cursor: pointer;
-
   border: 1px solid #f0f0f0;
 
   &:before,
@@ -60,6 +59,20 @@ export const Container = styled.button`
       transform: rotate(270deg);
       transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
       transform: rotate(315deg);
+    }
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    border: 1px solid black;
+
+    &:hover {
+      &:before {
+        border-top-color: transparent;
+        border-right-color: transparent;
+        border-bottom-color: transparent;
+      }
+      &:after {
+        border-top: 1px solid transparent;
+      }
     }
   }
 `;

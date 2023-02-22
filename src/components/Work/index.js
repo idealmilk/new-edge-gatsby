@@ -7,10 +7,8 @@ import { BlogCard, ImgWrap } from './styled';
 
 const Work = ({ edges }) => {
   return (
-    <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2 }}>
-      <Masonry
-        style={{ width: 'calc(100% + 8rem)', margin: '0px -8rem 8rem -4rem' }}
-      >
+    <ResponsiveMasonry columnsCountBreakPoints={{ 50: 1, 480: 2 }}>
+      <Masonry style={{ margin: '0px auto 8rem auto' }}>
         {edges.map((edge, index) => {
           const image = getImage(edge.node.thumbnail);
 

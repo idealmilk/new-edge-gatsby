@@ -391,6 +391,12 @@ const GlobalStyles = styled.createGlobalStyle`
       padding: 2rem;
     }
   }
+
+  .work-ticker {
+    @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+      margin-bottom: -4rem;
+    }
+  }
 `;
 
 export default GlobalStyles;

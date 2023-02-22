@@ -6,6 +6,7 @@ import { InnerWrap } from 'components/common/Containers/styled';
 
 import {
   Container,
+  Tag,
   Content,
   InfoWrap,
   Pages,
@@ -23,10 +24,10 @@ const Footer = () => {
   return (
     <Container>
       <InnerWrap>
-        <p style={{ marginBottom: '4rem', fontSize: '2rem' }}>
+        <Tag>
           We’re building things in Brixton. Come and say hello, the coffee's on
           us.
-        </p>
+        </Tag>
       </InnerWrap>
       <InnerWrap>
         <Content>

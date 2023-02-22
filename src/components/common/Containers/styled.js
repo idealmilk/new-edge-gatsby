@@ -7,6 +7,13 @@ export const InnerWrap = styled.div`
   margin: auto;
 `;
 
+export const InnerWrapWork = styled.div`
+  position: relative;
+  max-width: 1300px;
+  width: 100%;
+  margin: auto;
+`;
+
 export const InnerFlexWrap = styled.div`
   display: flex;
   justify-content: space-between;
