@@ -5,7 +5,7 @@ import PageVisibility from 'react-page-visibility';
 
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, SEO, Work } from 'components';
-import { InnerWrap } from 'components/common/Containers/styled';
+import { InnerWrapWork } from 'components/common/Containers/styled';
 
 const WorkPage = ({ data }) => {
   const { identity, development } = data;
@@ -22,26 +22,30 @@ const WorkPage = ({ data }) => {
       <PageHeader title='Work' />
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
-          <Ticker speed={5}>
-            {() => <h3 style={{ marginRight: '6rem' }}>Brand Identity</h3>}
-          </Ticker>
+          <div className='work-ticker'>
+            <Ticker speed={5}>
+              {() => <h3 style={{ marginRight: '6rem' }}>Brand Identity</h3>}
+            </Ticker>
+          </div>
         )}
       </PageVisibility>
 
-      <InnerWrap>
+      <InnerWrapWork>
         <Work {...identity} />
-      </InnerWrap>
+      </InnerWrapWork>
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
-          <Ticker speed={5}>
-            {() => <h3 style={{ marginRight: '6rem' }}>Brand Development</h3>}
-          </Ticker>
+          <div className='work-ticker'>
+            <Ticker speed={5}>
+              {() => <h3 style={{ marginRight: '6rem' }}>Brand Development</h3>}
+            </Ticker>
+          </div>
         )}
       </PageVisibility>
-      <InnerWrap>
+      <InnerWrapWork>
         <Work {...development} />
-      </InnerWrap>
+      </InnerWrapWork>
     </MainLayout>
   );
 };
