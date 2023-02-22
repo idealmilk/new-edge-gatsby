@@ -14,6 +14,10 @@ export const Member = styled.div`
   width: 30%;
   border: 1px solid black;
   border-radius: 1rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    width: 90%;
+    margin: 0 auto 4rem;
+  }
 `;
 
 export const MemberInner = styled.div`
@@ -26,6 +30,12 @@ export const MemberInner = styled.div`
   .staff-name {
     font-size: 2.6rem;
     margin-bottom: 2rem;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    .staff-name {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -42,5 +52,11 @@ export const Bio = styled.div`
   padding: 2rem;
   p {
     font-size: 1.8rem;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    padding: 1rem;
+    p {
+      font-size: 1.4rem;
+    }
   }
 `;

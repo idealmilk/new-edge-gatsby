@@ -5,6 +5,9 @@ export const ServicesWrap = styled.div`
   width: 70%;
   justify-content: space-between;
   margin: 8rem auto 10rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    width: 100%;
+  }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
   }
@@ -14,6 +17,10 @@ export const Service = styled.div`
   width: 30%;
   border: 1px solid black;
   border-radius: 1rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    width: 60%;
+    margin: 0 auto 4rem;
+  }
 `;
 
 export const ServiceInner = styled.div`
@@ -35,24 +42,13 @@ export const ServiceInner = styled.div`
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    &:hover {
-      transform: none;
+    padding: 1rem;
+    p {
+      font-size: 2rem;
     }
-  }
-`;
 
-export const ImgWrap = styled.div`
-  position: relative;
-  width: 100%;
-  margin-bottom: 1.4rem;
-  img {
-    width: 100%;
-  }
-`;
-
-export const Bio = styled.div`
-  margin-top: 1rem;
-  p {
-    font-size: 1.8rem;
+    li {
+      font-size: 1.4rem;
+    }
   }
 `;

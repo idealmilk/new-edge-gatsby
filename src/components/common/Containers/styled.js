@@ -67,6 +67,23 @@ export const FeatureWrap = styled.div`
     div {
       width: 100%;
     }
+    .text {
+      width: 80%;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+      .text {
+        width: 90%;
+        h3 {
+          font-size: 1.8rem;
+        }
+        p {
+          font-size: 1.4rem;
+        }
+      }
+    }
   }
 `;
 
