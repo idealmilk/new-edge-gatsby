@@ -15,17 +15,15 @@ export const wrapPageElement = ({ element }) => (
   </>
 );
 
-module.exports = {
-  shouldUpdateScroll: function ({
-    routerProps: { location },
-    getSavedScrollPosition,
-  }) {
-    const currentPosition = getSavedScrollPosition(location);
-    if (currentPosition) {
-      window.scrollTo(...currentPosition);
-    } else {
-      window.scrollTo(0, 0);
-    }
-    return false;
-  },
+export const shouldUpdateScroll = ({
+  routerProps: { location },
+  getSavedScrollPosition,
+}) => {
+  const currentPosition = getSavedScrollPosition(location);
+  if (currentPosition) {
+    window.scrollTo(...currentPosition);
+  } else {
+    window.scrollTo(0, 0);
+  }
+  return false;
 };
