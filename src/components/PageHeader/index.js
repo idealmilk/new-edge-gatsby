@@ -4,11 +4,10 @@ import AboutPageHeader from 'assets/PageHeaders/about.gif';
 
 import { Container } from './styled';
 
-const PageHeaeder = ({ title }) => {
+const PageHeaeder = ({ title, gif }) => {
   return (
     <Container>
-      {/* <h1>{title}</h1> */}
-      <img src={AboutPageHeader} alt='' />
+      <img src={gif} alt={title} />
     </Container>
   );
 };

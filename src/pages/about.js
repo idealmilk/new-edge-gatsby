@@ -4,6 +4,7 @@ import Ticker from 'react-ticker';
 import PageVisibility from 'react-page-visibility';
 
 import MainLayout from 'layouts/MainLayout';
+import { AboutHeader } from 'assets/PageHeaders';
 import { PageHeader, RichText, SEO, Services, StaffMembers } from 'components';
 import { InnerWrap, FeatureWrap } from 'components/common/Containers/styled';
 
@@ -24,10 +25,10 @@ const AboutPage = ({ data }) => {
   };
 
   return (
-    <MainLayout cta={true}>
+    <MainLayout>
       <SEO title='About' />
       <InnerWrap>
-        <PageHeader title='About' />
+        <PageHeader title='About' gif={AboutHeader} />
 
         <FeatureWrap>
           <div className='text'>

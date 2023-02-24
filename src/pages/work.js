@@ -4,6 +4,7 @@ import Ticker from 'react-ticker';
 import PageVisibility from 'react-page-visibility';
 
 import MainLayout from 'layouts/MainLayout';
+import { WorkHeader } from 'assets/PageHeaders';
 import { PageHeader, SEO, Work } from 'components';
 import { InnerWrapWork } from 'components/common/Containers/styled';
 
@@ -19,7 +20,7 @@ const WorkPage = ({ data }) => {
   return (
     <MainLayout>
       <SEO title='Work' />
-      <PageHeader title='Work' />
+      <PageHeader title='Work' gif={WorkHeader} />
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
           <div className='work-ticker'>

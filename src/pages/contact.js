@@ -1,6 +1,7 @@
 import React from 'react';
 
 import MainLayout from 'layouts/MainLayout';
+import { ContactHeader } from 'assets/PageHeaders';
 import { PageHeader, SEO } from 'components';
 import { ContactForm } from 'components/common/Forms';
 import { BodyWrap } from 'components/common/Containers/styled';
@@ -9,7 +10,7 @@ const ContactPage = () => {
   return (
     <MainLayout>
       <SEO title='Contact' />
-      <PageHeader title='Contact Us' />
+      <PageHeader title='Contact' gif={ContactHeader} />
 
       <BodyWrap>
         <h3
