@@ -14,3 +14,16 @@ export const wrapPageElement = ({ element }) => (
     {element}
   </>
 );
+
+exports.shouldUpdateScroll = ({
+  routerProps: { location },
+  getSavedScrollPosition,
+}) => {
+  const currentPosition = getSavedScrollPosition(location);
+  if (currentPosition) {
+    window.scrollTo(...currentPosition);
+  } else {
+    window.scrollTo(0, 0);
+  }
+  return false;
+};
