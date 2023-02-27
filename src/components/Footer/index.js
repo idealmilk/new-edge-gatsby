@@ -76,7 +76,7 @@ const Footer = () => {
           </Pages>
         </Content>
         <SmallPrint>
-          <p>© NewEdge Studio 2022. All Rights Reserved</p>
+          <p>© NewEdge Studio 2023. All Rights Reserved</p>
         </SmallPrint>
       </InnerWrap>
     </Container>
