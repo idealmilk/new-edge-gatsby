@@ -12,6 +12,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allContentfulBlogPost {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `);
 
@@ -19,6 +26,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
     createPage({
       component: path.resolve('./src/templates/ClientProject/index.js'),
       path: `/work/${edge.node.slug}`,
+      context: {
+        slug: edge.node.slug,
+      },
+    });
+  });
+  res.data.allContentfulBlogPost.edges.forEach((edge) => {
+    createPage({
+      component: path.resolve('./src/templates/BlogPost/index.js'),
+      path: `/blog/${edge.node.slug}`,
       context: {
         slug: edge.node.slug,
       },
