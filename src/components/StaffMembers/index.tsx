@@ -21,7 +21,7 @@ const StaffMembers = ({ staffMembers }: Props) => {
               </ImgWrap>
               <Bio>
                 <p className='staff-name'>{member.name}</p>
-                <RichText body={member.bio} />
+                <RichText {...member} />
               </Bio>
             </MemberInner>
           </Member>

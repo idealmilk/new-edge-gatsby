@@ -28,7 +28,7 @@ const BlogPostTemplate = ({ data }: Props) => {
         <p>March 9, 2023</p>
         <OuterTextWrap>
           <TextWrap>
-            <RichText document={body} />
+            <RichText {...body} />
           </TextWrap>
         </OuterTextWrap>
       </InnerWrap>

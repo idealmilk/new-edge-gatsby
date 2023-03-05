@@ -48,7 +48,7 @@ NewEdge is the Brand & Design studio that takes founders, entrepreneurs, start-u
 
         <FeatureWrap>
           <div className='text'>
-            <RichText document={body} />
+            <RichText {...body} />
           </div>
           {/* <div className='img'></div> */}
         </FeatureWrap>
