@@ -13,10 +13,10 @@ import { About, StaffMember, Service } from 'types/types';
 type GraphQLResult = {
   contentfulAboutPage: About;
   allContentfulStaffMember: {
-    nodes: StaffMember[];
+    edges: StaffMember[];
   };
   allContentfulService: {
-    nodes: Service[];
+    edges: Service[];
   };
 };
 
@@ -63,7 +63,7 @@ NewEdge is the Brand & Design studio that takes founders, entrepreneurs, start-u
       </PageVisibility>
 
       <InnerWrap>
-        <StaffMembers staffMembers={allContentfulStaffMember.nodes} />
+        <StaffMembers staffMembers={allContentfulStaffMember.edges} />
         <p
           style={{
             margin: '8rem auto 16rem',
@@ -86,7 +86,7 @@ NewEdge is the Brand & Design studio that takes founders, entrepreneurs, start-u
       </PageVisibility>
 
       <InnerWrap>
-        <Services services={allContentfulService.nodes} />
+        <Services services={allContentfulService.edges} />
       </InnerWrap>
     </MainLayout>
   );

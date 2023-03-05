@@ -60,16 +60,20 @@ export type Testimonial = {
 };
 
 export type Service = {
-  title: string;
-  features: string[];
+  node: {
+    title: string;
+    features: string[];
+  };
 };
 
 export type StaffMember = {
-  name: string;
-  bio: Document;
-  headshot: {
-    file: {
-      url: string;
+  node: {
+    name: string;
+    bio: Document;
+    headshot: {
+      file: {
+        url: string;
+      };
     };
   };
 };

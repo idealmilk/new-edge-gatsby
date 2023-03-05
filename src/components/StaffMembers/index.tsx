@@ -10,18 +10,22 @@ type Props = {
 };
 
 const StaffMembers = ({ staffMembers }: Props) => {
+  console.log(staffMembers.reverse());
   return (
     <StaffWrap>
-      {staffMembers.reverse().map((member, index) => {
+      {staffMembers.map((member, index) => {
         return (
           <Member key={index}>
             <MemberInner>
               <ImgWrap>
-                <img src={member.headshot.file.url} alt={member.name} />
+                <img
+                  src={member.node.headshot.file.url}
+                  alt={member.node.name}
+                />
               </ImgWrap>
               <Bio>
-                <p className='staff-name'>{member.name}</p>
-                <RichText {...member} />
+                <p className='staff-name'>{member.node.name}</p>
+                <RichText {...member.node.bio} />
               </Bio>
             </MemberInner>
           </Member>
