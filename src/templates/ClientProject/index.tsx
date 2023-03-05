@@ -418,7 +418,7 @@ const ClientProjectTemplate = ({ data }: PageProps<GraphQLResult>) => {
           style={{ width: '100%', textAlign: 'center', margin: '8rem 0 0 0' }}
         >
           <Link to='/contact'>
-            <Button>Come get us</Button>
+            <Button>Get in touch</Button>
           </Link>
         </div>
       </InnerWrap>
