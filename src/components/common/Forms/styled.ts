@@ -19,7 +19,7 @@ export const InputWrap = styled.div`
 
 export const InputColumn = styled.div`
   width: 100%;
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     display: block;
   }
 `;
@@ -41,7 +41,7 @@ export const InputContainer = styled.div`
     border-radius: 4rem;
     border: 1px solid black;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     width: 100%;
   }
 `;
@@ -58,7 +58,7 @@ export const TextAreaContainer = styled.div`
     border-radius: 2rem;
     border: 1px solid black;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     width: 100%;
   }
 `;
@@ -76,21 +76,5 @@ export const Form = styled.form`
     background: transparent;
     display: block;
     border-radius: 0;
-  }
-`;
-
-export const Button = styled.button`
-  width: 32rem;
-  font-size: 1.6rem;
-  border-radius: 40px;
-  background-color: ${(props) => props.theme.colors.orange};
-  color: white;
-  border: 0;
-  text-align: center;
-  cursor: pointer;
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    width: auto;
-    padding: 1.4rem 3rem;
-    margin-top: 1rem;
   }
 `;

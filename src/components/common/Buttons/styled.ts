@@ -8,7 +8,7 @@ export const Container = styled.button`
   background: none;
   border: 0;
   box-shadow: inset 0 0 0 2px #f45e61;
-  font-size: inherit;
+  font-size: 1.6rem;
   vertical-align: middle;
   width: 8em;
   height: 8em;

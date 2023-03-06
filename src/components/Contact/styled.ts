@@ -6,6 +6,12 @@ export const Container = styled.footer`
   display: flex;
   justify-content: space-between;
   margin: 0 auto 10rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    width: 60%;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    width: 90%;
+  }
 `;
 
 export const ItemWrap = styled.div`
@@ -26,4 +32,5 @@ export const ItemWrap = styled.div`
     width: 4rem;
     color: black;
   }
+ 
 `;

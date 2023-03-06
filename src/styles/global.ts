@@ -388,6 +388,10 @@ const GlobalStyles = styled.createGlobalStyle`
     }
   }
 
+  .hide {
+    top: -7rem !important;
+  }
+
   .work-ticker {
     @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
       margin-bottom: -4rem;

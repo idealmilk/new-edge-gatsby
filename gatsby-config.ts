@@ -42,6 +42,7 @@ const config: GatsbyConfig = {
       options: {
         assets: path.join(__dirname, 'src/assets'),
         components: path.join(__dirname, 'src/components'),
+        hooks: path.join(__dirname, 'src/hooks'),
         layouts: path.join(__dirname, 'src/layouts'),
         pages: path.join(__dirname, 'src/pages'),
         styles: path.join(__dirname, 'src/styles'),

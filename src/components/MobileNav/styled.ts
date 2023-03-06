@@ -2,10 +2,10 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const NavbarContainer = styled.div`
+  position: fixed;
   display: none;
   width: 100%;
   height: 70px;
-  position: fixed;
   top: 0;
   flex-direction: row-reverse;
   align-items: center;
@@ -13,13 +13,16 @@ export const NavbarContainer = styled.div`
   z-index: 1000;
   background-color: white;
   border-bottom: 1px #eeeeee solid;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 500ms;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
   }
 `;
 
 export const NavbarLogo = styled.div`
-  width: 140px;
+  width: 8rem;
   position: absolute;
   top: 50%;
   left: 0;
@@ -38,7 +41,7 @@ export const HamburgerMenuContainer = styled.div`
 `;
 
 export const LogoContainer = styled.div`
-  width: 140px;
+  width: 8rem;
   margin: 10px 0 0 17px;
 `;
 

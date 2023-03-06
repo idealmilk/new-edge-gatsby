@@ -13,9 +13,7 @@ export const Container = styled.header<ContainerProps>`
   width: 100%;
   height: 9rem;
   border-bottom: ${(props) =>
-    props.active
-      ? `1px solid ${props.theme.colors.sand} !important`
-      : '0px solid transparent'};
+    props.active ? `1px solid black !important` : '0px solid transparent'};
   transition: background-color 0.3s ease-out, border-bottom 0.2s ease-out;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: none;

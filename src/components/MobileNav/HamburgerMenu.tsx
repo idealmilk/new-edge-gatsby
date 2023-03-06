@@ -10,7 +10,6 @@ import {
   HamburgerMenuContainer,
   LogoContainer,
   MenuContainer,
-  BottomContainer,
   ContentContainer,
 } from './styled';
 
