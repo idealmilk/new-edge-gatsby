@@ -12,6 +12,7 @@ export const InnerWrap = styled.div`
   p {
     font-family: 'Grafier';
     text-align: center;
+    text-align: center;
     font-size: 1.6rem;
   }
 `;
@@ -32,5 +33,6 @@ export const TextWrap = styled.div`
 
   p {
     margin-bottom: 2rem;
+    text-align: left;
   }
 `;

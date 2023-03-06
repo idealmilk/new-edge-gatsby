@@ -5,7 +5,7 @@ export const Container = styled.footer`
   width: 35%;
   display: flex;
   justify-content: space-between;
-  margin: 6rem auto 10rem;
+  margin: 0 auto 10rem;
 `;
 
 export const ItemWrap = styled.div`

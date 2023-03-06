@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   position: relative;
   margin: -4rem 0 -4rem;
-  height: 50vh;
+  height: 40vh;
   mask-image: linear-gradient(to bottom, black 60%, transparent 90%);
   -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 90%);
   img {
