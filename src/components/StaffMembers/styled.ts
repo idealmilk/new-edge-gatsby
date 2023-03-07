@@ -6,6 +6,13 @@ export const StaffWrap = styled.div`
   justify-content: space-between;
   margin: 8rem auto 10rem;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: none;
+  }
+`;
+
+export const MobileStaffWrap = styled.div`
+  display: none;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
   }
 `;
@@ -15,8 +22,8 @@ export const Member = styled.div`
   border: 1px solid black;
   border-radius: 1rem;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    width: 90%;
-    margin: 0 auto 4rem;
+    width: 90% !important;
+    margin: 0 6% 2rem 4%;
   }
 `;
 

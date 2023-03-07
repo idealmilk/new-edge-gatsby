@@ -62,18 +62,16 @@ NewEdge is the Brand & Design studio that takes founders, entrepreneurs, start-u
         )}
       </PageVisibility>
 
-      <InnerWrap>
-        <StaffMembers staffMembers={allContentfulStaffMember.edges} />
-        <p
-          style={{
-            margin: '8rem auto 16rem',
-            width: '50%',
-            textAlign: 'center',
-          }}
-        >
-          {teamSectionText}
-        </p>
-      </InnerWrap>
+      <StaffMembers staffMembers={allContentfulStaffMember.edges} />
+      <p
+        style={{
+          margin: '8rem auto 16rem',
+          width: '50%',
+          textAlign: 'center',
+        }}
+      >
+        {teamSectionText}
+      </p>
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
@@ -102,7 +100,7 @@ export const query = graphql`
       teamSectionText
       serviceSectionTitle
     }
-    allContentfulStaffMember(sort: { name: DESC }) {
+    allContentfulStaffMember(sort: { name: ASC }) {
       edges {
         node {
           name
