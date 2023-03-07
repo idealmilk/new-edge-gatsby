@@ -138,6 +138,12 @@ export const BodyWrap = styled.div`
 
 export const CenterWrap = styled.div`
   width: 100%;
-  margin: -10rem 0 8rem;
+  margin: -10rem 0 6rem;
   text-align: center;
+  a {
+    margin: 0 auto;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    margin: -2rem 0 6rem;
+  }
 `;

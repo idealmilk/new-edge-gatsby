@@ -24,6 +24,19 @@ const Testimonials = ({ testimonials }: Props) => {
     verticalSwiping: true,
     pauseOnHover: false,
     beforeChange: (current: number, next: number) => setImageIndex(next),
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          autoplay: false,
+          infinite: false,
+          dots: true,
+          vertical: false,
+          centerPadding: '0px',
+        },
+      },
+    ],
   };
 
   return (

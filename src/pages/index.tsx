@@ -51,7 +51,7 @@ const HomePage = ({ data }: PageProps<GraphQLResult>) => {
         <Work projects={projects.edges} />
 
         <CenterWrap>
-          <Link to='/work' style={{ margin: '0 auto' }}>
+          <Link to='/work'>
             <Button>View all...</Button>
           </Link>
         </CenterWrap>
@@ -67,9 +67,7 @@ const HomePage = ({ data }: PageProps<GraphQLResult>) => {
         )}
       </PageVisibility>
 
-      <InnerWrap>
-        <Testimonials testimonials={testimonials.edges} />
-      </InnerWrap>
+      <Testimonials testimonials={testimonials.edges} />
     </HomeLayout>
   );
 };

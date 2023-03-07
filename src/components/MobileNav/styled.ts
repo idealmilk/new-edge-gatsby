@@ -11,27 +11,12 @@ export const NavbarContainer = styled.div`
   align-items: center;
   padding: 0 1.5em;
   z-index: 1000;
-  background-color: white;
-  border-bottom: 1px #eeeeee solid;
+  background-color: transparent;
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 500ms;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
-  }
-`;
-
-export const NavbarLogo = styled.div`
-  width: 8rem;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-left: 20px;
-  transform: translateY(-50%);
-  img {
-    display: block;
-    width: 100%;
-    margin: 0;
   }
 `;
 
@@ -49,7 +34,7 @@ export const MenuContainer = styled(motion.div)`
   min-width: 300px;
   width: 104%;
   height: 100%;
-  background-color: white;
+  background: #9fdaea;
   z-index: 90;
   position: fixed;
   top: 0;
@@ -91,7 +76,7 @@ export const NavList = styled.ul`
 export const NavLink = styled(motion.li)`
   display: flex;
   align-items: center;
-  border-bottom: 1px #e6e6e6 solid;
+  border-bottom: 1px black solid;
   cursor: pointer;
   padding: 20px 0 19px;
   a {
@@ -104,12 +89,15 @@ export const Button = styled.div`
   z-index: 99;
   cursor: pointer;
   position: absolute;
-  right: 0;
-  margin: 15px 28px 0 0;
-  padding: 10px 10px 5px;
-  border-radius: 5px;
+  top: 1.5rem;
+  right: 1.5rem;
+
+  padding: 14px 14px 7px;
+  border-radius: 50%;
   opacity: 1;
   transition: all 0.2s ease-in-out;
+  background: #9fdaea;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.3);
   svg {
     background: transparent;
   }

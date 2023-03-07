@@ -37,6 +37,29 @@ export const Container = styled.div`
     background: white;
     z-index: 10;
   }
+
+  .slick-dots {
+    bottom: -35px;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    margin-top: 6rem;
+    height: 32rem !important;
+    mask-image: none;
+    -webkit-mask-image: none;
+    .slide {
+      width: 90% !important;
+      margin: 0 6% 2rem 4%;
+    }
+    .slick-slide {
+      height: 104%;
+    }
+    .activeSlide,
+    .slide {
+      transform: revert !important;
+      height: auto;
+    }
+  }
 `;
 
 export const InnerWrap = styled.div``;
@@ -71,6 +94,11 @@ export const CardInner = styled.div<CardInnerProps>`
   max-height: ${(props) => (props.solo ? 'auto' : '20rem !important')};
   background: white;
   transform: ${(props) => (props.solo ? 'translate(1rem, 1rem)' : 'none')};
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    min-height: unset !important;
+    max-height: unset !important;
+    transform: revert !important;
+  }
 `;
 
 export const Staff = styled.div`
