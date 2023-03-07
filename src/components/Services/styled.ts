@@ -10,6 +10,7 @@ export const ServicesWrap = styled.div`
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
+    margin: 6rem auto;
   }
 `;
 
@@ -18,7 +19,7 @@ export const ServiceWrap = styled.div`
   border: 1px solid black;
   border-radius: 1rem;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    width: 60%;
+    width: 80%;
     margin: 0 auto 4rem;
   }
 `;
