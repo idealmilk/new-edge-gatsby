@@ -5,6 +5,7 @@ export const NavbarContainer = styled.div`
   position: fixed;
   display: none;
   width: 100%;
+  max-width: 100vw;
   height: 70px;
   top: 0;
   flex-direction: row-reverse;
@@ -91,8 +92,9 @@ export const Button = styled.div`
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-
-  padding: 14px 14px 7px;
+  max-height: 5.1rem;
+  max-width: 5.1rem;
+  padding: 16px 14px 6px 14px;
   border-radius: 50%;
   opacity: 1;
   transition: all 0.2s ease-in-out;
