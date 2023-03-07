@@ -7,7 +7,11 @@ import type { PageProps } from 'gatsby';
 import MainLayout from 'layouts/MainLayout';
 import AboutHeader from 'assets/PageHeaders/about.gif';
 import { PageHeader, RichText, SEO, Services, StaffMembers } from 'components';
-import { InnerWrap, FeatureWrap } from 'components/common/Containers/styled';
+import {
+  InnerWrap,
+  FeatureWrap,
+  TextWrap,
+} from 'components/common/Containers/styled';
 import { About, StaffMember, Service } from 'types/types';
 
 type GraphQLResult = {
@@ -63,15 +67,10 @@ NewEdge is the Brand & Design studio that takes founders, entrepreneurs, start-u
       </PageVisibility>
 
       <StaffMembers staffMembers={allContentfulStaffMember.edges} />
-      <p
-        style={{
-          margin: '8rem auto 16rem',
-          width: '50%',
-          textAlign: 'center',
-        }}
-      >
-        {teamSectionText}
-      </p>
+
+      <TextWrap>
+        <p className='team-section-text'>{teamSectionText}</p>
+      </TextWrap>
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (

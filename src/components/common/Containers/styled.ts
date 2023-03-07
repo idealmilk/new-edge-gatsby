@@ -35,6 +35,16 @@ export const TextWrap = styled.div`
   h2 {
     margin-bottom: 2rem;
   }
+  .team-section-text {
+    margin: 8rem auto 16rem;
+    width: 80%;
+    text-align: center;
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+      font-size: 1.4rem;
+      width: 100%;
+      margin: 8rem auto 6rem;
+    }
+  }
 `;
 
 export const FeatureWrap = styled.div`
@@ -72,16 +82,16 @@ export const FeatureWrap = styled.div`
       margin: 0 auto;
       text-align: center;
     }
+  }
 
-    @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-      .text {
-        width: 90%;
-        h3 {
-          font-size: 1.8rem;
-        }
-        p {
-          font-size: 1.4rem;
-        }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    .text {
+      width: 90%;
+      h3 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1.4rem;
       }
     }
   }
