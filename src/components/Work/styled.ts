@@ -48,7 +48,7 @@ export const ImgWrap = styled.div`
     }
   }
   @media (max-width: ${(props) =>
-    props.theme.breakpoints.laptop} and (hover:none)) {
+      props.theme.breakpoints.laptop} and (hover:none)) {
     &:hover {
       .gatsby-image-wrapper {
         transform: scale(1);
@@ -56,7 +56,45 @@ export const ImgWrap = styled.div`
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-  
     height: 30rem;
-   
+  }
+`;
+
+export const ResponsiveMasonry = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: stretch;
+  box-sizing: border-box;
+  width: 100%;
+  gap: 0;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: none;
+  }
+`;
+
+export const MasonryLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: stretch;
+  flex: 1;
+  width: 0;
+  gap: 0;
+`;
+
+export const MasonryRight = styled.div`
+  display: flex;
+  flex-direction: column;
+  place-content: stretch flex-start;
+  flex: 1 1 0%;
+  width: 0px;
+  gap: 0px;
+`;
+
+export const MobileList = styled.div`
+  display: none;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: block;
+  }
 `;
