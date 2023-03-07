@@ -56,28 +56,28 @@ const GlobalStyles = styled.createGlobalStyle`
 
   h1 {
     font-size: 7rem;
-    @media (max-width: 950px) {
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
       font-size: 4rem;
     }
   }
 
   h2 {
     font-size: 4.6rem;
-    @media (max-width: 950px) {
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
       font-size: 3rem;
     }
   }
 
   h3 {
     font-size: 3rem;
-    @media (max-width: 950px) {
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
       font-size: 2rem;
     }
   }
 
   h4 {
-    font-size: 2.8rem;
-    @media (max-width: 950px) {
+    font-size: 2.4rem;
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
       font-size: 1.8rem;
     }
   }
@@ -92,10 +92,16 @@ const GlobalStyles = styled.createGlobalStyle`
   p,
   i,
   a,
-  b {
+  b,
+  li,
+  button {
     color: black;
     font-size: 1.8rem;
-    line-height: 1.7;
+    line-height: 1.8;
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+      line-height: 1.8;
+      font-size: 1.6rem;
+    }
   }
 
   i {
@@ -114,6 +120,11 @@ const GlobalStyles = styled.createGlobalStyle`
     color: black;
     cursor: pointer;
     text-decoration: none;
+  }
+
+  ol,
+  ul {
+    list-style: none;
   }
 
   li {
@@ -160,21 +171,6 @@ const GlobalStyles = styled.createGlobalStyle`
 
   tspan {
     font-size: 4rem;
-  }
-
-  .drop-shadow {
-    box-shadow: 12px 12px 0px 2px rgba(72, 102, 130, 1);
-  }
-
-  img.badge {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 10000;
-    pointer-events: none;
-    @media (max-width: 1300px) {
-      width: 120px;
-    }
   }
 
   hr {
@@ -274,11 +270,6 @@ const GlobalStyles = styled.createGlobalStyle`
 
   body {
     line-height: 1;
-  }
-
-  ol,
-  ul {
-    list-style: none;
   }
 
   blockquote,

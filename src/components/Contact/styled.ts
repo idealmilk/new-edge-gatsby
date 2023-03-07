@@ -17,9 +17,6 @@ export const Container = styled.footer`
 export const ItemWrap = styled.div`
   width: 45%;
   text-align: center;
-  p {
-    font-size: 1.6rem;
-  }
   button {
     height: 10rem;
     width: 10rem;

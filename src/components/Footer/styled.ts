@@ -5,14 +5,8 @@ export const Container = styled.footer`
   width: 100%;
   margin-top: 4rem;
   padding-top: 6rem;
-`;
-
-export const Tag = styled.div`
-  margin-bottom: 4rem;
-  font-size: 2rem;
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+  h4 {
     margin-bottom: 2rem;
-    font-size: 1.6rem;
   }
 `;
 

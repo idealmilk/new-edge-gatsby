@@ -8,7 +8,6 @@ export const Container = styled.button`
   background: none;
   border: 0;
   box-shadow: inset 0 0 0 2px #f45e61;
-  font-size: 1.6rem;
   vertical-align: middle;
   width: 8em;
   height: 8em;
@@ -61,7 +60,8 @@ export const Container = styled.button`
       transform: rotate(315deg);
     }
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+  @media (max-width: ${(props) =>
+      props.theme.breakpoints.tabletPor}) and (hover: none) {
     border: 1px solid black;
 
     &:hover {

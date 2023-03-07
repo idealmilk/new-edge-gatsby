@@ -40,7 +40,6 @@ export const TextWrap = styled.div`
     width: 80%;
     text-align: center;
     @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-      font-size: 1.4rem;
       width: 100%;
       margin: 8rem auto 6rem;
     }
@@ -87,12 +86,6 @@ export const FeatureWrap = styled.div`
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     .text {
       width: 90%;
-      h3 {
-        font-size: 1.8rem;
-      }
-      p {
-        font-size: 1.4rem;
-      }
     }
   }
 `;

@@ -5,7 +5,6 @@ import { InnerWrap } from 'components/common/Containers/styled';
 
 import {
   Container,
-  Tag,
   Content,
   InfoWrap,
   Pages,
@@ -19,10 +18,10 @@ const Footer = () => {
   return (
     <Container>
       <InnerWrap>
-        <Tag>
+        <h4>
           We’re building things in Brixton. Come and say hello, the coffee's on
           us.
-        </Tag>
+        </h4>
       </InnerWrap>
       <InnerWrap>
         <Content>
@@ -42,28 +41,32 @@ const Footer = () => {
           <Pages>
             <PagesWrap>
               <PageList>
-                <PageItem style={{ marginBottom: '2rem' }}>Site Map</PageItem>
+                <PageItem style={{ marginBottom: '2rem' }} key={0}>
+                  Site Map
+                </PageItem>
 
-                <PageItem>
+                <PageItem key={1}>
                   <Link to='/work'>Work</Link>
                 </PageItem>
-                <PageItem>
+                <PageItem key={2}>
                   <Link to='/about'>About</Link>
                 </PageItem>
-                <PageItem>
+                <PageItem key={3}>
                   <Link to='/contact'>Contact</Link>
                 </PageItem>
               </PageList>
 
               <PageList>
-                <PageItem style={{ marginBottom: '2rem' }}>Legal</PageItem>
-                <PageItem>
+                <PageItem style={{ marginBottom: '2rem' }} key={0}>
+                  Legal
+                </PageItem>
+                <PageItem key={1}>
                   <Link to='/privacy-policy'>Privacy Policy</Link>
                 </PageItem>
-                <PageItem>
+                <PageItem key={2}>
                   <Link to='/terms-and-conditions'>Terms & Conditions</Link>
                 </PageItem>
-                <PageItem>
+                <PageItem key={3}>
                   <Link to='/cookie-policy'>Cookie Policy</Link>
                 </PageItem>
               </PageList>

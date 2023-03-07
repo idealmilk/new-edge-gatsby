@@ -34,15 +34,8 @@ export const MemberInner = styled.div`
   background: white;
   transform: translate(1rem, 1rem);
   overflow: hidden;
-  .staff-name {
-    font-size: 2.6rem;
-    margin-bottom: 2rem;
-  }
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    .staff-name {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
+  h3 {
+    margin: 1rem 0;
   }
 `;
 
@@ -57,13 +50,8 @@ export const ImgWrap = styled.div`
 
 export const Bio = styled.div`
   padding: 2rem;
-  p {
-    font-size: 1.8rem;
-  }
+
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     padding: 1rem;
-    p {
-      font-size: 1.4rem;
-    }
   }
 `;

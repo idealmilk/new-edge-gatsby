@@ -44,7 +44,7 @@ const StaffMembers = ({ staffMembers }: Props) => {
                     />
                   </ImgWrap>
                   <Bio>
-                    <p className='staff-name'>{member.node.name}</p>
+                    <h3>{member.node.name}</h3>
                     <RichText {...member.node.bio} />
                   </Bio>
                 </MemberInner>
@@ -67,7 +67,7 @@ const StaffMembers = ({ staffMembers }: Props) => {
                     />
                   </ImgWrap>
                   <Bio>
-                    <p className='staff-name'>{member.node.name}</p>
+                    <h3>{member.node.name}</h3>
                     <RichText {...member.node.bio} />
                   </Bio>
                 </MemberInner>

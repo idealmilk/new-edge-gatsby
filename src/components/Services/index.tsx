@@ -15,7 +15,7 @@ const Services = ({ services }: Props) => {
         return (
           <ServiceWrap>
             <ServiceInner key={index}>
-              <p>{service.node.title}</p>
+              <h3>{service.node.title}</h3>
               <ul>
                 {service.node.features.map((feature, index) => (
                   <li key={index}>{feature}</li>
