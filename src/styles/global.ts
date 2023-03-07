@@ -335,6 +335,12 @@ const GlobalStyles = styled.createGlobalStyle`
       opacity: 1;
       cursor: pointer;
     }
+    @media (max-width: ${(props) =>
+        props.theme.breakpoints.laptop}) and (hover: none) {
+      &:hover {
+        opacity: 0.4;
+      }
+    }
   }
 
   .landscape-carousel-next {
@@ -385,7 +391,7 @@ const GlobalStyles = styled.createGlobalStyle`
 
   .work-ticker {
     @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-      margin-bottom: -4rem;
+      margin: -5rem 0 -4rem;
     }
   }
 `;

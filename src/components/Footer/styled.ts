@@ -77,6 +77,12 @@ export const PageItem = styled.li`
     &:hover {
       opacity: 0.8;
     }
+    @media (max-width: ${(props) =>
+        props.theme.breakpoints.laptop}) and (hover: none) {
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 `;
 

@@ -1,5 +1,12 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  margin: 0 auto 8rem auto;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    margin: 0 auto;
+  }
+`;
+
 export const BlogCard = styled.div`
   position: relative;
   margin: 0 4rem 6.4rem;
@@ -32,6 +39,7 @@ export const ImgWrap = styled.div`
     height: 100%;
     width: 100%;
     object-fit: cover;
+    transform: scale(1);
     transition: transform 0.4s ease-in-out;
   }
   &:hover {
@@ -39,10 +47,11 @@ export const ImgWrap = styled.div`
       transform: scale(1.1);
     }
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+  @media (max-width: ${(props) =>
+    props.theme.breakpoints.laptop} and (hover:none)) {
     &:hover {
       .gatsby-image-wrapper {
-        transform: none;
+        transform: scale(1);
       }
     }
   }

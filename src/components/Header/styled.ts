@@ -32,7 +32,12 @@ export const NavList = styled.nav`
       font-size: 2.2rem;
       &:hover {
         font-family: 'Grafier';
-        /* transform: scale(1.07); */
+      }
+      @media (max-width: ${(props) =>
+          props.theme.breakpoints.laptop}) and (hover: none) {
+        &:hover {
+          font-family: 'Radio Grotesk';
+        }
       }
     }
     &:hover {
@@ -72,25 +77,26 @@ export const NavList = styled.nav`
         border-radius: 3rem;
         padding: 1rem 2.2rem;
         &:hover {
-        font-family: 'Grafier';
-        transform: none;
-      }
-    }
-        &:hover {
-          color: black;
           font-family: 'Grafier';
+          transform: none;
         }
       }
     }
-    a {
+    &:hover {
       color: black;
-      display: block;
-      padding: 0 7px 0 7px;
-      margin: 0 0 10px;
-      text-decoration: none;
-      position: relative;
+      font-family: 'Grafier';
     }
   }
+
+  a {
+    color: black;
+    display: block;
+    padding: 0 7px 0 7px;
+    margin: 0 0 10px;
+    text-decoration: none;
+    position: relative;
+  }
+
   img {
     width: 2rem;
   }

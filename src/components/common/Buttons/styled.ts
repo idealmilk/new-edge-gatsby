@@ -61,7 +61,7 @@ export const Container = styled.button`
     }
   }
   @media (max-width: ${(props) =>
-      props.theme.breakpoints.tabletPor}) and (hover: none) {
+      props.theme.breakpoints.laptop}) and (hover: none) {
     border: 1px solid black;
 
     &:hover {
