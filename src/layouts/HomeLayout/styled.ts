@@ -43,8 +43,13 @@ export const HeroOverlay = styled.div`
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    top: 48vh;
     img {
       display: block;
+    }
+    h2,
+    h2 span {
+      font-size: 2.2rem;
     }
   }
 `;

@@ -20,8 +20,8 @@ export const BlogCard = styled.div`
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin: 2rem;
-    width: 100%;
+    margin: 1.2rem auto;
+    width: calc(100% - 2.4rem);
     height: 22rem;
     &:last-of-type {
       margin-bottom: 5rem;
