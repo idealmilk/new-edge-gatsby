@@ -43,8 +43,7 @@ const Hero = () => {
         <ContentWrap>
           <h1>Edge</h1>
           <p>
-            From idea to identity, we let the brand do the talking. Maybe you
-            should too.
+            Taking you from idea to identity. Let your brand do the talking.
           </p>
         </ContentWrap>
       </InnerWrapStyled>

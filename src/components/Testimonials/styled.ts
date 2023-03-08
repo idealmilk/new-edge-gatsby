@@ -2,8 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 52rem !important;
-  width: 100%;
-  margin: 0 auto;
+  position: relative;
+  max-width: 1300px;
+  width: 90%;
+  margin: auto;
   overflow: hidden;
   mask-image: linear-gradient(
     to bottom,
@@ -43,6 +45,9 @@ export const Container = styled.div`
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    position: relative;
+
+    width: 100%;
     margin-top: 6rem;
     height: 32rem !important;
     mask-image: none;

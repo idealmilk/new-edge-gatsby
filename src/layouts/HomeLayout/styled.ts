@@ -19,6 +19,11 @@ export const HeroOverlay = styled.div`
   max-width: 90%;
   text-align: center;
   z-index: 1;
+  img {
+    display: none;
+    width: 12rem;
+    margin: 0 auto 2rem;
+  }
   h2 {
     pointer-events: none;
     span {
@@ -35,6 +40,11 @@ export const HeroOverlay = styled.div`
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     h2 {
       line-height: 1.6;
+    }
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    img {
+      display: block;
     }
   }
 `;

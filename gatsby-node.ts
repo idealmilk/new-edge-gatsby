@@ -16,6 +16,13 @@ type TypeData = {
       };
     }[];
   };
+  allContentfulLegalDoc: {
+    edges: {
+      node: {
+        slug: string;
+      };
+    }[];
+  };
 };
 
 export const createPages: GatsbyNode['createPages'] = async ({
@@ -41,6 +48,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
           }
         }
       }
+      allContentfulLegalDoc {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `);
 
@@ -54,6 +68,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
 
   const projects = res.data?.allContentfulClientProject.edges;
   const blogPosts = res.data?.allContentfulBlogPost.edges;
+  const legalDocs = res.data?.allContentfulLegalDoc.edges;
 
   if (projects && projects.length > 0) {
     projects.forEach((edge) => {
@@ -72,6 +87,18 @@ export const createPages: GatsbyNode['createPages'] = async ({
       createPage({
         component: path.resolve('./src/templates/BlogPost/index.tsx'),
         path: `/blog/${edge.node.slug}`,
+        context: {
+          slug: edge.node.slug,
+        },
+      });
+    });
+  }
+
+  if (legalDocs && legalDocs.length > 0) {
+    legalDocs.forEach((edge) => {
+      createPage({
+        component: path.resolve('./src/templates/LegalDoc/index.tsx'),
+        path: `/${edge.node.slug}`,
         context: {
           slug: edge.node.slug,
         },

@@ -19,6 +19,7 @@ import {
   LandscapeWrap,
   SquareWrap,
   SquareTextWrap,
+  SquareTextWrapBrand,
   SpinnerWrap,
 } from './styled';
 
@@ -198,7 +199,7 @@ const ClientProjectTemplate = ({ data }: PageProps<GraphQLResult>) => {
           )}
 
         {sortedSquareImages !== null && sortedSquareImages.length > 0 && (
-          <SquareTextWrap>
+          <SquareTextWrapBrand>
             <div className='brand'>
               <h4>The Brand</h4>
               <RichText {...brandCopy} />
@@ -230,7 +231,7 @@ const ClientProjectTemplate = ({ data }: PageProps<GraphQLResult>) => {
                 />
               </video>
             )}
-          </SquareTextWrap>
+          </SquareTextWrapBrand>
         )}
 
         {category.includes('Identity') &&
@@ -253,67 +254,64 @@ const ClientProjectTemplate = ({ data }: PageProps<GraphQLResult>) => {
               })}
             </CustomSlider>
           )}
-        {category.includes('Identity') &&
-          sortedSquareImages !== null &&
-          sortedSquareImages.length > 0 && (
-            <SquareWrap>
-              {checkFormat(
-                sortedSquareImages[category.includes('Development') ? 1 : 3]
-                  .file.url
-              ) && (
-                <img
+
+        {sortedSquareImages !== null && sortedSquareImages.length > 0 && (
+          <SquareWrap>
+            {checkFormat(
+              sortedSquareImages[category.includes('Development') ? 1 : 3].file
+                .url
+            ) && (
+              <img
+                src={
+                  sortedSquareImages[category.includes('Development') ? 1 : 3]
+                    .file.url
+                }
+                alt=''
+              />
+            )}
+            {!checkFormat(
+              sortedSquareImages[category.includes('Development') ? 1 : 3].file
+                .url
+            ) && (
+              <video controls>
+                <source
                   src={
                     sortedSquareImages[category.includes('Development') ? 1 : 3]
                       .file.url
                   }
-                  alt=''
+                  type='video/mp4'
                 />
-              )}
-              {!checkFormat(
-                sortedSquareImages[category.includes('Development') ? 1 : 3]
-                  .file.url
-              ) && (
-                <video controls>
-                  <source
-                    src={
-                      sortedSquareImages[
-                        category.includes('Development') ? 1 : 3
-                      ].file.url
-                    }
-                    type='video/mp4'
-                  />
-                </video>
-              )}
+              </video>
+            )}
 
-              {checkFormat(
-                sortedSquareImages[category.includes('Development') ? 2 : 4]
-                  .file.url
-              ) && (
-                <img
+            {checkFormat(
+              sortedSquareImages[category.includes('Development') ? 2 : 4].file
+                .url
+            ) && (
+              <img
+                src={
+                  sortedSquareImages[category.includes('Development') ? 2 : 4]
+                    .file.url
+                }
+                alt=''
+              />
+            )}
+            {!checkFormat(
+              sortedSquareImages[category.includes('Development') ? 2 : 4].file
+                .url
+            ) && (
+              <video controls>
+                <source
                   src={
                     sortedSquareImages[category.includes('Development') ? 2 : 4]
                       .file.url
                   }
-                  alt=''
+                  type='video/mp4'
                 />
-              )}
-              {!checkFormat(
-                sortedSquareImages[category.includes('Development') ? 2 : 4]
-                  .file.url
-              ) && (
-                <video controls>
-                  <source
-                    src={
-                      sortedSquareImages[
-                        category.includes('Development') ? 2 : 4
-                      ].file.url
-                    }
-                    type='video/mp4'
-                  />
-                </video>
-              )}
-            </SquareWrap>
-          )}
+              </video>
+            )}
+          </SquareWrap>
+        )}
 
         {category.includes('Identity') &&
           sortedSquareImages !== null &&
@@ -369,40 +367,38 @@ const ClientProjectTemplate = ({ data }: PageProps<GraphQLResult>) => {
             </SquareWrap>
           )}
 
-        {category.includes('Identity') &&
-          sortedLandscapeImages !== null &&
-          sortedLandscapeImages.length > 0 && (
-            <LandscapeWrap>
-              {checkFormat(
-                sortedLandscapeImages[category.includes('Development') ? 0 : 1]
-                  .file.url
-              ) && (
-                <img
+        {sortedLandscapeImages !== null && sortedLandscapeImages.length > 0 && (
+          <LandscapeWrap>
+            {checkFormat(
+              sortedLandscapeImages[category.includes('Development') ? 0 : 1]
+                .file.url
+            ) && (
+              <img
+                src={
+                  sortedLandscapeImages[
+                    category.includes('Development') ? 0 : 1
+                  ].file.url
+                }
+                alt=''
+              />
+            )}
+            {!checkFormat(
+              sortedLandscapeImages[category.includes('Development') ? 0 : 1]
+                .file.url
+            ) && (
+              <video controls>
+                <source
                   src={
                     sortedLandscapeImages[
                       category.includes('Development') ? 0 : 1
                     ].file.url
                   }
-                  alt=''
+                  type='video/mp4'
                 />
-              )}
-              {!checkFormat(
-                sortedLandscapeImages[category.includes('Development') ? 0 : 1]
-                  .file.url
-              ) && (
-                <video controls>
-                  <source
-                    src={
-                      sortedLandscapeImages[
-                        category.includes('Development') ? 0 : 1
-                      ].file.url
-                    }
-                    type='video/mp4'
-                  />
-                </video>
-              )}
-            </LandscapeWrap>
-          )}
+              </video>
+            )}
+          </LandscapeWrap>
+        )}
 
         {testimonialText && testimonialStaffName && testimonialStaffRole && (
           <TestimonialCard

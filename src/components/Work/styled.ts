@@ -20,8 +20,9 @@ export const BlogCard = styled.div`
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin: 0;
-    height: 30rem;
+    margin: 2rem;
+    width: 100%;
+    height: 22rem;
     &:last-of-type {
       margin-bottom: 5rem;
     }
@@ -56,7 +57,7 @@ export const ImgWrap = styled.div`
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    height: 30rem;
+    height: 22rem;
   }
 `;
 

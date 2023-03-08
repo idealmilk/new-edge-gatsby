@@ -141,6 +141,16 @@ export const SquareTextWrap = styled.div`
   }
 `;
 
+export const SquareTextWrapBrand = styled(SquareTextWrap)`
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: block;
+    img {
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
+`;
+
 export const SpinnerWrap = styled.div`
   position: relative;
   width: 48%;

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const InnerWrap = styled.div`
-  width: 50%;
+  width: 80rem;
+  max-width: 90%;
   margin: 16rem auto 3rem;
   h1 {
     font-style: italic;
@@ -14,6 +15,9 @@ export const InnerWrap = styled.div`
     text-align: center;
     text-align: center;
     font-size: 1.6rem;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    transform: translateX(-1rem);
   }
 `;
 
@@ -34,5 +38,6 @@ export const TextWrap = styled.div`
   p {
     margin-bottom: 2rem;
     text-align: left;
+    font-family: 'Radio Grotesk';
   }
 `;

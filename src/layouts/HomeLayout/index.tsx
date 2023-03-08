@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Logo from 'assets/Logos/logo.png';
 import { Footer, Header, Hero, MobileNav } from 'components';
 
 import { Container, HeroOverlay, Content } from './styled';
@@ -12,9 +13,10 @@ const HomeLayout = ({ children }: Props) => {
   return (
     <Container>
       <HeroOverlay>
+        <img src={Logo} alt='' />
         <h2>
-          From idea to <span>identity</span>, we let the brand do the talking.
-          Maybe you should too.
+          Taking you from idea to <span>identity</span>.<br></br> Let your brand
+          do the talking.
         </h2>
       </HeroOverlay>
       <Hero />

@@ -66,9 +66,6 @@ const Footer = () => {
                 <PageItem key={2}>
                   <Link to='/terms-and-conditions'>Terms & Conditions</Link>
                 </PageItem>
-                <PageItem key={3}>
-                  <Link to='/cookie-policy'>Cookie Policy</Link>
-                </PageItem>
               </PageList>
             </PagesWrap>
           </Pages>
