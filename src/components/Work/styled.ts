@@ -20,14 +20,11 @@ export const BlogCard = styled.div`
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin: 1.2rem auto;
+    margin: 1.8rem auto;
     width: calc(100% - 2.4rem);
-    height: 22rem;
+    height: auto;
     &:last-of-type {
       margin-bottom: 5rem;
-    }
-    p {
-      display: none;
     }
   }
 `;
