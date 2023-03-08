@@ -49,6 +49,7 @@ export const Container = styled.div`
 
     width: 100%;
     margin-top: 6rem;
+
     height: 32rem !important;
     mask-image: none;
     -webkit-mask-image: none;
@@ -58,6 +59,7 @@ export const Container = styled.div`
     }
     .slick-slide {
       height: 104%;
+      margin-bottom: 3rem;
     }
     .activeSlide,
     .slide {
@@ -84,7 +86,13 @@ export const Card = styled.div`
   margin: 8rem auto 0;
   border: 1px solid black;
   border-radius: 1rem;
-  width: calc(70%);
+  width: 70%;
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    width: 80%;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    width: 100%;
+  }
 `;
 
 type CardInnerProps = {
@@ -102,7 +110,6 @@ export const CardInner = styled.div<CardInnerProps>`
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     min-height: unset !important;
     max-height: unset !important;
-    transform: revert !important;
   }
 `;
 
