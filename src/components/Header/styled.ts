@@ -42,7 +42,7 @@ export const NavList = styled.nav`
     }
     &:hover {
       .submenu {
-        height: 22rem;
+        height: 23rem;
       }
       a {
         color: black;
