@@ -1,10 +1,10 @@
 import React from 'react';
 
 import Logo from 'assets/Logos/logo.png';
+import { useScrollDirection } from 'hooks/useScrollDirection';
 
 import HamburgerMenu from './HamburgerMenu';
 import { NavbarContainer } from './styled';
-import { useScrollDirection } from 'hooks/useScrollDirection';
 
 const MobileNav = () => {
   const scrollDirection = useScrollDirection();
