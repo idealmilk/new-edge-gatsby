@@ -357,18 +357,22 @@ const GlobalStyles = styled.createGlobalStyle`
 
   #cookie-notification {
     border-radius: 14px;
-    a,
-    button {
-      font-size: 1.6rem !important;
-      color: ${(props) => props.theme.colors.orange} !important;
-    }
+    background: white;
+    border: 2px solid black;
     a {
-      color: ${(props) => props.theme.colors.orange} !important;
+      font-size: 1.6rem !important;
+      color: #fa78bb !important;
     }
+  }
+  .enzuzo-notification-buttons {
     button {
       background: ${(props) => props.theme.colors.orange} !important;
       color: white !important;
     }
+  }
+
+  #cookie-notification #notificationManagerLink {
+    color: #fa78bb !important;
   }
 
   .enzuzo-notification-desc {
