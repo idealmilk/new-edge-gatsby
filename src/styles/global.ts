@@ -366,7 +366,6 @@ const GlobalStyles = styled.createGlobalStyle`
   }
   .enzuzo-notification-buttons {
     button {
-      background: ${(props) => props.theme.colors.orange} !important;
       color: white !important;
     }
   }
