@@ -8,7 +8,7 @@ const config: GatsbyConfig = {
     titleTemplate: '',
     description: 'New Edge Studio',
     siteUrl: 'https://www.newedgestud.io',
-    image: '/imgs/logo.png',
+    image: '/homepage.png',
     linkedIn: 'https://www.linkedin.com/in/robinpowell/',
   },
   plugins: [
