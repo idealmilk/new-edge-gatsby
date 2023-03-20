@@ -58,7 +58,7 @@ export const NavList = styled.nav`
       text-align: right;
       margin-top: 2rem;
       right: 0;
-      width: 32rem;
+      width: 35rem;
       height: 0;
       line-height: 40px;
       box-sizing: border-box;
