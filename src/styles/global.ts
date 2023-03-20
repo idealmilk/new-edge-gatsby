@@ -351,17 +351,16 @@ const GlobalStyles = styled.createGlobalStyle`
     left: 3rem;
   }
 
-  .shadow-container {
-    visibility: hidden !important;
-  }
-
   #cookie-notification {
     border-radius: 14px;
     background: white;
     border: 2px solid black;
-    a {
+    padding: 0 2rem;
+    a,
+    #cookie-notification #notificationManagerLink,
+    button,
+    p {
       font-size: 1.6rem !important;
-      color: #fa78bb !important;
     }
   }
   .enzuzo-notification-buttons {
