@@ -8,19 +8,25 @@ export const Container = styled.div`
   margin: auto;
   overflow: hidden;
   mask-image: linear-gradient(
-    to bottom,
-    transparent 22%,
-    black 27%,
-    black 80%,
-    transparent 90%
+    180deg,
+    transparent 15%,
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 1) 60%,
+    transparent 85%
   );
   -webkit-mask-image: linear-gradient(
-    to bottom,
+    180deg,
     transparent 15%,
-    black 20%,
-    black 80%,
-    transparent 90%
+    rgba(0, 0, 0, 1) 40%,
+    rgba(0, 0, 0, 1) 60%,
+    transparent 85%
   );
+
+  .slick-slider,
+  .slick-list {
+    padding: 0;
+    height: 52rem !important;
+  }
 
   .slide {
     width: 90%;
