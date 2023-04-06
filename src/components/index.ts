@@ -1,3 +1,4 @@
+export { default as Blog } from './Blog';
 export { default as Contact } from './Contact';
 export { default as CustomSlider } from './Slider';
 export { default as Footer } from './Footer';
@@ -12,4 +13,5 @@ export { default as Services } from './Services';
 export { default as StaffMembers } from './StaffMembers';
 export { default as Testimonials } from './Testimonials';
 export { default as TestimonialCard } from './Testimonials/Card';
+export { default as Whiteout } from './Whiteout';
 export { default as Work } from './Work';

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const StaffWrap = styled.div`
@@ -17,7 +18,7 @@ export const MobileStaffWrap = styled.div`
   }
 `;
 
-export const Member = styled.div`
+export const Member = styled(motion.div)`
   width: 30%;
   border: 1px solid black;
   border-radius: 1rem;

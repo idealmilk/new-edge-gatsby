@@ -1,6 +1,6 @@
-import type { IGatsbyImageData } from 'gatsby-plugin-image';
+import type { IGatsbyImageData, ImageDataLike } from 'gatsby-plugin-image';
 
-export type ProjectSummary = {
+export type ProjectSummaryTypes = {
   node: {
     clientName: string;
     metaDescription: string;
@@ -11,7 +11,7 @@ export type ProjectSummary = {
   };
 };
 
-export type Project = {
+export type ProjectTypes = {
   clientName: string;
   metaDescription?: string;
   headerImage: {
@@ -50,7 +50,7 @@ export type Project = {
   interrogative?: string;
 };
 
-export type Testimonial = {
+export type TestimonialTypes = {
   node: {
     clientName: string;
     testimonialText: string;
@@ -59,14 +59,23 @@ export type Testimonial = {
   };
 };
 
-export type Service = {
+export type ServiceTypes = {
   node: {
     title: string;
     features: string[];
   };
 };
 
-export type StaffMember = {
+export type BlogTypes = {
+  node: {
+    title: string;
+    slug: string;
+    metaDescription: string;
+    coverImage: ImageDataLike | null;
+  };
+};
+
+export type StaffMemberTypes = {
   node: {
     name: string;
     bio: Document;
@@ -78,7 +87,7 @@ export type StaffMember = {
   };
 };
 
-export type About = {
+export type AboutTypes = {
   body: any;
   teamSectionTitle: string;
   teamSectionText: string;

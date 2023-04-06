@@ -2,15 +2,29 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin: 0 auto 8rem auto;
+display: flex:
+align-items: center;
+justify-content: center;
+margin: 8rem auto;
+
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin: 0 auto;
+    margin: 4rem auto;
   }
 `;
 
-export const WorkCard = styled.div`
+export const InnerWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% + 8rem);
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+    width: calc(100% + 4rem);
+  }
+`;
+
+export const BlogCard = styled(motion.div)`
   position: relative;
-  overflow: hidden;
+  flex-basis: calc(50% - 8rem);
   margin: 0 4rem 6.4rem;
 
   */ p {
@@ -44,6 +58,11 @@ export const WorkCard = styled.div`
     }
   }
 
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+    flex-basis: calc(50% - 4rem);
+    margin: 0 2rem 6.4rem;
+  }
+
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     margin: 0 2rem 6.4rem;
     p {
@@ -51,23 +70,22 @@ export const WorkCard = styled.div`
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin: 1.8rem auto;
-    width: calc(100% - 2.4rem);
+    margin: 1.8rem;
+    flex-basis: 100%;
     height: auto;
-    &:last-of-type {
-      margin-bottom: 5rem;
-    }
   }
 `;
 
 export const ImgWrap = styled.div`
   position: relative;
   width: 100%;
+  height: 40rem;
   overflow: hidden;
   .gatsby-image-wrapper {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    text-align: center;
     transform: scale(1);
     transition: transform 0.4s ease-in-out;
   }
@@ -75,6 +93,18 @@ export const ImgWrap = styled.div`
     .gatsby-image-wrapper {
       transform: scale(1.1);
     }
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.laptop}) {
+    height: 30rem;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+    height: 24rem;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    height: 14rem;
   }
 
   @media (max-width: ${(props) =>
@@ -87,44 +117,5 @@ export const ImgWrap = styled.div`
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     height: 22rem;
-  }
-`;
-
-export const ResponsiveMasonry = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: stretch;
-  box-sizing: border-box;
-  width: 100%;
-  gap: 0;
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    display: none;
-  }
-`;
-
-export const MasonryLeft = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: stretch;
-  flex: 1;
-  width: 0;
-  gap: 0;
-`;
-
-export const MasonryRight = styled(motion.div)`
-  display: flex;
-  flex-direction: column;
-  place-content: stretch flex-start;
-  flex: 1 1 0%;
-  width: 0px;
-  gap: 0px;
-`;
-
-export const MobileList = styled.div`
-  display: none;
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    display: block;
   }
 `;

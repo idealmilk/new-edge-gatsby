@@ -8,14 +8,14 @@ import WorkHeader from 'assets/PageHeaders/work.gif';
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, SEO, Work } from 'components';
 import { InnerWrapWork } from 'components/common/Containers/styled';
-import type { ProjectSummary } from 'types/types';
+import type { ProjectSummaryTypes } from 'types/types';
 
 type GraphQLResult = {
   identity: {
-    edges: ProjectSummary[];
+    edges: ProjectSummaryTypes[];
   };
   development: {
-    edges: ProjectSummary[];
+    edges: ProjectSummaryTypes[];
   };
 };
 

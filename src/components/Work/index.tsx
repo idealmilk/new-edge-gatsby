@@ -1,26 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage, IGatsbyImageData } from 'gatsby-plugin-image';
 
-import type { ProjectSummary } from 'types/types';
+import type { ProjectSummaryTypes } from 'types/types';
 
 import {
   Container,
-  BlogCard,
+  WorkCard,
   ImgWrap,
   ResponsiveMasonry,
   MasonryLeft,
   MasonryRight,
   MobileList,
 } from './styled';
+import { motion, useInView } from 'framer-motion';
 
 type Props = {
-  projects: ProjectSummary[];
+  projects: ProjectSummaryTypes[];
 };
 
 const Work = ({ projects }: Props) => {
-  let oddIndexes: ProjectSummary[] = [];
-  let evenIndexes: ProjectSummary[] = [];
+  let oddIndexes: ProjectSummaryTypes[] = [];
+  let evenIndexes: ProjectSummaryTypes[] = [];
 
   for (let i = 0; i < projects.length; i++) {
     if (i % 2 === 0) {
@@ -30,52 +31,75 @@ const Work = ({ projects }: Props) => {
     }
   }
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true });
+
   return (
-    <Container>
+    <Container ref={containerRef}>
       <ResponsiveMasonry>
-        <MasonryLeft>
+        <MasonryLeft
+          as={motion.div}
+          style={{
+            transform: isInView ? 'translateX(0)' : 'translateX(-50vw)',
+            // transitionDelay: "0.4",
+            opacity: isInView ? 1 : 0,
+            transition: 'all 1.4s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s',
+          }}
+        >
           {evenIndexes.map((project, index) => {
             const image: IGatsbyImageData | undefined = getImage(
               project.node.thumbnail
             );
 
             return (
-              <BlogCard {...project.node} key={index}>
-                <ImgWrap>
-                  <Link to={`/work/${project.node.slug}`}>
+              <Link to={`/work/${project.node.slug}`}>
+                <WorkCard {...project.node} key={index}>
+                  <ImgWrap>
                     {image && (
                       <GatsbyImage
                         image={image}
                         alt={project.node.clientName}
                       />
                     )}
-                  </Link>
-                </ImgWrap>
-                <p>{project.node.metaDescription}</p>
-              </BlogCard>
+                  </ImgWrap>
+                  <p>
+                    <span>{project.node.metaDescription}</span>
+                  </p>
+                </WorkCard>
+              </Link>
             );
           })}
         </MasonryLeft>
-        <MasonryRight>
+        <MasonryRight
+          as={motion.div}
+          style={{
+            transform: isInView ? 'translateX(0)' : 'translateX(50vw)',
+            // transitionDelay: "0.4",
+            opacity: isInView ? 1 : 0,
+            transition: 'all 1.4s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s',
+          }}
+        >
           {oddIndexes.map((project, index) => {
             const image: IGatsbyImageData | undefined = getImage(
               project.node.thumbnail
             );
 
             return (
-              <BlogCard {...project.node} key={index}>
-                <ImgWrap>
-                  <Link to={`/work/${project.node.slug}`}>
+              <Link to={`/work/${project.node.slug}`}>
+                <WorkCard {...project.node} key={index}>
+                  <ImgWrap>
                     {image && (
                       <GatsbyImage
                         image={image}
                         alt={project.node.clientName}
                       />
                     )}
-                  </Link>
-                </ImgWrap>
-                <p>{project.node.metaDescription}</p>
-              </BlogCard>
+                  </ImgWrap>
+                  <p>
+                    <span>{project.node.metaDescription}</span>
+                  </p>
+                </WorkCard>
+              </Link>
             );
           })}
         </MasonryRight>
@@ -88,7 +112,7 @@ const Work = ({ projects }: Props) => {
           );
 
           return (
-            <BlogCard {...project.node} key={index}>
+            <WorkCard {...project.node} key={index}>
               <ImgWrap>
                 <Link to={`/work/${project.node.slug}`}>
                   {image && (
@@ -97,7 +121,7 @@ const Work = ({ projects }: Props) => {
                 </Link>
               </ImgWrap>
               <p>{project.node.metaDescription}</p>
-            </BlogCard>
+            </WorkCard>
           );
         })}
       </MobileList>

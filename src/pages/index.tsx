@@ -12,14 +12,14 @@ import {
   InnerWrapWork,
   CenterWrap,
 } from '../components/common/Containers/styled';
-import type { ProjectSummary, Testimonial } from 'types/types';
+import type { ProjectSummaryTypes, TestimonialTypes } from 'types/types';
 
 type GraphQLResult = {
   projects: {
-    edges: ProjectSummary[];
+    edges: ProjectSummaryTypes[];
   };
   testimonials: {
-    edges: Testimonial[];
+    edges: TestimonialTypes[];
   };
 };
 

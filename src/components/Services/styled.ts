@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const ServicesWrap = styled.div`
@@ -12,7 +13,7 @@ export const ServicesWrap = styled.div`
   }
 `;
 
-export const ServiceWrap = styled.div`
+export const ServiceWrap = styled(motion.div)`
   width: 30%;
   border: 1px solid black;
   border-radius: 1rem;

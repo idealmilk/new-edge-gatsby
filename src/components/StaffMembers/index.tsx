@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import { CustomSlider, RichText } from 'components';
-import type { StaffMember } from 'types/types';
+import type { StaffMemberTypes } from 'types/types';
 
 import {
   StaffWrap,
@@ -12,9 +12,10 @@ import {
   Bio,
 } from './styled';
 import { InnerWrap } from 'components/common/Containers/styled';
+import { motion, useInView } from 'framer-motion';
 
 type Props = {
-  staffMembers: StaffMember[];
+  staffMembers: StaffMemberTypes[];
 };
 
 const settings = {
@@ -28,13 +29,31 @@ const settings = {
 };
 
 const StaffMembers = ({ staffMembers }: Props) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true });
+
   return (
-    <>
+    <div ref={containerRef}>
       <InnerWrap>
         <StaffWrap>
           {staffMembers.map((member, index) => {
             return (
-              <Member key={index}>
+              <Member
+                key={index}
+                as={motion.div}
+                style={{
+                  transform: isInView
+                    ? 'translate(0 , 0)'
+                    : index === 0
+                    ? 'translate(-50vw, 0)'
+                    : index === 1
+                    ? 'translate(0, 20rem)'
+                    : 'translate(50vw, 0)',
+                  // transitionDelay: "0.4",
+                  opacity: isInView ? 1 : 0,
+                  transition: 'all 1.4s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s',
+                }}
+              >
                 <MemberInner>
                   <ImgWrap>
                     <img
@@ -75,7 +94,7 @@ const StaffMembers = ({ staffMembers }: Props) => {
           })}
         </CustomSlider>
       </MobileStaffWrap>
-    </>
+    </div>
   );
 };
 

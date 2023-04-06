@@ -12,15 +12,15 @@ import {
   FeatureWrap,
   TextWrap,
 } from 'components/common/Containers/styled';
-import { About, StaffMember, Service } from 'types/types';
+import { AboutTypes, StaffMemberTypes, ServiceTypes } from 'types/types';
 
 type GraphQLResult = {
-  contentfulAboutPage: About;
+  contentfulAboutPage: AboutTypes;
   allContentfulStaffMember: {
-    edges: StaffMember[];
+    edges: StaffMemberTypes[];
   };
   allContentfulService: {
-    edges: Service[];
+    edges: ServiceTypes[];
   };
 };
 
