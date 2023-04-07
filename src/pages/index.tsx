@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Ticker from 'react-ticker';
 import PageVisibility from 'react-page-visibility';
 import { Link, graphql } from 'gatsby';
 import type { PageProps } from 'gatsby';
 
 import HomeLayout from 'layouts/HomeLayout';
-import { SEO, Testimonials, Work } from 'components';
+import { Loader, SEO, Testimonials, Work } from 'components';
 import { Button } from '../components/common/Buttons';
 import {
   InnerWrap,
@@ -13,6 +13,7 @@ import {
   CenterWrap,
 } from '../components/common/Containers/styled';
 import type { ProjectSummaryTypes, TestimonialTypes } from 'types/types';
+import { LoaderContext } from 'context/LoaderContext';
 
 type GraphQLResult = {
   projects: {
@@ -24,6 +25,7 @@ type GraphQLResult = {
 };
 
 const HomePage = ({ data }: PageProps<GraphQLResult>) => {
+  const { showLoader, toggleLoader } = useContext(LoaderContext);
   const { projects, testimonials } = data;
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
@@ -32,8 +34,19 @@ const HomePage = ({ data }: PageProps<GraphQLResult>) => {
     setPageIsVisible(isVisible);
   };
 
+  useEffect(() => {
+    if (showLoader) {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        console.log(loader);
+        setTimeout(() => (loader.style.transform = 'translateY(-102vh)'), 2000);
+      }
+      setTimeout(() => toggleLoader(), 3000);
+    }
+  }, [showLoader]);
+
   return (
-    <HomeLayout>
+    <HomeLayout showLoader={showLoader}>
       <SEO title='NewEdge Studio' description='NewEdge Studio' />
 
       <PageVisibility onChange={handleVisibilityChange}>

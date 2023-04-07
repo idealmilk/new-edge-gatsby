@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'gatsby';
 
 import MainLayout from 'layouts/MainLayout';
 import { SEO } from 'components';
 import { InnerWrap } from 'components/common/Containers/styled';
+import { LoaderContext } from 'context/LoaderContext';
 
 const FourOhFourPage = () => {
+  const { showLoader, toggleLoader } = useContext(LoaderContext);
+
+  useEffect(() => {
+    if (showLoader) {
+      toggleLoader();
+    }
+  }, [showLoader]);
+
   return (
-    <MainLayout>
+    <MainLayout showLoader={showLoader}>
       <SEO title='Page not Found' description='This page cannot be found' />
       <InnerWrap>
         <p>

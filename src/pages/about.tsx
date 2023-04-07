@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Ticker from 'react-ticker';
 import PageVisibility from 'react-page-visibility';
 import { graphql } from 'gatsby';
@@ -13,6 +13,7 @@ import {
   TextWrap,
 } from 'components/common/Containers/styled';
 import { AboutTypes, StaffMemberTypes, ServiceTypes } from 'types/types';
+import { LoaderContext } from 'context/LoaderContext';
 
 type GraphQLResult = {
   contentfulAboutPage: AboutTypes;
@@ -25,6 +26,19 @@ type GraphQLResult = {
 };
 
 const AboutPage = ({ data }: PageProps<GraphQLResult>) => {
+  const { showLoader, toggleLoader } = useContext(LoaderContext);
+
+  useEffect(() => {
+    if (showLoader) {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        console.log(loader);
+        setTimeout(() => (loader.style.transform = 'translateY(-102vh)'), 2000);
+      }
+      setTimeout(() => toggleLoader(), 3000);
+    }
+  }, [showLoader]);
+
   const {
     contentfulAboutPage,
     allContentfulStaffMember,
@@ -41,7 +55,7 @@ const AboutPage = ({ data }: PageProps<GraphQLResult>) => {
   };
 
   return (
-    <MainLayout>
+    <MainLayout showLoader={showLoader}>
       <SEO
         title='About'
         description='About

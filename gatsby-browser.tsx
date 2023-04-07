@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { defaultTheme } from 'styles/theme';
 import GlobalStyles from 'styles/global';
+import { LoaderProvider } from 'context/LoaderContext';
 
 export const wrapRootElement: GatsbyBrowser['wrapRootElement'] = ({
   element,
@@ -16,8 +17,10 @@ export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({
 }) => {
   return (
     <>
-      <GlobalStyles />
-      {element}
+      <LoaderProvider>
+        <GlobalStyles />
+        {element}
+      </LoaderProvider>
     </>
   );
 };

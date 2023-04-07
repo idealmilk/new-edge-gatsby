@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Ticker from 'react-ticker';
 import PageVisibility from 'react-page-visibility';
 import { graphql } from 'gatsby';
@@ -9,6 +9,7 @@ import MainLayout from 'layouts/MainLayout';
 import { PageHeader, SEO, Work } from 'components';
 import { InnerWrapWork } from 'components/common/Containers/styled';
 import type { ProjectSummaryTypes } from 'types/types';
+import { LoaderContext } from 'context/LoaderContext';
 
 type GraphQLResult = {
   identity: {
@@ -20,6 +21,7 @@ type GraphQLResult = {
 };
 
 const WorkPage = ({ data }: PageProps<GraphQLResult>) => {
+  const { showLoader, toggleLoader } = useContext(LoaderContext);
   const { identity, development } = data;
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
@@ -28,8 +30,19 @@ const WorkPage = ({ data }: PageProps<GraphQLResult>) => {
     setPageIsVisible(isVisible);
   };
 
+  useEffect(() => {
+    if (showLoader) {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        console.log(loader);
+        setTimeout(() => (loader.style.transform = 'translateY(-102vh)'), 2000);
+      }
+      setTimeout(() => toggleLoader(), 3000);
+    }
+  }, [showLoader]);
+
   return (
-    <MainLayout>
+    <MainLayout showLoader={showLoader}>
       <SEO title='Work' description='A selection of our works' />
       <PageHeader title='Work' gif={WorkHeader} />
       <PageVisibility onChange={handleVisibilityChange}>

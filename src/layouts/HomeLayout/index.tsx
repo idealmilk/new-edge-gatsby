@@ -1,17 +1,19 @@
 import React from 'react';
 
 import Logo from 'assets/Logos/logo.png';
-import { Footer, Header, Hero, MobileNav } from 'components';
+import { Footer, Header, Hero, Loader, MobileNav } from 'components';
 
 import { Container, HeroOverlay, Content } from './styled';
 
 type Props = {
   children: React.ReactNode;
+  showLoader: any;
 };
 
-const HomeLayout = ({ children }: Props) => {
+const HomeLayout = ({ children, showLoader }: Props) => {
   return (
     <Container>
+      <Loader showLoader={showLoader} />
       <HeroOverlay>
         <img src={Logo} alt='' />
         <h2>
