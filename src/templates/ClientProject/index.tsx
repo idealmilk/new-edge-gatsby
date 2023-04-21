@@ -10,7 +10,7 @@ import { CustomSlider, RichText, SEO, TestimonialCard } from 'components';
 import { Button } from 'components/common/Buttons';
 import { InnerWrap } from 'components/common/Containers/styled';
 import { checkFormat } from 'utils/checkFormat';
-import { Project } from 'types/types';
+import { ProjectTypes } from 'types/types';
 
 import {
   FullWidthImageWrap,
@@ -24,7 +24,7 @@ import {
 } from './styled';
 
 type GraphQLResult = {
-  contentfulClientProject: Project;
+  contentfulClientProject: ProjectTypes;
 };
 
 const ClientProjectTemplate = ({ data }: PageProps<GraphQLResult>) => {

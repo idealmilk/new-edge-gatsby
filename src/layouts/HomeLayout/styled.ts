@@ -26,14 +26,14 @@ export const HeroOverlay = styled.div`
   }
   h2 {
     pointer-events: none;
-    span {
+    b {
       color: white;
       font-size: 5rem;
       font-family: 'Grafier';
     }
   }
   @media (max-width: 950px) {
-    h2 span {
+    h2 b {
       font-size: 3rem;
     }
   }
@@ -48,7 +48,7 @@ export const HeroOverlay = styled.div`
       display: block;
     }
     h2,
-    h2 span {
+    h2 b {
       font-size: 2.2rem;
     }
   }

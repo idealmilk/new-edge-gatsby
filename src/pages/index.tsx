@@ -21,10 +21,13 @@ type GraphQLResult = {
   testimonials: {
     edges: TestimonialTypes[];
   };
+  text: {
+    heroText: string;
+  };
 };
 
 const HomePage = ({ data }: PageProps<GraphQLResult>) => {
-  const { projects, testimonials } = data;
+  const { projects, testimonials, text } = data;
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -33,7 +36,7 @@ const HomePage = ({ data }: PageProps<GraphQLResult>) => {
   };
 
   return (
-    <HomeLayout>
+    <HomeLayout heroText={text.heroText}>
       <SEO title='NewEdge Studio' description='NewEdge Studio' />
 
       <PageVisibility onChange={handleVisibilityChange}>
@@ -103,6 +106,11 @@ export const query = graphql`
           testimonialStaffName
           testimonialStaffRole
         }
+      }
+    }
+    text: contentfulMiscText {
+      heroText {
+        raw
       }
     }
   }
