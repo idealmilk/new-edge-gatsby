@@ -8,8 +8,13 @@ import {
   ContentWrap,
   GradientBackground,
 } from './styled';
+import { motion } from 'framer-motion';
 
-const Hero = () => {
+type HeroProps = {
+  showLoader: any;
+};
+
+const Hero = ({ showLoader }: HeroProps) => {
   const [renderedBackground, setRenderedBackground] = useState(
     <GradientBackground />
   );
@@ -36,19 +41,7 @@ const Hero = () => {
     }
   }, [browser]);
 
-  return (
-    <Container>
-      {renderedBackground}
-      <InnerWrapStyled>
-        <ContentWrap>
-          <h1>Edge</h1>
-          <p>
-            Taking you from idea to identity. Let your brand do the talking.
-          </p>
-        </ContentWrap>
-      </InnerWrapStyled>
-    </Container>
-  );
+  return <Container>{renderedBackground}</Container>;
 };
 
 export default Hero;

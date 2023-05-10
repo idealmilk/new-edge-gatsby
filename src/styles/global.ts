@@ -369,6 +369,10 @@ const GlobalStyles = styled.createGlobalStyle`
     }
   }
 
+  .enzuzo-cookiebanner-container {
+    z-index: 100 !important;
+  }
+
   #cookie-notification #notificationManagerLink {
     color: #fa78bb !important;
   }

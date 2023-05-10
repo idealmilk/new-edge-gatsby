@@ -5,10 +5,14 @@ export const Container = styled.div`
   display: block;
   width: 100%;
   min-height: 100%;
-  background-color: aqua;
+  background-color: #9fdaea;
 `;
 
-export const HeroOverlay = styled.div`
+type HeroOverlayType = {
+  offsetY: number;
+};
+
+export const HeroOverlay = styled.div<HeroOverlayType>`
   position: fixed;
   top: 48vh;
   left: 0;
@@ -19,21 +23,21 @@ export const HeroOverlay = styled.div`
   max-width: 90%;
   text-align: center;
   z-index: 1;
+
   img {
     display: none;
     width: 12rem;
     margin: 0 auto 2rem;
   }
   h2 {
-    pointer-events: none;
-    span {
+    b {
       color: white;
       font-size: 5rem;
       font-family: 'Grafier';
     }
   }
   @media (max-width: 950px) {
-    h2 span {
+    h2 b {
       font-size: 3rem;
     }
   }
@@ -48,7 +52,7 @@ export const HeroOverlay = styled.div`
       display: block;
     }
     h2,
-    h2 span {
+    h2 b {
       font-size: 2.2rem;
     }
   }

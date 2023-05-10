@@ -19,7 +19,7 @@ const Loader = ({ showLoader }: LoaderProps) => {
         </Overlay>
       </Container>
     );
-  } else return;
+  } else return <></>;
 };
 
 export default Loader;

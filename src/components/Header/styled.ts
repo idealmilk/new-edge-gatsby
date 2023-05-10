@@ -1,10 +1,11 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 type ContainerProps = {
   active?: boolean;
 };
 
-export const Container = styled.header<ContainerProps>`
+export const Container = styled(motion.header)<ContainerProps>`
   position: fixed;
   top: 0;
   background-color: ${(props) =>

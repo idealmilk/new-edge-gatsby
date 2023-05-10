@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import CircleType from 'circletype';
 import { graphql, Link } from 'gatsby';
 import type { PageProps } from 'gatsby';
@@ -10,7 +10,7 @@ import { CustomSlider, RichText, SEO, TestimonialCard } from 'components';
 import { Button } from 'components/common/Buttons';
 import { InnerWrap } from 'components/common/Containers/styled';
 import { checkFormat } from 'utils/checkFormat';
-import { Project } from 'types/types';
+import { ProjectTypes } from 'types/types';
 
 import {
   FullWidthImageWrap,
@@ -22,9 +22,10 @@ import {
   SquareTextWrapBrand,
   SpinnerWrap,
 } from './styled';
+import { LoaderContext } from 'context/LoaderContext';
 
 type GraphQLResult = {
-  contentfulClientProject: Project;
+  contentfulClientProject: ProjectTypes;
 };
 
 const ClientProjectTemplate = ({ data }: PageProps<GraphQLResult>) => {
@@ -114,8 +115,21 @@ const ClientProjectTemplate = ({ data }: PageProps<GraphQLResult>) => {
     prevArrow: <PrevArrow />,
   };
 
+  const { showLoader, toggleLoader } = useContext(LoaderContext);
+
+  useEffect(() => {
+    if (showLoader) {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        console.log(loader);
+        setTimeout(() => (loader.style.transform = 'translateY(-102vh)'), 2000);
+      }
+      setTimeout(() => toggleLoader(), 3000);
+    }
+  }, [showLoader]);
+
   return (
-    <MainLayout isClientProject={true}>
+    <MainLayout isClientProject={true} showLoader={showLoader}>
       <SEO
         title={clientName}
         description={metaDescription}

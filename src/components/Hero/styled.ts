@@ -8,7 +8,7 @@ export const Container = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: aqua;
+  background-color: #9fdaea;
 `;
 
 export const InnerWrapStyled = styled(TightInnerWrap)`

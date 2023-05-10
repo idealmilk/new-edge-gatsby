@@ -22,11 +22,14 @@ type GraphQLResult = {
   testimonials: {
     edges: TestimonialTypes[];
   };
+  text: {
+    heroText: string;
+  };
 };
 
 const HomePage = ({ data }: PageProps<GraphQLResult>) => {
   const { showLoader, toggleLoader } = useContext(LoaderContext);
-  const { projects, testimonials } = data;
+  const { projects, testimonials, text } = data;
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -46,7 +49,7 @@ const HomePage = ({ data }: PageProps<GraphQLResult>) => {
   }, [showLoader]);
 
   return (
-    <HomeLayout showLoader={showLoader}>
+    <HomeLayout heroText={text.heroText} showLoader={showLoader}>
       <SEO title='NewEdge Studio' description='NewEdge Studio' />
 
       <PageVisibility onChange={handleVisibilityChange}>
@@ -116,6 +119,11 @@ export const query = graphql`
           testimonialStaffName
           testimonialStaffRole
         }
+      }
+    }
+    text: contentfulMiscText {
+      heroText {
+        raw
       }
     }
   }

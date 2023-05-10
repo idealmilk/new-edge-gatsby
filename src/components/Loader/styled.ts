@@ -8,7 +8,7 @@ export const Container = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 10000000;
+  z-index: 10000000000;
   transform: translateY(0);
   opacity: 1;
   transition: transform 1s ease-in-out;

@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
 
 import { InnerFlexWrap } from 'components/common/Containers/styled';
 import Logo from 'assets/Logos/logo.png';
 
 import { Container, NavList, LogoWrap } from './styled';
+import { motion } from 'framer-motion';
+import { LoaderContext } from 'context/LoaderContext';
 
 type ClientProjectType = {
   node: {
@@ -20,6 +22,7 @@ type Props = {
 const Header = ({ isClientProject }: Props) => {
   const { allContentfulClientProject } = useStaticQuery(query);
   const [navBar, setNavBar] = useState(false);
+  const { showLoader, toggleLoader } = useContext(LoaderContext);
 
   const changeNavBar = () => {
     if (isClientProject) {
@@ -37,7 +40,17 @@ const Header = ({ isClientProject }: Props) => {
   });
 
   return (
-    <Container active={navBar}>
+    <Container
+      active={navBar}
+      as={motion.div}
+      initial={{ opacity: showLoader ? 0 : 1, y: showLoader ? -180 : 0 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{
+        ease: 'easeInOut',
+        duration: 1,
+        delay: showLoader ? 3 : 0,
+      }}
+    >
       <InnerFlexWrap>
         <Link to='/'>
           <LogoWrap>

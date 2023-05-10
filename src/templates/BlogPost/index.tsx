@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { graphql } from 'gatsby';
 
 import MainLayout from 'layouts/MainLayout';
 import { RichText, SEO } from 'components';
 
 import { InnerWrap, OuterTextWrap, TextWrap } from './styled';
+import { LoaderContext } from 'context/LoaderContext';
 
 type Props = {
   data: {
@@ -19,8 +20,21 @@ type Props = {
 const BlogPostTemplate = ({ data }: Props) => {
   const { title, body, metaDescription } = data.contentfulBlogPost;
 
+  const { showLoader, toggleLoader } = useContext(LoaderContext);
+
+  useEffect(() => {
+    if (showLoader) {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        console.log(loader);
+        setTimeout(() => (loader.style.transform = 'translateY(-102vh)'), 2000);
+      }
+      setTimeout(() => toggleLoader(), 3000);
+    }
+  }, [showLoader]);
+
   return (
-    <MainLayout>
+    <MainLayout showLoader={showLoader}>
       <SEO title={title} description={metaDescription} article={true} />
       <InnerWrap>
         <h1>{title}</h1>
