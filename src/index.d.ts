@@ -18,6 +18,11 @@ declare module '*.gif' {
   export default path;
 }
 
+declare module '*.hdr' {
+  const path: string;
+  export default path;
+}
+
 declare module '*.otf';
 
 declare module 'circletype';
