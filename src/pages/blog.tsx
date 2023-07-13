@@ -2,7 +2,7 @@ import React from 'react';
 import type { PageProps } from 'gatsby';
 import { graphql } from 'gatsby';
 
-import AboutHeader from 'assets/PageHeaders/about.gif';
+import BlogHeader from 'assets/PageHeaders/blog.gif';
 import { Blog, PageHeader, SEO } from 'components';
 import { CenterWrap, InnerWrap } from 'components/common/Containers/styled';
 import MainLayout from 'layouts/MainLayout';
@@ -14,7 +14,7 @@ type GraphQLResult = {
   };
 };
 
-const AboutPage = ({ data }: PageProps<GraphQLResult>) => {
+const BlogPage = ({ data }: PageProps<GraphQLResult>) => {
   const { allContentfulBlogPost } = data;
 
   return (
@@ -24,7 +24,7 @@ const AboutPage = ({ data }: PageProps<GraphQLResult>) => {
         description='Musings, stories and insights into life at NewEdge Studio, as we turn start-up ideas into scale-up brand identities.'
       />
       <InnerWrap>
-        <PageHeader title='Blog' gif={AboutHeader} />
+        <PageHeader title='Blog' gif={BlogHeader} />
 
         <CenterWrap style={{ margin: '8rem auto 0', width: '80%' }}>
           <p>
@@ -59,4 +59,4 @@ export const query = graphql`
   }
 `;
 
-export default AboutPage;
+export default BlogPage;

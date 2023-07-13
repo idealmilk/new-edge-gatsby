@@ -24,7 +24,7 @@ export const InnerWrap = styled.div`
 
 export const BlogCard = styled(motion.div)`
   position: relative;
-  flex-basis: calc(50% - 8rem);
+  /* flex-basis: calc(50% - 8rem); */
   margin: 0 4rem 6.4rem;
 
   */ p {
