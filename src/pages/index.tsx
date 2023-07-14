@@ -11,6 +11,7 @@ import {
   InnerWrap,
   InnerWrapWork,
   CenterWrap,
+  TextWrap,
 } from '../components/common/Containers/styled';
 import type { ProjectSummaryTypes, TestimonialTypes } from 'types/types';
 
@@ -38,6 +39,28 @@ const HomePage = ({ data }: PageProps<GraphQLResult>) => {
   return (
     <HomeLayout heroText={text.heroText}>
       <SEO title='NewEdge Studio' description='NewEdge Studio' />
+
+      <InnerWrap>
+        <TextWrap style={{ marginBottom: '10rem' }}>
+          <p style={{ marginBottom: '1rem' }}>
+            NewEdge is the start-up team turned start-up studio, here to make
+            brand & design easy for you. We’ve experienced the unexpected twists
+            and turns of scaling a start-up and now we’re building brands to
+            survive today and thrive tomorrow.
+          </p>
+          <p style={{ marginBottom: '1rem' }}>
+            We understand the range of your needs, from a brand strategy that
+            connects customers to your ever-evolving product, right through to
+            fonts and file types that aren’t impossible to use.
+          </p>
+          <p style={{ marginBottom: '1rem' }}>
+            At NewEdge, we’ve adopted a way of working that matches the energy
+            of early stage ideas and complements the skills of today's
+            entrepreneurs. Plus, we’ve got a growing portfolio of work to show
+            for it. Take a look for yourself.
+          </p>
+        </TextWrap>
+      </InnerWrap>
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
