@@ -102,7 +102,10 @@ export default function Scene({ setBg }) {
             metalness={0.1}
           />
         </a.mesh>
-        <Environment path='/' files='empty_warehouse_01_1k.hdr' />
+        <Environment
+          path='/environment-maps/'
+          files='empty_warehouse_01_1k.hdr'
+        />
         <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
           position={[0, -1.6, 0]}
