@@ -6,6 +6,8 @@ import {
   Environment,
   MeshDistortMaterial,
   ContactShadows,
+  OrbitControls,
+  Html,
 } from '@react-three/drei';
 import { useSpring } from '@react-spring/core';
 import { a } from '@react-spring/three';
@@ -14,24 +16,13 @@ import { a } from '@react-spring/three';
 // but it can also handle 3rd–party objs, just wrap them in "a".
 const AnimatedMaterial = a(MeshDistortMaterial);
 
-export default function Scene({ setBg }) {
+export default function Experience({ setBg }) {
   const sphere = useRef();
   const light = useRef();
   const [mode, setMode] = useState(false);
   const [down, setDown] = useState(false);
   const [hovered, setHovered] = useState(false);
 
-  // Change cursor on hovered state
-  // useEffect(() => {
-  //   document.body.style.cursor = hovered
-  //     ? 'none'
-  //     : `url('data:image/svg+xml;base64,${btoa(
-  //         '<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="10" fill="#E8B059"/></svg>'
-  //       )}'), auto`;
-  // }, [hovered]);
-
-  // Make the bubble float and follow the mouse
-  // This is frame-based animation, useFrame subscribes the component to the render-loop
   useFrame((state) => {
     light.current.position.x = state.mouse.x * 20;
     light.current.position.y = state.mouse.y * 20;
@@ -52,13 +43,12 @@ export default function Scene({ setBg }) {
 
   // Springs for color and overall looks, this is state-driven animation
   // React-spring is physics based and turns static props into animated values
-  const [{ wobble, coat, color, ambient, env }] = useSpring(
+  const [{ wobble, coat, color, env }] = useSpring(
     {
       wobble: down ? 1.2 : hovered ? 1.05 : 1,
       coat: mode && !hovered ? 0.32 : 1,
-      ambient: mode && !hovered ? 1.5 : 0.5,
       env: mode && !hovered ? 0.4 : 1,
-      color: hovered ? '#9868FB' : mode ? '#6fba49' : '#FF4DA3',
+      color: hovered ? '#9868FB' : mode ? '#93e16b' : '#FF4DA3',
       config: (n) =>
         n === 'wobble' && hovered && { mass: 2, tension: 1000, friction: 10 },
     },
@@ -67,12 +57,19 @@ export default function Scene({ setBg }) {
 
   return (
     <>
+      <OrbitControls
+        enablePan={false}
+        enableZoom={false}
+        maxPolarAngle={Math.PI / 2}
+        minPolarAngle={Math.PI / 2}
+      />
+
       <PerspectiveCamera makeDefault position={[0, 0, 4]} fov={75}>
-        <a.ambientLight intensity={ambient} />
-        <a.pointLight
+        <ambientLight intensity={0.5} />
+        <pointLight
           ref={light}
           position-z={-15}
-          intensity={env}
+          intensity={0.4}
           color='#F8C069'
         />
       </PerspectiveCamera>
@@ -93,7 +90,8 @@ export default function Scene({ setBg }) {
             });
           }}
         >
-          <sphereBufferGeometry args={[1.9, 64, 64]} />
+          <sphereGeometry args={[1.9, 64, 64]} />
+
           <AnimatedMaterial
             color={color}
             envMapIntensity={env}
@@ -102,11 +100,9 @@ export default function Scene({ setBg }) {
             metalness={0.1}
           />
         </a.mesh>
-        <Environment
-          // path='/environment-maps/'
-          // files='empty_warehouse_01_1k.hdr'
-          preset='warehouse'
-        />
+
+        <Environment preset='warehouse' />
+
         <ContactShadows
           rotation={[Math.PI / 2, 0, 0]}
           position={[0, -1.6, 0]}
