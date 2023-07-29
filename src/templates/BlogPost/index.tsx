@@ -12,12 +12,14 @@ type Props = {
       title: string;
       body: Document;
       metaDescription: string;
+      publishedDate: string;
     };
   };
 };
 
 const BlogPostTemplate = ({ data }: Props) => {
-  const { title, body, metaDescription } = data.contentfulBlogPost;
+  const { title, body, metaDescription, publishedDate } =
+    data.contentfulBlogPost;
 
   return (
     <MainLayout>
@@ -25,7 +27,7 @@ const BlogPostTemplate = ({ data }: Props) => {
       <InnerWrap>
         <h1>{title}</h1>
         <p>by Evan Oliver</p>
-        <p>March 9, 2023</p>
+        <p>{publishedDate}</p>
         <OuterTextWrap>
           <TextWrap>
             <RichText {...body} />
@@ -44,6 +46,7 @@ export const query = graphql`
         raw
       }
       metaDescription
+      publishedDate(formatString: "MMMM Do, YYYY")
     }
   }
 `;
