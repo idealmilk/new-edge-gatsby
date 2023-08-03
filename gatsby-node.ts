@@ -23,6 +23,13 @@ type TypeData = {
       };
     }[];
   };
+  allContentfulServiceLanding: {
+    edges: {
+      node: {
+        slug: string;
+      };
+    }[];
+  };
 };
 
 export const createPages: GatsbyNode['createPages'] = async ({
@@ -55,6 +62,13 @@ export const createPages: GatsbyNode['createPages'] = async ({
           }
         }
       }
+      allContentfulServiceLanding {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
     }
   `);
 
@@ -69,6 +83,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   const projects = res.data?.allContentfulClientProject.edges;
   const blogPosts = res.data?.allContentfulBlogPost.edges;
   const legalDocs = res.data?.allContentfulLegalDoc.edges;
+  const serviceLandings = res.data?.allContentfulServiceLanding.edges;
 
   if (projects && projects.length > 0) {
     projects.forEach((edge) => {
@@ -98,6 +113,18 @@ export const createPages: GatsbyNode['createPages'] = async ({
     legalDocs.forEach((edge) => {
       createPage({
         component: path.resolve('./src/templates/LegalDoc/index.tsx'),
+        path: `/${edge.node.slug}`,
+        context: {
+          slug: edge.node.slug,
+        },
+      });
+    });
+  }
+
+  if (serviceLandings && serviceLandings.length > 0) {
+    serviceLandings.forEach((edge) => {
+      createPage({
+        component: path.resolve('./src/templates/ServiceLanding/index.tsx'),
         path: `/${edge.node.slug}`,
         context: {
           slug: edge.node.slug,
