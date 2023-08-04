@@ -76,3 +76,23 @@ export const Container = styled.button`
     }
   }
 `;
+
+export const CallToActionContainer = styled.div`
+  display: inline-block;
+
+  a {
+    border-radius: 2.6rem;
+    padding: 2rem 6rem;
+    background: white;
+    border: solid 1px black;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.4rem;
+    opacity: 0.6;
+    line-height: 0.8;
+    margin-top: 2rem;
+  }
+`;

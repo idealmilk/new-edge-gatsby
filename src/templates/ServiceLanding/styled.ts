@@ -1,22 +1,20 @@
 import styled from 'styled-components';
 
-export const OuterTextWrap = styled.div`
-  width: 100%;
-  margin: 6rem auto 0;
-  border: 1px solid black;
-  border-radius: 2.2rem;
-`;
+export const CaseStudies = styled.div`
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap;
+  margin: 8rem 2rem 4rem; */
 
-export const TextWrap = styled.div`
-  border: 1px solid black;
-  padding: 4rem;
-  border-radius: 2.2rem;
-  transform: translate(2rem, 2rem);
-  background: white;
+  a {
+    /* position: relative;
+    flex-basis: calc(33% - 4rem);
+    margin: 0 2rem 6.4rem; */
+    width: 30%;
+  }
 
-  p {
-    margin-bottom: 2rem;
-    text-align: left;
-    font-family: 'Radio Grotesk';
+  a > div {
+    margin-left: 0;
+    margin-right: 0;
   }
 `;

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, RichText, SEO } from 'components';
-import { InnerWrap } from 'components/common/Containers/styled';
+import { InnerWrap, TextWrap } from 'components/common/Containers/styled';
 
 import PageVisibility from 'react-page-visibility';
 import Ticker from 'react-ticker';
@@ -12,6 +12,11 @@ import {
   DescriptionItem,
 } from 'templates/ClientProject/styled';
 import { WorkHeader } from 'assets/PageHeaders';
+import { ProjectSummaryTypes } from 'types/types';
+import { CaseStudies } from './styled';
+import { ImgWrap, WorkCard } from 'components/Work/styled';
+import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
+import CallToAction from 'components/common/Buttons/CallToAction';
 
 type Props = {
   data: {
@@ -19,12 +24,26 @@ type Props = {
       title: string;
       heroText: string;
       callToAction: string;
+      priceSectionBody: any;
+      deliverablesSectionBody: any;
+      timelinesSectionBody: any;
+      caseStudies: any;
+      pageHeader: any;
     };
   };
 };
 
 const ServiceLandingTemplate = ({ data }: Props) => {
-  const { title, heroText, callToAction } = data.contentfulServiceLanding;
+  const {
+    title,
+    heroText,
+    callToAction,
+    priceSectionBody,
+    deliverablesSectionBody,
+    timelinesSectionBody,
+    caseStudies,
+    pageHeader,
+  } = data.contentfulServiceLanding;
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -36,27 +55,35 @@ const ServiceLandingTemplate = ({ data }: Props) => {
     <MainLayout>
       <SEO title={title} description={heroText} article={false} />
 
-      <PageHeader title='Work' gif={WorkHeader} />
+      <PageHeader title='Work' gif={pageHeader.fields.file.en_US.url} />
 
       <InnerWrap>
-        <p>{heroText}</p>
-        <p>{callToAction}</p>
+        <TextWrap>
+          <h2 style={{ fontSize: '2.8rem', marginBottom: '4rem' }}>
+            {heroText}
+          </h2>
+          <CallToAction>
+            <Link to='/contact'>{callToAction}</Link>
+          </CallToAction>
+        </TextWrap>
 
-        <h2>Making Brand & Design easy for you</h2>
+        <h2 style={{ margin: '10rem 0 -4rem' }}>
+          Making Brand & Design easy for you
+        </h2>
         <DescriptionWrap>
           <DescriptionItem>
             <h4>Price</h4>
-            {/* <RichText {...clientDescription} /> */}
+            <RichText {...priceSectionBody} />
           </DescriptionItem>
 
           <DescriptionItem>
             <h4>Deliverables</h4>
-            {/* <RichText {...clientBrief} /> */}
+            <RichText {...deliverablesSectionBody} />
           </DescriptionItem>
 
           <DescriptionItem>
             <h4>Timelines</h4>
-            {/* <RichText {...ourWork} /> */}
+            <RichText {...timelinesSectionBody} />
           </DescriptionItem>
         </DescriptionWrap>
       </InnerWrap>
@@ -68,6 +95,37 @@ const ServiceLandingTemplate = ({ data }: Props) => {
           </Ticker>
         )}
       </PageVisibility>
+
+      <InnerWrap>
+        <CaseStudies>
+          {caseStudies.map((caseStudy: any, index: any) => {
+            const image: IGatsbyImageData | undefined = getImage(
+              caseStudy.thumbnail
+            );
+
+            return (
+              <Link to={`/work/${caseStudy.slug}`} key={index}>
+                <WorkCard>
+                  <ImgWrap>
+                    {image && (
+                      <GatsbyImage image={image} alt={caseStudy.clientName} />
+                    )}
+                  </ImgWrap>
+                  <p>
+                    <span>{caseStudy.metaDescription}</span>
+                  </p>
+                </WorkCard>
+              </Link>
+            );
+          })}
+        </CaseStudies>
+
+        <TextWrap>
+          <CallToAction>
+            <Link to='/contact'>{callToAction}</Link>
+          </CallToAction>
+        </TextWrap>
+      </InnerWrap>
     </MainLayout>
   );
 };
@@ -78,6 +136,37 @@ export const query = graphql`
       title
       heroText
       callToAction
+      priceSectionBody {
+        raw
+      }
+      deliverablesSectionBody {
+        raw
+      }
+      timelinesSectionBody {
+        raw
+      }
+      pageHeader {
+        fields {
+          file {
+            en_US {
+              url
+            }
+          }
+        }
+      }
+      caseStudies {
+        clientName
+        metaDescription
+        slug
+
+        thumbnail {
+          gatsbyImageData(
+            width: 600
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
+      }
     }
   }
 `;
