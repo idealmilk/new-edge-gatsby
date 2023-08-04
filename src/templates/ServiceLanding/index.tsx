@@ -11,6 +11,8 @@ import {
   DescriptionWrap,
   DescriptionItem,
 } from 'templates/ClientProject/styled';
+import MarketingHeader from 'assets/PageHeaders/marketing.gif';
+import BrandingHeader from 'assets/PageHeaders/branding.gif';
 import { WorkHeader } from 'assets/PageHeaders';
 import { ProjectSummaryTypes } from 'types/types';
 import { CaseStudies } from './styled';
@@ -28,7 +30,6 @@ type Props = {
       deliverablesSectionBody: any;
       timelinesSectionBody: any;
       caseStudies: any;
-      pageHeader: any;
     };
   };
 };
@@ -42,7 +43,6 @@ const ServiceLandingTemplate = ({ data }: Props) => {
     deliverablesSectionBody,
     timelinesSectionBody,
     caseStudies,
-    pageHeader,
   } = data.contentfulServiceLanding;
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
@@ -55,7 +55,10 @@ const ServiceLandingTemplate = ({ data }: Props) => {
     <MainLayout>
       <SEO title={title} description={heroText} article={false} />
 
-      <PageHeader title='Work' gif={pageHeader.fields.file.en_US.url} />
+      <PageHeader
+        title={title}
+        gif={title === 'Branding' ? BrandingHeader : MarketingHeader}
+      />
 
       <InnerWrap>
         <TextWrap>
@@ -144,15 +147,6 @@ export const query = graphql`
       }
       timelinesSectionBody {
         raw
-      }
-      pageHeader {
-        fields {
-          file {
-            en_US {
-              url
-            }
-          }
-        }
       }
       caseStudies {
         clientName
