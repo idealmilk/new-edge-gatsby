@@ -99,12 +99,12 @@ export const CallToActionContainer = styled.div`
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     a {
       border-radius: 2.6rem;
-      padding: 1rem 3rem;
-      font-size: 1.6rem;
+      padding: 1rem 2rem;
+      font-size: 1.4rem;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1rem;
       line-height: 1;
       margin-top: 1.6rem;
     }

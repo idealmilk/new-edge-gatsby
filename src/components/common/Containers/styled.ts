@@ -21,6 +21,10 @@ export const InnerFlexWrap = styled.div`
   max-width: 1300px;
   width: 90%;
   margin: auto;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: block;
+  }
 `;
 
 export const TightInnerWrap = styled(InnerWrap)`

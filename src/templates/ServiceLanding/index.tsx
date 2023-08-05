@@ -3,7 +3,11 @@ import { Link, graphql } from 'gatsby';
 
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, RichText, SEO } from 'components';
-import { InnerWrap, TextWrap } from 'components/common/Containers/styled';
+import {
+  InnerFlexWrap,
+  InnerWrap,
+  TextWrap,
+} from 'components/common/Containers/styled';
 
 import PageVisibility from 'react-page-visibility';
 import Ticker from 'react-ticker';
@@ -15,7 +19,7 @@ import MarketingHeader from 'assets/PageHeaders/marketing.gif';
 import BrandingHeader from 'assets/PageHeaders/branding.gif';
 import { WorkHeader } from 'assets/PageHeaders';
 import { ProjectSummaryTypes } from 'types/types';
-import { CaseStudies } from './styled';
+import { CaseStudies, Header, ServicesWrap, VideoWrap } from './styled';
 import { ImgWrap, WorkCard } from 'components/Work/styled';
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import CallToAction from 'components/common/Buttons/CallToAction';
@@ -26,6 +30,13 @@ type Props = {
       title: string;
       heroText: string;
       callToAction: string;
+      mainContentHeader: string;
+      mainContentBody: {
+        content: {
+          text: string[];
+          header: string;
+        }[];
+      };
       priceSectionBody: any;
       deliverablesSectionBody: any;
       timelinesSectionBody: any;
@@ -39,6 +50,8 @@ const ServiceLandingTemplate = ({ data }: Props) => {
     title,
     heroText,
     callToAction,
+    mainContentHeader,
+    mainContentBody,
     priceSectionBody,
     deliverablesSectionBody,
     timelinesSectionBody,
@@ -69,10 +82,27 @@ const ServiceLandingTemplate = ({ data }: Props) => {
             <Link to='/contact'>{callToAction}</Link>
           </CallToAction>
         </TextWrap>
+        <Header>{mainContentHeader}</Header>
+      </InnerWrap>
 
-        <h2 style={{ margin: '10rem 0 -4rem' }}>
-          Making Brand & Design easy for you
-        </h2>
+      <InnerFlexWrap>
+        <ServicesWrap>
+          {mainContentBody.content.map((item, index) => {
+            return (
+              <div>
+                <p className='main-content-body-header'>{item.header}</p>
+                {item.text.map((text, index) => {
+                  return <p key={index}>{text}</p>;
+                })}
+              </div>
+            );
+          })}
+        </ServicesWrap>
+        <VideoWrap>Video</VideoWrap>
+      </InnerFlexWrap>
+
+      <InnerWrap>
+        <Header>Making Brand & Design easy for you</Header>
         <DescriptionWrap>
           <DescriptionItem>
             <h4>Price</h4>
@@ -139,6 +169,13 @@ export const query = graphql`
       title
       heroText
       callToAction
+      mainContentHeader
+      mainContentBody {
+        content {
+          header
+          text
+        }
+      }
       priceSectionBody {
         raw
       }
