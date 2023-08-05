@@ -95,4 +95,18 @@ export const CallToActionContainer = styled.div`
     line-height: 0.8;
     margin-top: 2rem;
   }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    a {
+      border-radius: 2.6rem;
+      padding: 1rem 3rem;
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-top: 1.6rem;
+    }
+  }
 `;
