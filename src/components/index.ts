@@ -4,6 +4,7 @@ export { default as CustomSlider } from './Slider';
 export { default as Footer } from './Footer';
 export { default as Header } from './Header';
 export { default as Hero } from './Hero';
+export { default as HorizontalLock } from './HorizontalLock';
 export { default as LiquidSphere } from './LiquidSphere';
 export { default as MobileNav } from './MobileNav';
 export { default as PageHeader } from './PageHeader';

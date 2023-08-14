@@ -47,7 +47,7 @@ export const FullWidthImageWrap = styled.div<FullWidthImageWrapProps>`
 export const DescriptionWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 8rem -4rem 4rem;
+  margin: 8rem -4rem 8rem;
 `;
 
 export const DescriptionItem = styled.div`

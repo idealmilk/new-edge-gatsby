@@ -19,10 +19,20 @@ import MarketingHeader from 'assets/PageHeaders/marketing.gif';
 import BrandingHeader from 'assets/PageHeaders/branding.gif';
 import { WorkHeader } from 'assets/PageHeaders';
 import { ProjectSummaryTypes } from 'types/types';
-import { CaseStudies, Header, ServicesWrap, VideoWrap } from './styled';
 import { ImgWrap, WorkCard } from 'components/Work/styled';
+import { HorizontalLock } from 'components';
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import CallToAction from 'components/common/Buttons/CallToAction';
+
+import {
+  CaseStudies,
+  Header,
+  ProcessItem,
+  ProcessPadding,
+  ServiceItem,
+  ServicesWrap,
+  VideoWrap,
+} from './styled';
 
 type Props = {
   data: {
@@ -58,6 +68,8 @@ const ServiceLandingTemplate = ({ data }: Props) => {
     caseStudies,
   } = data.contentfulServiceLanding;
 
+  console.log(title);
+
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
   const handleVisibilityChange = (isVisible: boolean) => {
@@ -82,26 +94,51 @@ const ServiceLandingTemplate = ({ data }: Props) => {
             <Link to='/contact'>{callToAction}</Link>
           </CallToAction>
         </TextWrap>
-        <Header>{mainContentHeader}</Header>
+
+        {title === 'Marketing' && (
+          <>
+            <Header>{mainContentHeader}</Header>
+            <ServicesWrap>
+              {mainContentBody.content.map((item, index) => {
+                return (
+                  <ServiceItem>
+                    <p className='main-content-body-header'>{item.header}</p>
+                    {item.text.map((text, index) => {
+                      return <p key={index}>{text}</p>;
+                    })}
+                  </ServiceItem>
+                );
+              })}
+            </ServicesWrap>
+          </>
+        )}
       </InnerWrap>
 
-      <InnerFlexWrap>
-        <ServicesWrap>
-          {mainContentBody.content.map((item, index) => {
-            return (
-              <div>
-                <p className='main-content-body-header'>{item.header}</p>
-                {item.text.map((text, index) => {
-                  return <p key={index}>{text}</p>;
-                })}
-              </div>
-            );
-          })}
-        </ServicesWrap>
-        <VideoWrap>Video</VideoWrap>
-      </InnerFlexWrap>
+      {title === 'Branding' && (
+        <>
+          <ProcessPadding />
+          <HorizontalLock>
+            {mainContentBody.content.map((item, index) => {
+              return (
+                <ProcessItem>
+                  <div className='circle' />
+                  <div className='line' />
+                  <p className='main-content-body-header'>{item.header}</p>
+                  {item.text.map((text, index) => {
+                    return <p key={index}>{text}</p>;
+                  })}
+                </ProcessItem>
+              );
+            })}
+          </HorizontalLock>
+        </>
+      )}
 
       <InnerWrap>
+        <VideoWrap>
+          <div>Video</div>
+        </VideoWrap>
+
         <Header>Making Brand & Design easy for you</Header>
         <DescriptionWrap>
           <DescriptionItem>
@@ -145,7 +182,7 @@ const ServiceLandingTemplate = ({ data }: Props) => {
                     )}
                   </ImgWrap>
                   <p>
-                    <span>{caseStudy.metaDescription}</span>
+                    <span>{caseStudy.testimonialText}</span>
                   </p>
                 </WorkCard>
               </Link>
@@ -187,7 +224,7 @@ export const query = graphql`
       }
       caseStudies {
         clientName
-        metaDescription
+        testimonialText
         slug
 
         thumbnail {

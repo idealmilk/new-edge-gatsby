@@ -32,37 +32,90 @@ export const Header = styled.h2`
 `;
 
 export const ServicesWrap = styled.div`
-  width: 44%;
   margin-top: 9rem;
+`;
 
-  div {
-    margin-bottom: 2rem;
+export const ServiceItem = styled.div`
+  margin-bottom: 2rem;
 
-    .main-content-body-header {
-      font-weight: bold;
-      margin-bottom: 0.6rem;
-    }
-
-    p {
-      font-size: 1.6rem;
-    }
+  .main-content-body-header {
+    font-weight: bold;
+    margin-bottom: 0.6rem;
   }
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    width: 100%;
+  p {
+    font-size: 1.6rem;
+  }
+`;
+
+export const ProcessPadding = styled.h2`
+  margin-top: -20rem;
+  height: calc((100vh - 450.6px) / 2);
+`;
+
+export const ProcessItem = styled.div`
+  min-width: 30rem;
+  max-width: 30rem;
+  margin-right: 30rem;
+
+  .circle {
+    position: relative;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: hotpink;
+    z-index: 10;
+  }
+
+  .line {
+    position: relative;
+    width: 60rem;
+    height: 0.1rem;
+    background: black;
+    transform: translateY(-1rem);
+    z-index: -1;
+  }
+
+  .main-content-body-header {
+    font-weight: bold;
+    margin-top: 3rem;
+  }
+
+  &:first-of-type {
+    margin-left: calc((100vw - 1300px) / 2);
+  }
+
+  &:last-of-type {
+    .line {
+      width: 50rem;
+
+      &::after {
+        position: absolute;
+        right: 0;
+        top: 0;
+        content: '';
+        height: 0.1rem;
+        width: 2rem;
+        background: black;
+        color: red;
+        transform: rotate(45deg);
+        transform-origin: top right;
+      }
+    }
   }
 `;
 
 export const VideoWrap = styled.div`
-  width: 50%;
-  height: 30rem;
-  background-color: lightgray;
-  border: 1px solid black;
-  text-align: center;
-  justify-content: center;
-  margin: auto 0;
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    width: 100%;
+  display: flex;
+  padding: 12rem 0;
+  div {
+    height: 34rem;
+    width: 60rem;
+    background-color: lightgray;
+    border: 1px solid black;
+    text-align: center;
+    justify-content: center;
+    margin: 0 auto;
   }
 `;
