@@ -29,10 +29,9 @@ const RichText = (body) => {
               width='100%'
               height='321'
               src={node.data.uri}
-              frameborder='0'
               title='YouTube'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-              allowfullscreen
+              allowFullscreen
             ></iframe>
           );
         } else {

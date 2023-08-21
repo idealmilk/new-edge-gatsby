@@ -79,11 +79,15 @@ export const ProcessItem = styled.div`
 
   .main-content-body-header {
     font-weight: bold;
+    font-size: 2.4rem;
     margin-top: 3rem;
   }
 
   &:first-of-type {
     margin-left: calc((100vw - 1300px) / 2);
+    @media (max-width: ${(props) => props.theme.breakpoints.laptop}) {
+      margin-left: calc((100vw * 0.05));
+    }
   }
 
   &:last-of-type {
@@ -109,11 +113,9 @@ export const ProcessItem = styled.div`
 export const VideoWrap = styled.div`
   display: flex;
   padding: 12rem 0;
-  div {
-    height: 34rem;
-    width: 60rem;
-    background-color: lightgray;
-    border: 1px solid black;
+  video {
+    height: 72rem;
+    width: 108rem;
     text-align: center;
     justify-content: center;
     margin: 0 auto;

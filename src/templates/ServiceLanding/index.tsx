@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link, graphql } from 'gatsby';
 
 import MainLayout from 'layouts/MainLayout';
@@ -17,8 +17,6 @@ import {
 } from 'templates/ClientProject/styled';
 import MarketingHeader from 'assets/PageHeaders/marketing.gif';
 import BrandingHeader from 'assets/PageHeaders/branding.gif';
-import { WorkHeader } from 'assets/PageHeaders';
-import { ProjectSummaryTypes } from 'types/types';
 import { ImgWrap, WorkCard } from 'components/Work/styled';
 import { HorizontalLock } from 'components';
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
@@ -30,9 +28,14 @@ import {
   ProcessItem,
   ProcessPadding,
   ServiceItem,
-  ServicesWrap,
   VideoWrap,
 } from './styled';
+import {
+  ServicesWrap,
+  ServiceWrap,
+  ServiceInner,
+} from 'components/Services/styled';
+import { motion, useInView } from 'framer-motion';
 
 type Props = {
   data: {
@@ -51,6 +54,7 @@ type Props = {
       deliverablesSectionBody: any;
       timelinesSectionBody: any;
       caseStudies: any;
+      videoEmbed: string;
     };
   };
 };
@@ -66,9 +70,11 @@ const ServiceLandingTemplate = ({ data }: Props) => {
     deliverablesSectionBody,
     timelinesSectionBody,
     caseStudies,
+    videoEmbed,
   } = data.contentfulServiceLanding;
 
-  console.log(title);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { once: true });
 
   const [pageIsVisible, setPageIsVisible] = useState(true);
 
@@ -98,17 +104,39 @@ const ServiceLandingTemplate = ({ data }: Props) => {
         {title === 'Marketing' && (
           <>
             <Header>{mainContentHeader}</Header>
-            <ServicesWrap>
-              {mainContentBody.content.map((item, index) => {
-                return (
-                  <ServiceItem>
-                    <p className='main-content-body-header'>{item.header}</p>
-                    {item.text.map((text, index) => {
-                      return <p key={index}>{text}</p>;
-                    })}
-                  </ServiceItem>
-                );
-              })}
+            <ServicesWrap ref={containerRef}>
+              <ServicesWrap>
+                {mainContentBody.content.map((item, index) => {
+                  return (
+                    <ServiceWrap
+                      as={motion.div}
+                      marketingPage
+                      style={{
+                        transform: isInView
+                          ? 'translate(0 , 0)'
+                          : index === 0
+                          ? 'translate(-50vw, 0)'
+                          : index === 1
+                          ? 'translate(50vw, 0)'
+                          : 'translate(0, 20rem)',
+                        // transitionDelay: "0.4",
+                        opacity: isInView ? 1 : 0,
+                        transition:
+                          'all 1.4s cubic-bezier(0.17, 0.55, 0.55, 1) 0.6s',
+                      }}
+                    >
+                      <ServiceInner key={index}>
+                        <h3>{item.header}</h3>
+                        <ul>
+                          {item.text.map((text, index) => (
+                            <li key={index}>{text}</li>
+                          ))}
+                        </ul>
+                      </ServiceInner>
+                    </ServiceWrap>
+                  );
+                })}
+              </ServicesWrap>
             </ServicesWrap>
           </>
         )}
@@ -136,7 +164,12 @@ const ServiceLandingTemplate = ({ data }: Props) => {
 
       <InnerWrap>
         <VideoWrap>
-          <div>Video</div>
+          <video muted autoPlay playsInline>
+            <source
+              src='https://player.vimeo.com/progressive_redirect/playback/850200532/rendition/720p?loc=external&amp;signature=7d00857bf5a6c8e4e2995588259490fedd2d5882814102cf55341c963a87d855'
+              type='video/mp4'
+            />
+          </video>
         </VideoWrap>
 
         <Header>Making Brand & Design easy for you</Header>
@@ -206,6 +239,7 @@ export const query = graphql`
       title
       heroText
       callToAction
+      videoEmbed
       mainContentHeader
       mainContentBody {
         content {

@@ -13,8 +13,12 @@ export const ServicesWrap = styled.div`
   }
 `;
 
-export const ServiceWrap = styled(motion.div)`
-  width: 30%;
+type ServiceWrapProps = {
+  marketingPage?: boolean;
+};
+
+export const ServiceWrap = styled(motion.div)<ServiceWrapProps>`
+  width: ${(props) => (props.marketingPage ? '46%' : '30%')};
   border: 1px solid black;
   border-radius: 1rem;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
