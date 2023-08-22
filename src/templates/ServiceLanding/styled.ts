@@ -113,7 +113,7 @@ export const ProcessItem = styled.div`
 export const VideoWrap = styled.div`
   display: flex;
   padding: 12rem 0;
-  video {
+  iframe {
     height: 72rem;
     width: 108rem;
     text-align: center;

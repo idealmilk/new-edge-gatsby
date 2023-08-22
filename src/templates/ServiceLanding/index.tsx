@@ -164,12 +164,11 @@ const ServiceLandingTemplate = ({ data }: Props) => {
 
       <InnerWrap>
         <VideoWrap>
-          <video muted autoPlay playsInline>
-            <source
-              src='https://player.vimeo.com/progressive_redirect/playback/850200532/rendition/720p?loc=external&amp;signature=7d00857bf5a6c8e4e2995588259490fedd2d5882814102cf55341c963a87d855'
-              type='video/mp4'
-            />
-          </video>
+          <iframe
+            src={`${videoEmbed}?autoplay=1&muted=1`}
+            allow='autoplay; encrypted-media'
+            allowFullScreen
+          ></iframe>
         </VideoWrap>
 
         <Header>Making Brand & Design easy for you</Header>
