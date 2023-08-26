@@ -1,13 +1,13 @@
 import React, { useRef, useState } from 'react';
-import { Link, graphql } from 'gatsby';
-import PageVisibility from 'react-page-visibility';
 import Ticker from 'react-ticker';
+import PageVisibility from 'react-page-visibility';
+import { Link, graphql } from 'gatsby';
 import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
+import { motion, useInView } from 'framer-motion';
 
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, RichText, SEO } from 'components';
 import { InnerWrap, TextWrap } from 'components/common/Containers/styled';
-
 import {
   DescriptionWrap,
   DescriptionItem,
@@ -17,17 +17,18 @@ import BrandingHeader from 'assets/PageHeaders/branding.gif';
 import { ImgWrap, WorkCard } from 'components/Work/styled';
 import { HorizontalLock } from 'components';
 import CallToAction from 'components/common/Buttons/CallToAction';
+import { ServiceWrap, ServiceInner } from 'components/Services/styled';
 
 import {
   CaseStudies,
   Header,
   ProcessItem,
+  ProcessItemVertical,
   ProcessPadding,
   ServicesWrap,
+  VerticalWrap,
   VideoWrap,
 } from './styled';
-import { ServiceWrap, ServiceInner } from 'components/Services/styled';
-import { motion, useInView } from 'framer-motion';
 
 type Props = {
   data: {
@@ -151,6 +152,26 @@ const ServiceLandingTemplate = ({ data }: Props) => {
               );
             })}
           </HorizontalLock>
+
+          <InnerWrap>
+            <VerticalWrap>
+              <Header>{mainContentHeader}</Header>
+              {mainContentBody.content.map((item, index) => {
+                return (
+                  <ProcessItemVertical>
+                    <div className='circle' />
+                    <div className='line' />
+                    <div>
+                      <p className='main-content-body-header'>{item.header}</p>
+                      {item.text.map((text, index) => {
+                        return <p key={index}>{text}</p>;
+                      })}
+                    </div>
+                  </ProcessItemVertical>
+                );
+              })}
+            </VerticalWrap>
+          </InnerWrap>
         </>
       )}
 

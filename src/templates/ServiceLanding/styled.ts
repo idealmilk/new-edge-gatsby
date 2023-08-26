@@ -31,6 +31,10 @@ export const Header = styled.h2`
   margin: 10rem 0 0;
 `;
 
+export const VerticalWrap = styled.div`
+  margin-top: 6rem;
+`;
+
 export const ServicesWrap = styled.div`
   display: flex;
   justify-content: space-between;
@@ -68,7 +72,6 @@ export const ProcessItem = styled.div`
   margin-right: 30rem;
 
   .circle {
-    position: relative;
     position: relative;
     width: 2rem;
     height: 2rem;
@@ -114,6 +117,60 @@ export const ProcessItem = styled.div`
         color: red;
         transform: rotate(45deg);
         transform-origin: top right;
+      }
+    }
+  }
+`;
+
+export const ProcessItemVertical = styled(ProcessItem)`
+  position: relative;
+  display: flex;
+  margin-bottom: 3rem;
+  max-width: 100%;
+
+  .circle {
+    min-width: 2rem;
+    min-height: 2rem;
+    border-radius: 50%;
+    z-index: 10;
+    margin: 1.1rem 2rem 0 0;
+  }
+
+  .line {
+    position: absolute;
+    top: 2.2rem;
+    left: 1rem;
+    width: 0.1rem;
+    height: 30rem;
+    z-index: -1;
+  }
+
+  .main-content-body-header {
+    margin-top: 0;
+  }
+
+  &:first-of-type {
+    margin-top: 4rem;
+    margin-left: 0;
+  }
+
+  &:last-of-type {
+    margin-bottom: 10rem;
+    .line {
+      height: 18rem;
+      width: 0.1rem;
+
+      &::after {
+        position: absolute;
+        top: revert;
+        right: 0;
+        bottom: 0;
+        height: 0.1rem;
+        width: 2rem;
+        transform: rotate(135deg);
+      }
+      @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+        height: 22rem;
       }
     }
   }

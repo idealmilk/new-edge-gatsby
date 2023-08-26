@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const Container = styled.div`
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+    display: none;
+  }
+`;
+
 export const Content = styled.div`
   height: 30rem;
 `;

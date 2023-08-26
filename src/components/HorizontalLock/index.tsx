@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useLayoutEffect } from 'react';
 import { Controller, Scene } from 'react-scrollmagic';
 import { useWindowSize } from 'react-use';
 
-import { Content, Header } from './styled';
+import { Container, Content, Header } from './styled';
 
 interface HorizontalLockProps {
   children: React.ReactNode;
@@ -36,46 +36,52 @@ const HorizontalLock = ({ children }: HorizontalLockProps) => {
   }, [size.height, size.width]);
 
   return (
-    <Controller ref={controllerRef}>
-      <Scene
-        duration={scrollWidth}
-        pin
-        triggerHook={0.25}
-        enabled={size.width > 768}
-      >
-        {(progress: any) => {
-          return (
-            <div>
-              <div
-                className='cnt'
-                style={{
-                  transform: `translate3d(-${scrollWidth * progress}px, 0, 0)`,
-                }}
-              >
-                <Header
+    <Container>
+      <Controller ref={controllerRef}>
+        <Scene
+          duration={scrollWidth}
+          pin
+          triggerHook={0.25}
+          enabled={size.width > 768}
+        >
+          {(progress: any) => {
+            return (
+              <div>
+                <div
+                  className='cnt'
                   style={{
-                    transform: `translate3d(${scrollWidth * progress}px, 0, 0)`,
+                    transform: `translate3d(-${
+                      scrollWidth * progress
+                    }px, 0, 0)`,
                   }}
                 >
-                  The Process
-                </Header>
-                <Content ref={sideRef} style={{ width: scrollWidth }}>
-                  <div
+                  <Header
                     style={{
-                      height: '30rem',
-                      width: `${60 * 6}rem`,
-                      display: 'flex',
+                      transform: `translate3d(${
+                        scrollWidth * progress
+                      }px, 0, 0)`,
                     }}
                   >
-                    {children}
-                  </div>
-                </Content>
+                    The Process
+                  </Header>
+                  <Content ref={sideRef} style={{ width: scrollWidth }}>
+                    <div
+                      style={{
+                        height: '30rem',
+                        width: `${60 * 6}rem`,
+                        display: 'flex',
+                      }}
+                    >
+                      {children}
+                    </div>
+                  </Content>
+                </div>
               </div>
-            </div>
-          );
-        }}
-      </Scene>
-    </Controller>
+            );
+          }}
+        </Scene>
+      </Controller>
+    </Container>
   );
 };
 
