@@ -11,8 +11,10 @@ const CallToAction = ({ children }: Props) => {
     <CallToActionContainer>
       {children}
       <p>
-        No fees attached 100% non-committal.<br></br> Just a chat about your
-        marketing and content dreams.
+        <small>
+          No fees attached 100% non-committal.<br></br> Just a chat about your
+          marketing and content dreams.
+        </small>
       </p>
     </CallToActionContainer>
   );

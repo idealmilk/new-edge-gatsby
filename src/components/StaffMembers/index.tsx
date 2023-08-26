@@ -1,18 +1,18 @@
 import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 import { CustomSlider, RichText } from 'components';
+import { InnerFlexWrap } from 'components/common/Containers/styled';
 import type { StaffMemberTypes } from 'types/types';
 
 import {
-  StaffWrap,
-  MobileStaffWrap,
+  StaffWrapMobile,
   Member,
   MemberInner,
   ImgWrap,
   Bio,
+  StaffWrap,
 } from './styled';
-import { InnerWrap } from 'components/common/Containers/styled';
-import { motion, useInView } from 'framer-motion';
 
 type Props = {
   staffMembers: StaffMemberTypes[];
@@ -34,8 +34,8 @@ const StaffMembers = ({ staffMembers }: Props) => {
 
   return (
     <div ref={containerRef}>
-      <InnerWrap>
-        <StaffWrap>
+      <StaffWrap>
+        <InnerFlexWrap>
           {staffMembers.map((member, index) => {
             return (
               <Member
@@ -69,10 +69,10 @@ const StaffMembers = ({ staffMembers }: Props) => {
               </Member>
             );
           })}
-        </StaffWrap>
-      </InnerWrap>
+        </InnerFlexWrap>
+      </StaffWrap>
 
-      <MobileStaffWrap>
+      <StaffWrapMobile>
         <CustomSlider settings={settings}>
           {staffMembers.map((member, index) => {
             return (
@@ -93,7 +93,7 @@ const StaffMembers = ({ staffMembers }: Props) => {
             );
           })}
         </CustomSlider>
-      </MobileStaffWrap>
+      </StaffWrapMobile>
     </div>
   );
 };

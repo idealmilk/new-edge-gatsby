@@ -9,7 +9,7 @@ import { RichText, SEO, Testimonials, Work } from 'components';
 import { Button } from '../components/common/Buttons';
 import {
   InnerWrap,
-  InnerWrapWork,
+  InnerWrapMax,
   CenterWrap,
   TextWrap,
 } from '../components/common/Containers/styled';
@@ -41,11 +41,11 @@ const HomePage = ({ data }: PageProps<GraphQLResult>) => {
     <HomeLayout heroText={text.heroText}>
       <SEO title='NewEdge Studio' description='NewEdge Studio' />
 
-      <InnerWrap>
-        <TextWrap style={{ marginBottom: '10rem' }}>
+      <section>
+        <TextWrap>
           <RichText {...text.homeDesc} />
         </TextWrap>
-      </InnerWrap>
+      </section>
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
@@ -58,15 +58,17 @@ const HomePage = ({ data }: PageProps<GraphQLResult>) => {
       </PageVisibility>
 
       {/* Hero component is found in the HomeLayout component */}
-      <InnerWrapWork>
-        <Work projects={projects.edges} />
+      <section>
+        <InnerWrapMax>
+          <Work projects={projects.edges} />
 
-        <CenterWrap>
-          <Link to='/work'>
-            <Button>View all...</Button>
-          </Link>
-        </CenterWrap>
-      </InnerWrapWork>
+          <CenterWrap>
+            <Link to='/work'>
+              <Button>View all...</Button>
+            </Link>
+          </CenterWrap>
+        </InnerWrapMax>
+      </section>
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (

@@ -2,96 +2,50 @@ import styled from 'styled-components';
 
 export const InnerWrap = styled.div`
   position: relative;
-  max-width: 1300px;
-  width: 90%;
+  width: 1300px;
+  max-width: 90%;
   margin: auto;
 `;
 
-export const InnerWrapWork = styled.div`
-  position: relative;
-  max-width: 1300px;
-  width: 100%;
-  margin: auto;
+export const InnerWrapMax = styled(InnerWrap)`
+  max-width: 100%;
 `;
 
-export const InnerFlexWrap = styled.div`
+export const InnerWrapMin = styled(InnerWrap)`
+  width: 1000px;
+`;
+
+export const InnerFlexWrap = styled(InnerWrap)`
   display: flex;
   justify-content: space-between;
-  position: relative;
-  max-width: 1300px;
-  width: 90%;
-  margin: auto;
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;
   }
 `;
 
-export const TightInnerWrap = styled(InnerWrap)`
-  max-width: 1100px;
+export const InnerFlexWrapMin = styled(InnerFlexWrap)`
+  width: 1000px;
+`;
+
+export const FlexWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: block;
+  }
 `;
 
 export const TextWrap = styled.div`
-  max-width: 700px;
-  width: 90%;
+  width: 80rem;
+  max-width: 90%;
   margin: 0 auto;
   text-align: center;
-  h2 {
-    margin-bottom: 2rem;
-  }
-  .team-section-text {
-    margin: 8rem auto 16rem;
-    width: 80%;
-    text-align: center;
-    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-      width: 100%;
-      margin: 8rem auto 6rem;
-    }
-  }
 `;
 
-export const FeatureWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 12rem;
-  h3 {
-    margin-bottom: 4rem;
-    line-height: 1.4;
-  }
-  .text {
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
-  }
-  .img {
-    width: 35%;
-
-    object-fit: cover;
-    background: pink;
-  }
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    display: block;
-    img {
-      width: 100%;
-      margin: 4rem 0 0;
-
-      object-fit: cover;
-    }
-    div {
-      width: 100%;
-    }
-    .text {
-      width: 80%;
-      margin: 0 auto;
-      text-align: center;
-    }
-  }
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    .text {
-      width: 90%;
-    }
-  }
+export const TextWrapMin = styled(TextWrap)`
+  width: 60rem;
 `;
 
 export const BodyWrap = styled.div`

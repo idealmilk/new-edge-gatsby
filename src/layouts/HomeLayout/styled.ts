@@ -59,7 +59,7 @@ export const Content = styled.div`
   background-color: white;
   z-index: 3;
   transform: translateY(100vh);
-  padding-top: 10rem;
+  padding-top: 5rem;
 `;
 
 export const GradientBackground = styled.div`

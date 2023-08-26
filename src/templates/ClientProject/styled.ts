@@ -44,11 +44,9 @@ export const FullWidthImageWrap = styled.div<FullWidthImageWrapProps>`
       -webkit-mask-image: none;
     }
   }
-
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
     height: auto;
     margin: 1.2rem 0 0;
-
     img {
       height: auto;
     }
@@ -57,30 +55,23 @@ export const FullWidthImageWrap = styled.div<FullWidthImageWrapProps>`
 
 export const DescriptionWrap = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  margin: 8rem -4rem 8rem;
+  justify-content: space-between;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: block;
+  }
 `;
 
 export const DescriptionItem = styled.div`
   position: relative;
-  flex-basis: calc(33% - 8rem);
-  margin: 0 4rem 6.4rem;
-  h4 {
-    font-size: 2.4rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-  }
-  p {
-    font-size: 1.6rem;
-  }
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    h4 {
-      font-size: 2rem;
-    }
-  }
+  width: calc(33% - 4rem);
+
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    flex-basis: 90%;
-    margin: 0 4rem 4rem;
+    width: 100%;
+    margin-bottom: 4rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -118,14 +109,6 @@ export const SquareTextWrap = styled.div`
     order: 1;
     width: 40%;
     margin: auto 0;
-    h4 {
-      font-size: 2.4rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-    }
-    p {
-      font-size: 1.6rem;
-    }
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {

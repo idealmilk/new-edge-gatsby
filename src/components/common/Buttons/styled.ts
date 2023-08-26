@@ -90,9 +90,7 @@ export const CallToActionContainer = styled.div`
   }
 
   p {
-    font-size: 1.4rem;
-    opacity: 0.6;
-    line-height: 0.8;
+    line-height: 1;
     margin-top: 2rem;
   }
 
@@ -108,13 +106,11 @@ export const CallToActionContainer = styled.div`
     a {
       border-radius: 2.6rem;
       padding: 1rem 1.6rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
     }
 
     p {
       font-size: 1rem;
-      line-height: 1;
-      margin-top: 1.6rem;
     }
   }
 `;

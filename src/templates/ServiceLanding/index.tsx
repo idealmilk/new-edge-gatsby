@@ -21,7 +21,6 @@ import { ServiceWrap, ServiceInner } from 'components/Services/styled';
 
 import {
   CaseStudies,
-  Header,
   ProcessItem,
   ProcessItemVertical,
   ProcessPadding,
@@ -85,18 +84,20 @@ const ServiceLandingTemplate = ({ data }: Props) => {
       />
 
       <InnerWrap>
-        <TextWrap>
-          <h2 style={{ fontSize: '2.8rem', marginBottom: '4rem' }}>
-            {heroText}
-          </h2>
-          <CallToAction>
-            <Link to='/contact'>{callToAction}</Link>
-          </CallToAction>
-        </TextWrap>
+        <section>
+          <TextWrap>
+            <h2 style={{ fontSize: '2.8rem', marginBottom: '4rem' }}>
+              {heroText}
+            </h2>
+            <CallToAction>
+              <Link to='/contact'>{callToAction}</Link>
+            </CallToAction>
+          </TextWrap>
+        </section>
 
         {title === 'Marketing' && (
-          <>
-            <Header>{mainContentHeader}</Header>
+          <section>
+            <h3>{mainContentHeader}</h3>
             <ServicesWrap ref={containerRef}>
               <ServicesWrap>
                 {mainContentBody.content.map((item, index) => {
@@ -131,7 +132,7 @@ const ServiceLandingTemplate = ({ data }: Props) => {
                 })}
               </ServicesWrap>
             </ServicesWrap>
-          </>
+          </section>
         )}
       </InnerWrap>
 
@@ -144,7 +145,7 @@ const ServiceLandingTemplate = ({ data }: Props) => {
                 <ProcessItem>
                   <div className='circle' />
                   <div className='line' />
-                  <p className='main-content-body-header'>{item.header}</p>
+                  <h4>{item.header}</h4>
                   {item.text.map((text, index) => {
                     return <p key={index}>{text}</p>;
                   })}
@@ -155,14 +156,14 @@ const ServiceLandingTemplate = ({ data }: Props) => {
 
           <InnerWrap>
             <VerticalWrap>
-              <Header>{mainContentHeader}</Header>
+              <h3>{mainContentHeader}</h3>
               {mainContentBody.content.map((item, index) => {
                 return (
                   <ProcessItemVertical>
                     <div className='circle' />
                     <div className='line' />
                     <div>
-                      <p className='main-content-body-header'>{item.header}</p>
+                      <h4>{item.header}</h4>
                       {item.text.map((text, index) => {
                         return <p key={index}>{text}</p>;
                       })}
@@ -176,31 +177,35 @@ const ServiceLandingTemplate = ({ data }: Props) => {
       )}
 
       <InnerWrap>
-        <VideoWrap>
-          <iframe
-            src={`${videoEmbed}?autoplay=1&muted=1`}
-            allow='autoplay; encrypted-media'
-            allowFullScreen
-          ></iframe>
-        </VideoWrap>
+        <section>
+          <VideoWrap>
+            <iframe
+              src={`${videoEmbed}?autoplay=1&muted=1`}
+              allow='autoplay; encrypted-media'
+              allowFullScreen
+            ></iframe>
+          </VideoWrap>
+        </section>
 
-        <Header>Making Brand & Design easy for you</Header>
-        <DescriptionWrap>
-          <DescriptionItem>
-            <h4>Price</h4>
-            <RichText {...priceSectionBody} />
-          </DescriptionItem>
+        <section>
+          <h3>Making Brand & Design easy for you</h3>
+          <DescriptionWrap>
+            <DescriptionItem>
+              <h4>Price</h4>
+              <RichText {...priceSectionBody} />
+            </DescriptionItem>
 
-          <DescriptionItem>
-            <h4>Deliverables</h4>
-            <RichText {...deliverablesSectionBody} />
-          </DescriptionItem>
+            <DescriptionItem>
+              <h4>Deliverables</h4>
+              <RichText {...deliverablesSectionBody} />
+            </DescriptionItem>
 
-          <DescriptionItem>
-            <h4>Timelines</h4>
-            <RichText {...timelinesSectionBody} />
-          </DescriptionItem>
-        </DescriptionWrap>
+            <DescriptionItem>
+              <h4>Timelines</h4>
+              <RichText {...timelinesSectionBody} />
+            </DescriptionItem>
+          </DescriptionWrap>
+        </section>
       </InnerWrap>
 
       <PageVisibility onChange={handleVisibilityChange}>
@@ -212,28 +217,30 @@ const ServiceLandingTemplate = ({ data }: Props) => {
       </PageVisibility>
 
       <InnerWrap>
-        <CaseStudies>
-          {caseStudies.map((caseStudy: any, index: any) => {
-            const image: IGatsbyImageData | undefined = getImage(
-              caseStudy.thumbnail
-            );
+        <section>
+          <CaseStudies>
+            {caseStudies.map((caseStudy: any, index: any) => {
+              const image: IGatsbyImageData | undefined = getImage(
+                caseStudy.thumbnail
+              );
 
-            return (
-              <Link to={`/work/${caseStudy.slug}`} key={index}>
-                <WorkCard>
-                  <ImgWrap>
-                    {image && (
-                      <GatsbyImage image={image} alt={caseStudy.clientName} />
-                    )}
-                  </ImgWrap>
-                  <p>
-                    <span>{caseStudy.metaDescription}</span>
-                  </p>
-                </WorkCard>
-              </Link>
-            );
-          })}
-        </CaseStudies>
+              return (
+                <Link to={`/work/${caseStudy.slug}`} key={index}>
+                  <WorkCard>
+                    <ImgWrap>
+                      {image && (
+                        <GatsbyImage image={image} alt={caseStudy.clientName} />
+                      )}
+                    </ImgWrap>
+                    <p>
+                      <span>{caseStudy.metaDescription}</span>
+                    </p>
+                  </WorkCard>
+                </Link>
+              );
+            })}
+          </CaseStudies>
+        </section>
 
         <TextWrap>
           <CallToAction>

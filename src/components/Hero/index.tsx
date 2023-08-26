@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
 import { LiquidSphere } from 'components';
+import { InnerFlexWrapMin } from 'components/common/Containers/styled';
 
-import {
-  Container,
-  InnerWrapStyled,
-  ContentWrap,
-  GradientBackground,
-} from './styled';
+import { Container, ContentWrap, GradientBackground } from './styled';
 
 const Hero = () => {
   const [renderedBackground, setRenderedBackground] = useState(
@@ -39,14 +35,14 @@ const Hero = () => {
   return (
     <Container>
       {renderedBackground}
-      <InnerWrapStyled>
+      <InnerFlexWrapMin>
         <ContentWrap>
           <h1>Edge</h1>
           <p>
             Taking you from idea to identity. Let your brand do the talking.
           </p>
         </ContentWrap>
-      </InnerWrapStyled>
+      </InnerFlexWrapMin>
     </Container>
   );
 };

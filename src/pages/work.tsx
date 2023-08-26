@@ -7,7 +7,7 @@ import type { PageProps } from 'gatsby';
 import WorkHeader from 'assets/PageHeaders/work.gif';
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, SEO, Work } from 'components';
-import { InnerWrapWork } from 'components/common/Containers/styled';
+import { InnerWrapMax } from 'components/common/Containers/styled';
 import type { ProjectSummaryTypes } from 'types/types';
 
 type GraphQLResult = {
@@ -42,9 +42,11 @@ const WorkPage = ({ data }: PageProps<GraphQLResult>) => {
         )}
       </PageVisibility>
 
-      <InnerWrapWork>
-        <Work projects={identity.edges} />
-      </InnerWrapWork>
+      <section>
+        <InnerWrapMax>
+          <Work projects={identity.edges} />
+        </InnerWrapMax>
+      </section>
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
@@ -55,9 +57,12 @@ const WorkPage = ({ data }: PageProps<GraphQLResult>) => {
           </div>
         )}
       </PageVisibility>
-      <InnerWrapWork>
-        <Work projects={development.edges} />
-      </InnerWrapWork>
+
+      <section>
+        <InnerWrapMax>
+          <Work projects={development.edges} />
+        </InnerWrapMax>
+      </section>
     </MainLayout>
   );
 };

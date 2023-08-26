@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import { Link } from 'gatsby';
 import { IGatsbyImageData, getImage, GatsbyImage } from 'gatsby-plugin-image';
+import { motion, useInView } from 'framer-motion';
 
 import type { BlogTypes } from 'types/types';
 
-import { BlogCard, Container, InnerWrap, ImgWrap } from './styled';
-import { motion, useInView } from 'framer-motion';
+import { BlogCard, BlogFlexWrap, ImgWrap } from './styled';
+import { InnerWrap } from 'components/common/Containers/styled';
 
 type Props = {
   data: BlogTypes[];
@@ -16,8 +17,8 @@ const Blog = ({ data }: Props) => {
   const isInView = useInView(containerRef, { once: true });
 
   return (
-    <Container ref={containerRef}>
-      <InnerWrap>
+    <InnerWrap ref={containerRef}>
+      <BlogFlexWrap>
         {data.map((blog, index) => {
           const image: IGatsbyImageData | undefined = getImage(
             blog.node.coverImage
@@ -50,8 +51,8 @@ const Blog = ({ data }: Props) => {
             </BlogCard>
           );
         })}
-      </InnerWrap>
-    </Container>
+      </BlogFlexWrap>
+    </InnerWrap>
   );
 };
 
