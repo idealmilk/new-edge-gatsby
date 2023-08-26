@@ -1,16 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { Link, graphql } from 'gatsby';
+import PageVisibility from 'react-page-visibility';
+import Ticker from 'react-ticker';
+import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 
 import MainLayout from 'layouts/MainLayout';
 import { PageHeader, RichText, SEO } from 'components';
-import {
-  InnerFlexWrap,
-  InnerWrap,
-  TextWrap,
-} from 'components/common/Containers/styled';
+import { InnerWrap, TextWrap } from 'components/common/Containers/styled';
 
-import PageVisibility from 'react-page-visibility';
-import Ticker from 'react-ticker';
 import {
   DescriptionWrap,
   DescriptionItem,
@@ -19,7 +16,6 @@ import MarketingHeader from 'assets/PageHeaders/marketing.gif';
 import BrandingHeader from 'assets/PageHeaders/branding.gif';
 import { ImgWrap, WorkCard } from 'components/Work/styled';
 import { HorizontalLock } from 'components';
-import { GatsbyImage, IGatsbyImageData, getImage } from 'gatsby-plugin-image';
 import CallToAction from 'components/common/Buttons/CallToAction';
 
 import {
@@ -27,14 +23,10 @@ import {
   Header,
   ProcessItem,
   ProcessPadding,
-  ServiceItem,
+  ServicesWrap,
   VideoWrap,
 } from './styled';
-import {
-  ServicesWrap,
-  ServiceWrap,
-  ServiceInner,
-} from 'components/Services/styled';
+import { ServiceWrap, ServiceInner } from 'components/Services/styled';
 import { motion, useInView } from 'framer-motion';
 
 type Props = {
@@ -214,7 +206,7 @@ const ServiceLandingTemplate = ({ data }: Props) => {
                     )}
                   </ImgWrap>
                   <p>
-                    <span>{caseStudy.testimonialText}</span>
+                    <span>{caseStudy.metaDescription}</span>
                   </p>
                 </WorkCard>
               </Link>
@@ -257,7 +249,7 @@ export const query = graphql`
       }
       caseStudies {
         clientName
-        testimonialText
+        metaDescription
         slug
 
         thumbnail {

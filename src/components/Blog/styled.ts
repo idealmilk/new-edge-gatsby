@@ -81,6 +81,8 @@ export const ImgWrap = styled.div`
   width: 100%;
   height: 40rem;
   overflow: hidden;
+  border: 1px solid black;
+  border-radius: 2rem;
   .gatsby-image-wrapper {
     height: 100%;
     width: 100%;

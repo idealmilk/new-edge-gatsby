@@ -17,7 +17,7 @@ export const InnerWrap = styled.div`
     font-size: 1.6rem;
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    transform: translateX(-1rem);
+    margin: 10rem auto 3rem;
   }
 `;
 
@@ -26,6 +26,10 @@ export const OuterTextWrap = styled.div`
   margin: 6rem auto 0;
   border: 1px solid black;
   border-radius: 2.2rem;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    border: none;
+  }
 `;
 
 export const TextWrap = styled.div`
@@ -39,5 +43,11 @@ export const TextWrap = styled.div`
     margin-bottom: 2rem;
     text-align: left;
     font-family: 'Radio Grotesk';
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    transform: none;
+    border: none;
+    padding: 0;
   }
 `;

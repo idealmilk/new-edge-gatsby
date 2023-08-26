@@ -94,6 +94,33 @@ export function NavMenu({ isOpen }: Props) {
           }}
         >
           <Link
+            to='/blog'
+            style={{
+              color:
+                location.pathname === '/blog'
+                  ? 'rgba(246, 95, 48, 1)'
+                  : 'black',
+            }}
+          >
+            Blog
+          </Link>
+        </NavLink>
+
+        <NavLink
+          initial={false}
+          animate={isOpen ? 'show' : 'hide'}
+          variants={{
+            show: {
+              ...variants.show,
+              transition: { delay: 0.5, duration: 0.2 },
+            },
+            hide: {
+              ...variants.hide,
+              transition: { delay: 0.15, duration: 0.05 },
+            },
+          }}
+        >
+          <Link
             to='/contact'
             style={{
               color:

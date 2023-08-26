@@ -41,7 +41,7 @@ const BlogPage = ({ data }: PageProps<GraphQLResult>) => {
 
 export const query = graphql`
   query {
-    allContentfulBlogPost(sort: { createdAt: ASC }) {
+    allContentfulBlogPost(sort: { createdAt: DESC }) {
       edges {
         node {
           title

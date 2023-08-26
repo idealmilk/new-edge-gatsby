@@ -60,9 +60,6 @@ export const Content = styled.div`
   z-index: 3;
   transform: translateY(100vh);
   padding-top: 10rem;
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    padding-top: 0;
-  }
 `;
 
 export const GradientBackground = styled.div`

@@ -10,14 +10,9 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   flex-grow: 1;
-  background: ${(props) =>
-    props.background === 'blue' ? '#EEF4F6' : 'transparent'};
 `;
 
-export const ChildrenWrap = styled.div`
-  /* transform: translateY(11.05rem);
-  padding-bottom: 11.05rem; */
-`;
+export const ChildrenWrap = styled.div``;
 
 export const EventTitle = styled.div`
   padding: 25px;
@@ -29,4 +24,18 @@ export const EventTitle = styled.div`
   line-height: 2;
   margin-bottom: 25px;
   text-align: left;
+`;
+
+type LogoContainerProps = {
+  isSubPage?: boolean;
+};
+
+export const LogoContainer = styled.div<LogoContainerProps>`
+  display: none;
+  width: 8rem;
+  margin: 2rem 0 0 1rem;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: ${(props) => (props.isSubPage ? 'block' : 'none')};
+  }
 `;

@@ -32,7 +32,16 @@ export const Header = styled.h2`
 `;
 
 export const ServicesWrap = styled.div`
-  margin-top: 9rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 4rem auto 6rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    margin: 4rem auto;
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: block;
+    margin: 4rem auto;
+  }
 `;
 
 export const ServiceItem = styled.div`
@@ -112,12 +121,27 @@ export const ProcessItem = styled.div`
 
 export const VideoWrap = styled.div`
   display: flex;
-  padding: 12rem 0;
+  padding: 0 0 4rem;
   iframe {
     height: 72rem;
     width: 108rem;
     text-align: center;
     justify-content: center;
     margin: 0 auto;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+    padding: 0;
+    iframe {
+      height: 42rem;
+    }
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    padding: 3rem 0;
+    iframe {
+      height: 20rem;
+      width: 100%;
+    }
   }
 `;
