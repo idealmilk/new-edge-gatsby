@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  margin-top: 10rem;
   @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
     display: none;
   }

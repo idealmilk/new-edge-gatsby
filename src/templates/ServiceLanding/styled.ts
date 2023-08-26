@@ -32,7 +32,12 @@ export const Header = styled.h2`
 `;
 
 export const VerticalWrap = styled.div`
-  margin-top: 6rem;
+  display: none;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+    display: block;
+    margin-top: 6rem;
+  }
 `;
 
 export const ServicesWrap = styled.div`
