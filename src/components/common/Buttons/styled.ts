@@ -96,11 +96,19 @@ export const CallToActionContainer = styled.div`
     margin-top: 2rem;
   }
 
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    a {
+      border-radius: 2.6rem;
+      padding: 1.4rem 2.2rem;
+      font-size: 1.6rem;
+    }
+  }
+
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     a {
       border-radius: 2.6rem;
-      padding: 1rem 2rem;
-      font-size: 1.4rem;
+      padding: 1rem 1.6rem;
+      font-size: 1.2rem;
     }
 
     p {
