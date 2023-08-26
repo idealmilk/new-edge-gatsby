@@ -1,9 +1,20 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "new-edge-gatsby",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Marketing site for New Edge Studio.",
+  "version": "0.2.0",
+  "author": "Matthew Gilligan <mcgilligan@proton.me>",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "env-cmd -f .env.development gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint --fix src/**/*.js",
+    "prettier": "prettier --write src/**/*.js",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
     "@contentful/rich-text-types": "^16.0.2",
     "@emailjs/browser": "^3.10.0",
@@ -69,17 +80,6 @@
     "gatsby"
   ],
   "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "env-cmd -f .env.development gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint": "eslint --fix src/**/*.js",
-    "prettier": "prettier --write src/**/*.js",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
   "eslintConfig": {
     "extends": [
       "react-app"
