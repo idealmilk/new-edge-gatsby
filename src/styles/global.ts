@@ -362,6 +362,10 @@ const GlobalStyles = styled.createGlobalStyle`
     p {
       font-size: 1.6rem !important;
     }
+
+    @media (max-width: ${(props) => props.theme.breakpoints.laptop}) {
+      padding: 2rem;
+    }
   }
   .enzuzo-notification-buttons {
     button {
