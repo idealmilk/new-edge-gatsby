@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'gatsby';
 import { useLocation } from '@reach/router';
 
-import { Button } from 'components/common/Buttons';
-
 import MenuToggle from './MenuToggle';
 import NavMenu from './NavMenu';
 import {
@@ -58,7 +56,7 @@ const HamburgerMenu = ({ logo }: Props) => {
       >
         <LogoContainer>
           <Link to='/'>
-            <img src={logo} alt='Second Life' />
+            <img src={logo} alt=' New Edge' />
           </Link>
         </LogoContainer>
 

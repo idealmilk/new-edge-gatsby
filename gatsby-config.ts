@@ -13,6 +13,7 @@ const config: GatsbyConfig = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,

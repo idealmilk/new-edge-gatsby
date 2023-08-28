@@ -1,9 +1,10 @@
 import { motion, useInView } from 'framer-motion';
 import React, { useRef } from 'react';
 
+import { InnerFlexWrapMin } from 'components/common/Containers/styled';
 import type { ServiceTypes } from 'types/types';
 
-import { ServicesWrap, ServiceWrap, ServiceInner } from './styled';
+import { ServiceWrap, ServiceInner } from './styled';
 
 type Props = {
   services: ServiceTypes[];
@@ -14,7 +15,7 @@ const Services = ({ services }: Props) => {
   const isInView = useInView(containerRef, { once: true });
 
   return (
-    <ServicesWrap ref={containerRef}>
+    <InnerFlexWrapMin ref={containerRef}>
       {services.reverse().map((service, index) => {
         return (
           <ServiceWrap
@@ -43,7 +44,7 @@ const Services = ({ services }: Props) => {
           </ServiceWrap>
         );
       })}
-    </ServicesWrap>
+    </InnerFlexWrapMin>
   );
 };
 

@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 
 import BlogHeader from 'assets/PageHeaders/blog.gif';
 import { Blog, PageHeader, SEO } from 'components';
-import { CenterWrap, InnerWrap } from 'components/common/Containers/styled';
+import { InnerWrap, TextWrapMin } from 'components/common/Containers/styled';
 import MainLayout from 'layouts/MainLayout';
 import { BlogTypes } from 'types/types';
 
@@ -23,25 +23,27 @@ const BlogPage = ({ data }: PageProps<GraphQLResult>) => {
         title='Blog'
         description='Musings, stories and insights into life at NewEdge Studio, as we turn start-up ideas into scale-up brand identities.'
       />
-      <InnerWrap>
-        <PageHeader title='Blog' gif={BlogHeader} />
 
-        <CenterWrap style={{ margin: '8rem auto 0', width: '80%' }}>
+      <PageHeader title='Blog' gif={BlogHeader} />
+      <aside>
+        <TextWrapMin>
           <p>
             Musings, stories and insights into life at NewEdge Studio, as we
             turn start-up ideas into scale-up brand identities.
           </p>
-        </CenterWrap>
+        </TextWrapMin>
+      </aside>
 
+      <section>
         <Blog data={allContentfulBlogPost.edges} />
-      </InnerWrap>
+      </section>
     </MainLayout>
   );
 };
 
 export const query = graphql`
   query {
-    allContentfulBlogPost(sort: { createdAt: ASC }) {
+    allContentfulBlogPost(sort: { createdAt: DESC }) {
       edges {
         node {
           title

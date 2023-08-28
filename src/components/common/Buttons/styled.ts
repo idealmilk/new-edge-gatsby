@@ -76,3 +76,41 @@ export const Container = styled.button`
     }
   }
 `;
+
+export const CallToActionContainer = styled.div`
+  display: inline-block;
+
+  a {
+    border-radius: 2.6rem;
+    padding: 2rem 6rem;
+    background: white;
+    border: solid 1px black;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  p {
+    line-height: 1;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    a {
+      border-radius: 2.6rem;
+      padding: 1.4rem 2.2rem;
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    a {
+      border-radius: 2.6rem;
+      padding: 1rem 1.6rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+`;

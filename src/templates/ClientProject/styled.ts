@@ -20,6 +20,7 @@ export const FullWidthImageWrap = styled.div<FullWidthImageWrapProps>`
     object-fit: cover;
     height: 50rem;
     width: 1600px;
+    max-width: 100%;
     margin: 0 auto;
     mask-image: linear-gradient(
       transparent,
@@ -35,44 +36,42 @@ export const FullWidthImageWrap = styled.div<FullWidthImageWrapProps>`
       transparent 100%
     );
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    height: 30rem;
-    margin: 7rem 0 0;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
+    background: none;
     img {
-      height: 30rem;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    height: auto;
+    margin: 1.2rem 0 0;
+    img {
+      height: auto;
     }
   }
 `;
 
 export const DescriptionWrap = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  margin: 8rem -4rem 4rem;
+  justify-content: space-between;
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    display: block;
+  }
 `;
 
 export const DescriptionItem = styled.div`
   position: relative;
-  flex-basis: calc(33% - 8rem);
-  margin: 0 4rem 6.4rem;
-  h4 {
-    font-size: 2.4rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-  }
-  p {
-    font-size: 1.6rem;
-  }
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    h4 {
-      font-size: 2rem;
-    }
-    p {
-      font-size: 1.3rem;
-    }
-  }
+  width: calc(33% - 4rem);
+
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    flex-basis: 90%;
-    margin: 0 4rem 4rem;
+    width: 100%;
+    margin-bottom: 4rem;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
   }
 `;
 
@@ -102,51 +101,48 @@ export const SquareTextWrap = styled.div`
   margin: 4rem 0;
   img,
   video {
+    order: 2;
     width: 48%;
   }
 
   .brand {
+    order: 1;
     width: 40%;
     margin: auto 0;
-    h4 {
-      font-size: 2.4rem;
-      font-weight: bold;
-      margin-bottom: 2rem;
-    }
-    p {
-      font-size: 1.6rem;
-    }
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    .brand {
-      width: 100%;
-      h4 {
-        font-size: 2rem;
-      }
-      p {
-        font-size: 1.3rem;
-      }
+    width: 100%;
+    h4 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.3rem;
     }
   }
 
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    width: 100%;
-    .brand {
-      width: 100%;
-    }
-    img {
+    img,
+    video {
       margin: 0 auto;
     }
   }
 `;
 
 export const SquareTextWrapBrand = styled(SquareTextWrap)`
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    display: block;
-    img {
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    flex-direction: column;
+
+    .brand {
+      order: 2;
       width: 100%;
-      margin-top: 2rem;
+    }
+
+    img,
+    video {
+      width: 100%;
+      order: -1;
+      margin: 0 0 8rem;
     }
   }
 `;

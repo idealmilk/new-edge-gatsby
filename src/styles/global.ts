@@ -33,174 +33,7 @@ const GlobalStyles = styled.createGlobalStyle`
   html,
   body,
   #root,
-  main {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: black;
-    font-family: 'Radio Grotesk';
-    line-height: 1.1;
-  }
-
-  h1 {
-    font-size: 7rem;
-    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-      font-size: 4rem;
-    }
-  }
-
-  h2 {
-    font-size: 4.6rem;
-    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-      font-size: 3rem;
-    }
-  }
-
-  h3 {
-    font-size: 3rem;
-    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-      font-size: 2rem;
-    }
-  }
-
-  h4 {
-    font-size: 2.4rem;
-    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-      font-size: 1.8rem;
-    }
-  }
-
-  h5 {
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: black;
-  }
-
-  p,
-  i,
-  a,
-  b,
-  li,
-  button {
-    color: black;
-    font-size: 1.8rem;
-    line-height: 1.8;
-    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-      line-height: 1.8;
-      font-size: 1.6rem;
-    }
-  }
-
-  i {
-    font-style: italic;
-  }
-
-  b {
-    font-family: 'Radio Grotesk';
-  }
-
-  span {
-    font-size: inherit;
-  }
-
-  a {
-    color: black;
-    cursor: pointer;
-    text-decoration: none;
-  }
-
-  ol,
-  ul {
-    list-style: none;
-  }
-
-  li {
-    color: black;
-    font-size: 1.6rem;
-  }
-
-  strong {
-    font-weight: 700;
-  }
-
-  fieldset {
-    border: 0;
-    margin: 0;
-    padding: 0;
-  }
-
-  img {
-    max-width: 100%;
-  }
-
-  main {
-    background: #f0f0f0;
-    /* display: flex;
-    flex-direction: row; */
-  }
-
-  .canvas {
-    order: 2;
-    flex: 1;
-    height: 100vh !important;
-  }
-
-  .overlay {
-    position: relative;
-    order: 1;
-    flex: 1;
-  }
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
-
-  tspan {
-    font-size: 4rem;
-  }
-
-  hr {
-    display: block;
-    width: 100%;
-    height: 0;
-    border: 1px #eeeeee solid;
-  }
-
-  article,
-  aside,
-  dialog,
-  figure,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  section {
-    display: block;
-  }
-
-  html,
-  body {
-    text-rendering: optimizeLegibility;
-  }
-
-  html,
-  body,
-  div,
+  main div,
   span,
   applet,
   object,
@@ -266,6 +99,176 @@ const GlobalStyles = styled.createGlobalStyle`
     outline: 0;
     vertical-align: baseline;
     background: transparent;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: black;
+    font-family: 'Radio Grotesk';
+    line-height: 1.1;
+  }
+
+  section {
+    margin: 6rem 0 10rem;
+  }
+
+  aside {
+    margin: 4rem 0;
+  }
+
+  h1 {
+    font-size: 7rem;
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+      font-size: 4rem;
+    }
+  }
+
+  h2 {
+    font-size: 4.6rem;
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+      font-size: 3rem;
+    }
+  }
+
+  h3 {
+    font-size: 3rem;
+    margin: 2.4rem 0;
+    line-height: 1.4;
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+      font-size: 2.4rem;
+    }
+  }
+
+  h4 {
+    font-weight: bold;
+    font-size: 2.4rem;
+    margin: 1.2rem 0;
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+      font-size: 1.8rem;
+    }
+  }
+
+  h5 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: black;
+  }
+
+  p,
+  i,
+  a,
+  b,
+  li,
+  button {
+    color: black;
+    font-size: 1.8rem;
+    line-height: 1.8;
+
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+      line-height: 1.8;
+      font-size: 1.6rem;
+    }
+  }
+
+  i {
+    font-style: italic;
+  }
+
+  b {
+    font-family: 'Radio Grotesk';
+  }
+
+  span {
+    font-size: inherit;
+  }
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  small {
+    color: black;
+    opacity: 0.6;
+    line-height: 0.6;
+    font-size: 1.2rem;
+  }
+
+  fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  main {
+    background: #f0f0f0;
+  }
+
+  .canvas {
+    order: 2;
+    flex: 1;
+    height: 100vh !important;
+  }
+
+  .overlay {
+    position: relative;
+    order: 1;
+    flex: 1;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  tspan {
+    font-size: 4rem;
+  }
+
+  hr {
+    display: block;
+    width: 100%;
+    height: 0;
+    border: 1px #eeeeee solid;
+  }
+
+  article,
+  aside,
+  dialog,
+  figure,
+  footer,
+  header,
+  hgroup,
+  menu,
+  nav,
+  section {
+    display: block;
+  }
+
+  html,
+  body {
+    text-rendering: optimizeLegibility;
   }
 
   body {
@@ -362,6 +365,10 @@ const GlobalStyles = styled.createGlobalStyle`
     p {
       font-size: 1.6rem !important;
     }
+
+    @media (max-width: ${(props) => props.theme.breakpoints.laptop}) {
+      padding: 2rem;
+    }
   }
   .enzuzo-notification-buttons {
     button {
@@ -378,13 +385,9 @@ const GlobalStyles = styled.createGlobalStyle`
   }
 
   .ticker {
-    margin-bottom: 4rem;
     vertical-align: middle;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
-    h3 {
-      padding: 2rem;
-    }
   }
 
   .hide {

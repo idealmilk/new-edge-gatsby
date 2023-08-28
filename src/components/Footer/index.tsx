@@ -18,10 +18,10 @@ const Footer = () => {
   return (
     <Container>
       <InnerWrap>
-        <h4>
+        <h3>
           We’re building things in Brixton. Come and say hello, the coffee's on
           us.
-        </h4>
+        </h3>
       </InnerWrap>
       <InnerWrap>
         <Content>
@@ -71,21 +71,13 @@ const Footer = () => {
           </Pages>
         </Content>
         <SmallPrint>
-          <p>© NewEdge Studio 2023. All Rights Reserved</p>
+          <p>
+            <small>© NewEdge Studio 2023. All Rights Reserved</small>
+          </p>
         </SmallPrint>
       </InnerWrap>
     </Container>
   );
 };
-
-// const query = graphql`
-//   query {
-//     contentfulSiteData {
-//       twitter
-//       linkedIn
-//       copyright
-//     }
-//   }
-// `;
 
 export default Footer;

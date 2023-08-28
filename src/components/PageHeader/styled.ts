@@ -8,11 +8,11 @@ export const Container = styled.div`
   mask-image: linear-gradient(to bottom, black 75%, transparent 90%);
   -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 90%);
   img {
-    /* position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0); */
     mask-image: linear-gradient(to bottom, black 60%, transparent 90%);
     -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 90%);
+  }
+
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    height: 33%;
   }
 `;

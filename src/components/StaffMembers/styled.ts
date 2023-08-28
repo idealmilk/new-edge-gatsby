@@ -2,16 +2,12 @@ import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const StaffWrap = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  margin: 8rem auto 10rem;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: none;
   }
 `;
 
-export const MobileStaffWrap = styled.div`
+export const StaffWrapMobile = styled.div`
   display: none;
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
     display: block;

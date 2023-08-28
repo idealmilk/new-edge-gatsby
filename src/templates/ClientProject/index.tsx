@@ -115,7 +115,7 @@ const ClientProjectTemplate = ({ data }: PageProps<GraphQLResult>) => {
   };
 
   return (
-    <MainLayout isClientProject={true}>
+    <MainLayout isClientProject={true} isSubPage={true}>
       <SEO
         title={clientName}
         description={metaDescription}

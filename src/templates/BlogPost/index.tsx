@@ -22,7 +22,7 @@ const BlogPostTemplate = ({ data }: Props) => {
     data.contentfulBlogPost;
 
   return (
-    <MainLayout>
+    <MainLayout isSubPage={true}>
       <SEO title={title} description={metaDescription} article={true} />
       <InnerWrap>
         <h1>{title}</h1>

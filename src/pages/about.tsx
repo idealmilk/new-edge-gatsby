@@ -9,8 +9,8 @@ import AboutHeader from 'assets/PageHeaders/about.gif';
 import { PageHeader, RichText, SEO, Services, StaffMembers } from 'components';
 import {
   InnerWrap,
-  FeatureWrap,
   TextWrap,
+  TextWrapMin,
 } from 'components/common/Containers/styled';
 import { AboutTypes, StaffMemberTypes, ServiceTypes } from 'types/types';
 
@@ -50,12 +50,11 @@ NewEdge is the Brand & Design studio that takes founders, entrepreneurs, start-u
       <InnerWrap>
         <PageHeader title='About' gif={AboutHeader} />
 
-        <FeatureWrap>
-          <div className='text'>
+        <section>
+          <TextWrap>
             <RichText {...body} />
-          </div>
-          {/* <div className='img'></div> */}
-        </FeatureWrap>
+          </TextWrap>
+        </section>
       </InnerWrap>
 
       <PageVisibility onChange={handleVisibilityChange}>
@@ -66,11 +65,15 @@ NewEdge is the Brand & Design studio that takes founders, entrepreneurs, start-u
         )}
       </PageVisibility>
 
-      <StaffMembers staffMembers={allContentfulStaffMember.edges} />
+      <section>
+        <StaffMembers staffMembers={allContentfulStaffMember.edges} />
 
-      <TextWrap>
-        <p className='team-section-text'>{teamSectionText}</p>
-      </TextWrap>
+        <aside>
+          <TextWrapMin>
+            <p>{teamSectionText}</p>
+          </TextWrapMin>
+        </aside>
+      </section>
 
       <PageVisibility onChange={handleVisibilityChange}>
         {pageIsVisible && (
@@ -82,9 +85,9 @@ NewEdge is the Brand & Design studio that takes founders, entrepreneurs, start-u
         )}
       </PageVisibility>
 
-      <InnerWrap>
+      <section>
         <Services services={allContentfulService.edges} />
-      </InnerWrap>
+      </section>
     </MainLayout>
   );
 };

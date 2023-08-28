@@ -12,15 +12,20 @@ const ContactPage = () => {
       <SEO title='Contact' description='Get in contact with us!' />
       <PageHeader title='Contact' gif={ContactHeader} />
 
-      <Contact />
-      <BodyWrap>
-        <h3
-          style={{ width: '60%', margin: '0 auto 4rem', textAlign: 'center' }}
-        >
-          Alternatively fill out this form and we'll get back to you asap!
-        </h3>
-        <ContactForm contactType='Contact Page' />
-      </BodyWrap>
+      <section>
+        <Contact />
+      </section>
+
+      <section>
+        <BodyWrap>
+          <h3
+            style={{ width: '60%', margin: '0 auto 4rem', textAlign: 'center' }}
+          >
+            Alternatively fill out this form and we'll get back to you asap!
+          </h3>
+          <ContactForm contactType='Contact Page' />
+        </BodyWrap>
+      </section>
     </MainLayout>
   );
 };

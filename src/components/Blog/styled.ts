@@ -1,31 +1,20 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Container = styled.div`
-display: flex:
-align-items: center;
-justify-content: center;
-margin: 8rem auto;
-
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin: 4rem auto;
-  }
-`;
-
-export const InnerWrap = styled.div`
+export const BlogFlexWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: calc(100% + 8rem);
+  margin: 0 -2rem;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
-    width: calc(100% + 4rem);
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    margin: 0 -1rem;
   }
 `;
 
 export const BlogCard = styled(motion.div)`
   position: relative;
-  /* flex-basis: calc(50% - 8rem); */
-  margin: 0 4rem 6.4rem;
+  flex-basis: calc(50% - 4rem);
+  margin: 2rem;
 
   */ p {
     font-size: 1.6rem;
@@ -58,21 +47,13 @@ export const BlogCard = styled(motion.div)`
     }
   }
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletLan}) {
-    flex-basis: calc(50% - 4rem);
-    margin: 0 2rem 6.4rem;
+  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+    flex-basis: calc(50% - 2rem);
+    margin: 1rem;
   }
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
-    margin: 0 2rem 6.4rem;
-    p {
-      font-size: 1.6rem;
-    }
-  }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    margin: 1.8rem;
     flex-basis: 100%;
-    height: auto;
   }
 `;
 
@@ -81,6 +62,8 @@ export const ImgWrap = styled.div`
   width: 100%;
   height: 40rem;
   overflow: hidden;
+  border: 1px solid black;
+  border-radius: 2rem;
   .gatsby-image-wrapper {
     height: 100%;
     width: 100%;

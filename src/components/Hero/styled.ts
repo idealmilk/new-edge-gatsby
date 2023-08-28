@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { TightInnerWrap } from 'components/common/Containers/styled';
-
 export const Container = styled.div`
   position: fixed;
   top: 0;
@@ -9,12 +7,6 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
   background-color: aqua;
-`;
-
-export const InnerWrapStyled = styled(TightInnerWrap)`
-  display: flex;
-  flex-direction: row;
-  height: 100%;
 `;
 
 export const ContentWrap = styled.div`
