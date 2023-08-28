@@ -106,7 +106,7 @@ export const CallToActionContainer = styled.div`
     a {
       border-radius: 2.6rem;
       padding: 1rem 1.6rem;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
 
     p {
