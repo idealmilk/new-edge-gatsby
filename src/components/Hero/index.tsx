@@ -34,7 +34,8 @@ const Hero = () => {
 
   return (
     <Container>
-      {renderedBackground}
+      {/* {renderedBackground} */}
+      <LiquidSphere />
       <InnerFlexWrapMin>
         <ContentWrap>
           <h1>Edge</h1>
