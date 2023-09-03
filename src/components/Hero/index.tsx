@@ -26,11 +26,11 @@ const Hero = () => {
     browser = 'Internet Explorer';
   }
 
-  useEffect(() => {
-    if (browser !== 'Safari') {
-      setRenderedBackground(<LiquidSphere />);
-    }
-  }, [browser]);
+  // useEffect(() => {
+  //   if (browser !== 'Safari') {
+  //     setRenderedBackground(<LiquidSphere />);
+  //   }
+  // }, [browser]);
 
   return (
     <Container>
