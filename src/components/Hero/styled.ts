@@ -6,7 +6,6 @@ export const Container = styled.div`
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: aqua;
 `;
 
 export const ContentWrap = styled.div`

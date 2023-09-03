@@ -5,7 +5,6 @@ export const Container = styled.div`
   display: block;
   width: 100%;
   min-height: 100%;
-  background-color: aqua;
 `;
 
 export const HeroOverlay = styled.div`
@@ -43,7 +42,7 @@ export const HeroOverlay = styled.div`
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-    top: 48vh;
+    top: 38vh;
     img {
       display: block;
     }

@@ -229,6 +229,10 @@ const GlobalStyles = styled.createGlobalStyle`
     order: 2;
     flex: 1;
     height: 100vh !important;
+
+    @media (max-width: ${(props) => props.theme.breakpoints.tabletPor}) {
+      height: 85vh !important;
+    }
   }
 
   .overlay {
